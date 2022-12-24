@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionmodels>
+	<model name="main navigation" id="browseActions" resourceBundle="com.ptc.core.ui.navigationRB">
+		<description>
+			Main navigation (tabs)
+		</description>
+		<action name="narae" type="navigation" />
+		<action name="recentContexts" type="navigation" />
+		<action name="product" type="navigation" />
+		<action name="library" type="navigation" />
+		<action name="project" type="navigation" />
+		<action name="program" type="navigation" />
+		<action name="change" type="navigation" />
+		<action name="supplier" type="navigation" />
+		<action name="qms" type="navigation" />
+		<action name="org" type="navigation" />
+		<action name="site" type="navigation" />
+		<action name="search" type="navigation" />
+		<!-- entry for customization tab -->
+		<action name="customization" type="navigation" />
+
+	</model>
+
+	<model name="narae navigation" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Narae navigation (tabs)
+		</description>
+		<submodel name="approvalTabGroup" />
+		<submodel name="drawingManagementTabGroup" />
+		<submodel name="partManagementTabGroup" />
+		<submodel name="changeManagementTabGroup" />
+		<submodel name="documentManagementTabGroup" />
+		<submodel name="swManagementTabGroup" />
+	</model>
+
+	<model name="approvalTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Approval menu
+		</description>
+		<action name="workingList" type="approvalActionGroup" />
+		<action name="approvalList" type="approvalActionGroup" />
+	</model>
+
+	<model name="drawingManagementTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Drawing Management Menu
+		</description>
+		<action name="drawingSearch" type="drawingManagementActionGroup" />
+		<action name="drawingCreate" type="drawingManagementActionGroup" />
+		<action name="drawingPrint" type="drawingManagementActionGroup" />
+
+	</model>
+
+	<model name="partManagementTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Part Management menu
+		</description>
+		<action name="partSearch" type="partManagementActionGroup" />
+		<action name="partCreate" type="partManagementActionGroup" />
+		<action name="stdSrachCreate" type="partManagementActionGroup" />
+		<action name="mkrSrachCreate" type="partManagementActionGroup" />
+		<action name="multiPartCreate" type="partManagementActionGroup" />
+	</model>
+
+	<model name="changeManagementTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Change Management menu
+		</description>
+		<submodel name="ecr2ndTabGroup" />
+		<submodel name="eco2ndTabGroup" />
+		<!-- submodel name="erp2ndTabGroup"/ -->
+	</model>
+
+	<model name="ecr2ndTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			ECR menu
+		</description>
+		<action name="ecrSearch" type="ecrActionGroup" />
+		<action name="ecrCreate" type="ecrActionGroup" />
+	</model>
+
+	<model name="eco2ndTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			ECO menu
+		</description>
+		<action name="ecoSearch" type="ecoActionGroup" />
+		<action name="ecoCreate" type="ecoActionGroup" />
+	</model>
+
+	<!-- model name="erp2ndTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB"> <description> ECO menu </description> <action name="ecrStatus" type="erpActionGroup"/> <action name="ecoStatus" type="erpActionGroup"/> </model -->
+
+	<model name="documentManagementTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			Document Management menu
+		</description>
+		<action name="documentSearch" type="documentManagementActionGroup" />
+		<action name="documentCreate" type="documentManagementActionGroup" />
+	</model>
+
+	<model name="swManagementTabGroup" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>
+			SW Management menu
+		</description>
+		<action name="swSearch" type="swManagementActionGroup" />
+		<action name="swCreate" type="swManagementActionGroup" />
+	</model>
+
+	<model name="drawing_search_action" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<description>Drawing Search Action</description>
+		<action name="create" type="naraeDrawing" shortcut="true" />
+	</model>
+
+	<model name="mywork_list" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="list_delete" type="object" shortcut="true" />
+	</model>
+
+	<model name="cadInfoPageTabSet">
+		<submodel name="infoDetails_cadx" />
+		<action name="modelStructureGWT" type="msr" />
+		<submodel name="content_cadx" />
+		<submodel name="related_cadx" />
+		<submodel name="history_cadx" />
+		<submodel name="requirementTraceabilityTab" />
+		<action name="sysnavTab" type="sysnav" />
+	</model>
+
+
+</actionmodels>
+

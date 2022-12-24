@@ -1,0 +1,14 @@
+## narae acad 파일 다운로드용 리소스
+
+ResourceInfo.class=wt.tools.resource.StringResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+
+## AutoCadDownLoad
+AutoCadFile.download.description.value=AutoCadDownLoad
+AutoCadFile.download.icon.value=download.gif
+AutoCadFile.download.icon.comment=Icon root directory is codebase/netmarkets/images.
+AutoCadFile.download.value=height\=500,width\=900
+AutoCadFile.download.tooltip.value=AutoCadDownLoad
+

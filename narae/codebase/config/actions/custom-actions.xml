@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listofactions SYSTEM "actions.dtd">
+<listofactions>
+	<objecttype name="navigation" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="narae" />
+	</objecttype>
+
+	<objecttype name="approvalActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="workingList">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/approval/mywork.jsp" />
+		</action>
+		<action name="approvalList">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/approval/approvalList.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="drawingManagementActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="drawingSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/drawing/searchDrawing.jsp" />
+		</action>
+		<action name="drawingCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/drawing/createDrawing.jsp" />
+		</action>
+		<action name="multiDrawingCreate">
+			<command windowType="page" url="wtcore/jsp/" />
+		</action>
+		<action name="drawingView">
+			<command windowType="page" url="netmarkets/jsp/narae/drawing/view.jsp" />
+		</action>
+		<action name="drawingPrint">
+			<command windowType="page" url="netmarkets/jsp/narae/drawing/printEpm.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="partManagementActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="partSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/search.jsp" />
+		</action>
+		<action name="partCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/createPart.jsp" />
+		</action>
+		<action name="stdSrachCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/searchSpec.jsp" />
+		</action>
+		<action name="mkrSrachCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/searchMaker.jsp" />
+		</action>
+		<action name="productCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/createGPart.jsp" />
+		</action>
+		<action name="multiPartCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/part/excelPartLoad.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="ecrActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="ecrSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/change/searchECR.jsp" />
+		</action>
+		<action name="ecrCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/change/createECR.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="ecoActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="ecoSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/change/searchECO.jsp" />
+		</action>
+		<action name="ecoCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/change/createECO.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="erpActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="ecrStatus">
+			<command windowType="page" url="wtcore/jsp/" />
+		</action>
+		<action name="ecoStatus">
+			<command windowType="page" url="wtcore/jsp/" />
+		</action>
+	</objecttype>
+
+	<objecttype name="documentManagementActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="documentSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/document/searchDocument.jsp" />
+		</action>
+		<action name="documentCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/document/createDocument.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="swManagementActionGroup" class="wt.fc.Persistable" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="swSearch">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/software/searchSoftware.jsp" />
+		</action>
+		<action name="swCreate">
+			<command windowType="page" url="app/#netmarkets/jsp/narae/software/createSoftware.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="naraeDrawing" class="wt.epm.EPMDocument" resourceBundle="ext.narae.ui.navigation.resource.NaraeNavigationRB">
+		<action name="create">
+			<command windowType="popup" class="ext.narae.drawing.wizard.CreateDrawingPrcessor" method="execute" url="netmarkets/jsp/narae/drawing/create.jsp" />
+		</action>
+
+		<action name="basic_info">
+			<command windowType="wizard_step" url="netmarkets/jsp/narae/drawing/create_step1.jsp" />
+		</action>
+	</objecttype>
+
+	<objecttype name="AutoCadFile" class="wt.epm.EPMDocument" resourceBundle="ext.narae.ui.common.resource.workflowResource">
+		<action name="download">
+			<command windowType="popup" url="netmarkets/jsp/narae/common/DownloadAutoCadPrimary.jsp" />
+			<includeFilter name="autoCadDownLoadMenuFilter" />
+		</action>
+	</objecttype>
+</listofactions>

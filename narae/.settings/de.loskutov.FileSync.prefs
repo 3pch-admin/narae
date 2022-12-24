@@ -1,0 +1,12 @@
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=D\:/ptc/Windchill_12.0/Windchill
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=bin|D\:/ptc/Windchill_12.0/Windchill/codebase|,|,|,
+map|1=codebase|D\:/ptc/Windchill_12.0/Windchill/codebase|,|,|,
+map|2=configure/tomcat|D\:/ptc/Windchill_12.0/Windchill/tomcat|,|,|,
+map|3=src|D\:/ptc/Windchill_12.0/Windchill/src|,|,|,
+map|4=src_gen|D\:/ptc/Windchill_12.0/Windchill/src_gen|,|,|,
+map|5=/|,|,|bin/;codebase/;configure/tomcat/;src/;src_gen/|,
+useCurrentDateForDestinationFiles=false
