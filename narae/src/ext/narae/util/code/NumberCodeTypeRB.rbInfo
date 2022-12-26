@@ -1,0 +1,251 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+# Entry Contents
+
+
+#프로젝트 종류
+#PROJECTTYPE.value=Project Type
+#PROJECTTYPE.order=90
+
+#StageGate 단계
+#SGSTEP.value=StageGate Step
+#SGSTEP.order=100
+
+#StageGate Role
+#SGROLE.value=StageGate Role
+#SGROLE.order=110
+
+#연구소속팀
+#DIVISION.value=Division
+#DIVISION.order=120
+
+#사업군
+#BUSINESSUNIT.value=Business Unit
+#BUSINESSUNIT.order=130
+
+#기술수준
+#TECHNOLOGYELEVEL.value=Technology Level
+#TECHNOLOGYELEVEL.order=150
+
+
+#과제등급
+#PROJECTLEVEL.value=Project Level
+#PROJECTLEVEL.order=160
+
+#StageGate 중요도
+#SGIMPORTANT.value=Task Important
+#SGIMPORTANT.order=170
+
+
+#아이디어 추천 점수
+#IDEASCORE.value=Idea score
+#IDEASCORE.order=250
+
+#Gate평가 구분
+#GATESTATE.value=Gate State
+#GATESTATE.order=260
+
+#Issue 중요도
+#ISSUEIMPORTANT.value=Issue Important
+#ISSUEIMPORTANT.order=270
+
+#벨트 구분
+#BELTTYPE.value=Belt Type
+#BELTTYPE.order=280
+
+
+
+#채널 구분
+#CHANNELTYPE.value=CHANNELTYPE
+#CHANNELTYPE.order=1110
+
+#생산 조건
+#PRODUCTCONDITION.value=PRODUCTCONDITION
+#PRODUCTCONDITION.order=1120
+
+#매체
+#MEDIA.value=MEDIA
+#MEDIA.order=1130
+
+#설비도면 타입
+#DRAWTYPE.value=Drawing Type
+#DRAWTYPE.order=1220
+
+#디자인 타입
+#DESIGNTYPE.value=Design Type
+#DESIGNTYPE.order=1230
+
+#문서 타입
+#DOCTYPE.value=Document Type
+#DOCTYPE.order=1240
+
+#변경사유
+CHANGEPURPOSE.value=Purpose
+CHANGEPURPOSE.order=1250
+
+#변경 활동 단계
+#CHANGEACTIVITYSTEP.value=Activity Step
+#CHANGEACTIVITYSTEP.order=1255
+
+# LL 고객사
+#LL_ORGPL.value=Customer
+#LL_ORGPL.order=1300
+
+# LL Site
+#LL_SITE.value=Site
+#LL_SITE.order=1301
+
+# LL 차종
+#LL_CATEGORY.value=차종
+#LL_CATEGORY.order=1300
+
+# LL 제품군
+#LL_PRODUCT.value=제품군
+#LL_PRODUCT.order=1302
+
+# LL 발생유형
+#LL_OTYPE.value=발생유형
+#LL_OTYPE.order=1303
+
+# LL 문제유형
+#LL_PTYPE.value=문제유형
+#LL_PTYPE.order=1304
+
+# LL 고객문서
+#LL_CDOCUMENT.value=고객문서
+#LL_CDOCUMENT.order=1305
+
+# LL 중요도
+#LL_SEVERITY.value=중요도
+#LL_SEVERITY.order=1306
+
+#자재분류 구분
+#PARTCLASS.value=Part Classification
+#PARTCLASS.order=1410
+
+#개발단계
+#DEVELOPMENTSTAGE.value=Part Development Stage
+#DEVELOPMENTSTAGE.order=1420
+
+#SAP 제품군코드
+#SAPPRODUCT.value=SAP Product
+#SAPPRODUCT.order=1430
+
+#SAP 자재그룹코드
+#SAPPARTTYPE.value=SAP Part Type
+#SAPPARTTYPE.order=1440
+
+#SAP 자재그룹코드
+#SAPPARTGROUP.value=SAP Part Group
+#SAPPARTGROUP.order=1450
+
+#고객사
+#CUSTOMER.value=Customer Dev Level
+#CUSTOMER.order=1460
+
+#자재재질코드
+#PARTMATERIAL.value=Part Material Type
+#PARTMATERIAL.order=1470
+
+#자재색상코드
+#PARTCOLOR.value=Part Color Type
+#PARTCOLOR.order=1480
+
+
+#설계변경 : A/S Contengency Plan
+#ASPLAN.value= A/S Contengency Plan
+#ASPLAN.order = 1490
+
+#설계변경 : Stock Management
+STOCKMANAGEMENT.value= Stock Management
+STOCKMANAGEMENT.order = 1500
+
+#설계변경 : EOTYPE
+EOTYPE.value= EO Type
+EOTYPE.order = 1510
+
+#도면분류체계
+CADATTRIBUTE.value=CAD Attribute
+CADATTRIBUTE.order=10
+
+#도면구성분류
+CADCREATOR.value=CAD Creator
+CADCREATOR.order=20
+
+#제품사업부
+SBUSINESS.value=Product Business
+SBUSINESS.order=30
+
+#제품고객사
+SCUSTOMER.value=Product customer
+SCUSTOMER.order=40
+
+#제품중분류1
+SCLASS1.value=Product One Class
+SCLASS1.order=50
+
+#제품중분류2
+SCLASS2.value=Product Two Class
+SCLASS2.order=60
+
+#제품중분류3
+SCLASS3.value=Product Three Class
+SCLASS3.order=70
+
+UNIT1.value=UNIT1
+UNIT1.order=71
+
+UNIT2.value=UNIT2
+UNIT2.order=72
+
+CADTYPE.value=CADTYPE
+CADTYPE.order=75
+
+CLASS1.value=Class1
+CLASS1.order=80
+
+CLASS2.value=Class2
+CLASS2.order=90
+
+CLASS3.value=Class3
+CLASS3.order=100
+
+CLASS4.value=Class4
+CLASS4.order=110
+
+SPARE.value=SPARE
+SPARE.order=120
+
+GUBUN.value=GUBUN
+GUBUN.order=130
+
+#규격
+SPEC.value=Spec
+SPEC.order=80
+
+#Maker
+#MAKER.value=Maker
+#MAKER.order=90
+
+#Material
+MATERIAL.value=Material
+MATERIAL.order=110

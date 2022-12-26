@@ -1,0 +1,6 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+
+# Entry Contents
+
+$$SWDocument.value=SW문서
+$$SWDocument.shortDescription=SW문서

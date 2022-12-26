@@ -9,4 +9,8 @@ http://www.ptc.com/schema/mvc http://www.ptc.com/schema/mvc/mvc-10.0.xsd">
 	<context:component-scan base-package="ext.narae">
 		<context:include-filter type="regex" expression="(service|controller)\..*" />
 	</context:component-scan>
-</beans>
+
+	<bean class="ext.narae.mvc.approval.NaraeMyWorkTableBuilder"></bean>
+	<bean class="ext.narae.mvc.approval.WorkitemTableBuilder"></bean>
+	<bean class="ext.narae.mvc.drawing.NaraeDrawingTableBuilder"></bean>
+</beans>	

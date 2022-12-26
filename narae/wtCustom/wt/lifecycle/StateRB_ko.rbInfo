@@ -1,0 +1,21 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+
+# Entry Contents
+
+APPROVEING.value=승인중
+APPROVEING.shortDescription=승인중 상태
+
+APPROVEWAIT.value=결재2대기
+APPROVEWAIT.shortDescription=결재2대기
+
+CHECKWAIT.value=결재1대기
+CHECKWAIT.shortDescription=결재1대기
+
+PUR_ORDER_APPROVAL.value=구매기안 승인완료
+PUR_ORDER_APPROVAL.shortDescription=구매기안 승인완료
+
+RETURN.value=반려됨
+RETURN.shortDescription=반려된 상태
+
+SENT_ERP.value=ERP 전송완료
+SENT_ERP.shortDescription=ERP 전송완료

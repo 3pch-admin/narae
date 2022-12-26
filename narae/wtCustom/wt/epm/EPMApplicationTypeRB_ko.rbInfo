@@ -1,0 +1,7 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+
+# Entry Contents
+
+MANUAL.value=MANUAL
+MANUAL.shortDescription=MANUAL
+MANUAL.order=174

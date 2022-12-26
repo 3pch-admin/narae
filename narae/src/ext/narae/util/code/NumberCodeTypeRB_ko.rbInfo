@@ -1,0 +1,253 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+# Entry Contents
+#프로젝트 종류
+#PROJECTTYPE.value=프로젝트 종류
+#PROJECTTYPE.order=90
+
+#StageGate 단계
+#SGSTEP.value=StageGate 단계
+#SGSTEP.order=100
+
+#StageGate Role
+#SGROLE.value=StageGate Role
+#SGROLE.order=110
+
+#연구소속팀
+#DIVISION.value=연구소속팀
+#DIVISION.order=120
+
+#사업군
+#BUSINESSUNIT.value=사업군
+#BUSINESSUNIT.order=130
+
+#기술수준
+#TECHNOLOGYELEVEL.value=기술 수준
+#TECHNOLOGYELEVEL.order=150
+
+#과제등급
+#PROJECTLEVEL.value=과제등급
+#PROJECTLEVEL.order=160
+
+#StageGate 중요도
+#SGIMPORTANT.value=Task 중요도
+#SGIMPORTANT.order=170
+
+#
+#IDEASCORE.value=아이디어 추천점수
+#IDEASCORE.order=250
+
+#아이디어 추천 점수
+#IDEASCORE.value=아이디어 추천점수
+#IDEASCORE.order=250
+
+#Gate평가 구분
+#GATESTATE.value=게이트 상태
+#GATESTATE.order=260
+
+#Issue 중요도
+#ISSUEIMPORTANT.value=이슈 중요도
+#ISSUEIMPORTANT.order=270
+
+
+#벨트 구분
+#BELTTYPE.value=벨트구분
+#BELTTYPE.order=280
+
+
+
+#채널 구분
+#CHANNELTYPE.value=채널 구분
+#CHANNELTYPE.order=1110
+
+#생산 조건
+#PRODUCTCONDITION.value=생산 조건
+#PRODUCTCONDITION.order=1120
+
+#매체
+#MEDIA.value=매체
+#MEDIA.order=1130
+
+#설비도면 타입
+#DRAWTYPE.value=설비도면 타입
+#DRAWTYPE.order=1220
+
+#디자인 타입
+#DESIGNTYPE.value=디자인 타입
+#DESIGNTYPE.order=1230
+
+#문서 타입
+#DOCTYPE.value=문서 타입
+#DOCTYPE.order=1240
+
+#변경사유
+CHANGEPURPOSE.value=변경사유
+CHANGEPURPOSE.order=1250
+
+#변경 활동 단계
+#CHANGEACTIVITYSTEP.value=변경활동 단계
+#CHANGEACTIVITYSTEP.order=1255
+
+# LL 고객사
+#LL_ORGPL.value=고객사
+#LL_ORGPL.order=1300
+
+# LL Site
+#LL_SITE.value=Site
+#LL_SITE.order=1301
+
+# LL 차종
+#LL_CATEGORY.value=차종
+#LL_CATEGORY.order=1300
+
+# LL 제품군
+#LL_PRODUCT.value=제품군
+#LL_PRODUCT.order=1302
+
+# LL 발생유형
+#LL_OTYPE.value=발생유형
+#LL_OTYPE.order=1303
+
+# LL 문제유형
+#LL_PTYPE.value=문제유형
+#LL_PTYPE.order=1304
+
+# LL 고객문서
+#LL_CDOCUMENT.value=고객문서
+#LL_CDOCUMENT.order=1305
+
+# LL 중요도
+#LL_SEVERITY.value=중요도
+#LL_SEVERITY.order=1306
+
+#자재분류 구분
+#PARTCLASS.value=자재분류
+#PARTCLASS.order=1410
+
+#개발단계
+#DEVELOPMENTSTAGE.value=자재개발단계
+#DEVELOPMENTSTAGE.order=1420
+
+#SAP 제품군코드
+#SAPPRODUCT.value=SAP 제품군
+#SAPPRODUCT.order=1430
+
+#SAP 자재유형코드
+#SAPPARTTYPE.value=SAP 자재유형
+#SAPPARTTYPE.order=1440
+
+#SAP 자재그룹코드
+#SAPPARTGROUP.value=SAP 자재그룹
+#SAPPARTGROUP.order=1450
+
+#고객사
+#CUSTOMER.value=고객사 개발단계
+#CUSTOMER.order=1460
+
+#자재재질코드
+#PARTMATERIAL.value=자재재질유형
+#PARTMATERIAL.order=1470
+
+#자재색상코드
+#PARTCOLOR.value=자재색상코드
+#PARTCOLOR.order=1480
+
+
+#설계변경 : A/S 대책
+#ASPLAN.value= A/S 대책
+#ASPLAN.order = 1490
+
+#설계변경 : Stock Management
+STOCKMANAGEMENT.value= 재고관리
+STOCKMANAGEMENT.order = 1500
+
+#설계변경 : EOTYPE
+EOTYPE.value= 설변구분
+EOTYPE.order = 1510
+
+#도면분류체계
+CADATTRIBUTE.value=도면 분류 체계
+CADATTRIBUTE.order=10
+
+#도면구성분류
+CADCREATOR.value=도면구성분류
+CADCREATOR.order=20
+
+#제품사업부
+SBUSINESS.value=제품사업부
+SBUSINESS.order=30
+
+#제품고객사
+SCUSTOMER.value=제품고객사
+SCUSTOMER.order=40
+
+#제품중분류1
+SCLASS1.value=제품중분류1
+SCLASS1.order=50
+
+#제품중분류2
+SCLASS2.value=제품중분류2
+SCLASS2.order=60
+
+#제품중분류3
+SCLASS3.value=제품중분류3
+SCLASS3.order=70
+
+#규격
+SPEC.value=규격
+SPEC.order=80
+
+
+UNIT1.value=UNIT1
+UNIT1.order=71
+
+UNIT2.value=UNIT2
+UNIT2.order=72
+
+CADTYPE.value=CADTYPE
+CADTYPE.order=75
+
+CLASS1.value=Class1
+CLASS1.order=80
+
+CLASS2.value=Class2
+CLASS2.order=90
+
+CLASS3.value=Class3
+CLASS3.order=100
+
+CLASS4.value=Class4
+CLASS4.order=110
+
+SPARE.value=SPARE
+SPARE.order=120
+
+GUBUN.value=GUBUN
+GUBUN.order=130
+
+#Maker
+#MAKER.value=Maker
+#MAKER.order=90
+
+#Material
+MATERIAL.value=Material
+MATERIAL.order=110

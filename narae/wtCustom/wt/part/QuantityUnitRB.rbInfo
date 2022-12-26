@@ -1,0 +1,53 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+ResourceInfo.customizable=true
+ResourceInfo.deprecated=false
+ResourceInfo.replacement=false
+ResourceInfo.UUID=f02e5a5a-f978-438f-be4d-93306237cc68
+
+
+# Entry Format (values equal to default value are not included)
+# <key>.value=
+# <key>.category=
+# <key>.comment=
+# <key>.argComment<n>=
+# <key>.constant=
+# <key>.customizable=
+# <key>.deprecated=
+# <key>.abbreviatedDisplay=
+# <key>.fullDisplay=
+# <key>.shortDescription=
+# <key>.longDescription=
+# <key>.order=
+# <key>.defaultValue=
+# <key>.selectable=
+
+# Entry Contents
+
+Roll.value=Roll
+Roll.shortDescription=Roll
+Roll.order=262
+
+cc.value=cc
+cc.shortDescription=cc
+cc.order=326
+
+dae.value=dae
+dae.shortDescription=dae
+dae.order=134
+dae.order=134
+
+inch.value=inch
+inch.shortDescription=inch
+inch.order=454
+
+km.value=km
+km.shortDescription=km
+km.order=518
+
+mm.value=mm
+mm.shortDescription=mm
+mm.order=390
+
+set.value=set
+set.shortDescription=set
+set.order=198

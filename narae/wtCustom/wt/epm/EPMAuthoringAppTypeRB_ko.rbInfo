@@ -1,0 +1,7 @@
+ResourceInfo.class=wt.tools.resource.EnumResourceInfo
+
+# Entry Contents
+
+PDF.value=PDF
+PDF.shortDescription=PDF
+PDF.order=624

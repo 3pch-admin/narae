@@ -8,5 +8,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/codebase"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/eclipse-libs/ie3rdpartylibs.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/eclipse-libs/wc3rdpartylibs.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/eclipse-libs/wncEclipse-lib.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/eclipse-libs/wncEclipse-webinflib.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/eclipse-libs/wncEclipse-webinflibWeb.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/Annotations.jar" sourcepath="/cust_Windchill_src"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/AnnotationProcessing.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/JasperUtil.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/SystemGeneration.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

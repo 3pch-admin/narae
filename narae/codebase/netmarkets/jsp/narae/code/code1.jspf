@@ -1,0 +1,953 @@
+<script>
+function getTypeSub(parent,child){
+	var selectedClass = document.getElementById(parent);
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var parentOid = selectedClassValue.split(",")[0];
+	xmlHttp1 = null;
+		try{
+			xmlHttp1 = new XMLHttpRequest();				
+		}catch(e){
+			try{
+				xmlHttp1 = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xmlHttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){
+					alert("Your browser does not support Ajax!");
+					return false;
+				}
+			}
+		}
+
+
+	xmlHttp1.onreadystatechange=function(){
+		if(xmlHttp1.readyState==4){
+			var reValue = xmlHttp1.responseText;
+			var reValue = reValue.split("$$$PTC_AJAX$$$")[1];
+			var reValueArray = reValue.split("$item$");
+			var midClass = document.getElementById(child);
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}	
+		}
+	}
+	
+	xmlHttp1.open("GET","/Windchill/netmarkets/jsp/narae/code/getCode.jsp?key=CADATTRIBUTE" + "&parentOid=" + parentOid,true);
+
+	xmlHttp1.setRequestHeader("If-Modified-Since","0");
+	xmlHttp1.send(null);
+}
+
+function getProductSub(parent,child){
+	var selectedClass = document.getElementById(parent);
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var parentOid = selectedClassValue.split(",")[0];
+	xmlHttp2 = null;
+		try{
+			xmlHttp2 = new XMLHttpRequest();				
+		}catch(e){
+			try{
+				xmlHttp2 = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xmlHttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){
+					alert("Your browser does not support Ajax!");
+					return false;
+				}
+			}
+		}
+
+
+	xmlHttp2.onreadystatechange=function(){
+		if(xmlHttp2.readyState==4){
+			var reValue = xmlHttp2.responseText;
+			var reValue = reValue.split("$$$PTC_AJAX$$$")[1];
+			var reBlockArray = reValue.split("$block$");
+			
+			var reValueArray = reBlockArray[0].split("$item$");
+			var midClass = document.getElementById('unit1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+			
+			reValueArray = reBlockArray[1].split("$item$");
+			midClass = document.getElementById('unit2');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+
+			reValueArray = reBlockArray[2].split("$item$");
+			midClass = document.getElementById('class1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+
+			reValueArray = reBlockArray[3].split("$item$");
+			midClass = document.getElementById('class2');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+
+			reValueArray = reBlockArray[4].split("$item$");
+			midClass = document.getElementById('class3');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+		}
+	}
+	
+	xmlHttp2.open("GET","/Windchill/netmarkets/jsp/narae/code/getProductCode.jsp",true);
+
+	xmlHttp2.setRequestHeader("If-Modified-Since","0");
+	xmlHttp2.send(null);
+}
+
+function getProductAssySub(parent,child){
+	var selectedClass = document.getElementById(parent);
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var parentOid = selectedClassValue.split(",")[0];
+	xmlHttp3 = null;
+		try{
+			xmlHttp3 = new XMLHttpRequest();				
+		}catch(e){
+			try{
+				xmlHttp3 = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xmlHttp3 = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){
+					alert("Your browser does not support Ajax!");
+					return false;
+				}
+			}
+		}
+
+
+	xmlHttp3.onreadystatechange=function(){
+		if(xmlHttp3.readyState==4){
+			var reValue = xmlHttp3.responseText;
+			
+			var reValue = reValue.split("$$$PTC_AJAX$$$")[1];
+			var reBlockArray = reValue.split("$block$");
+			
+			var reValueArray = reBlockArray[0].split("$item$");
+			var midClass = document.getElementById('unit1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+			
+			
+			reValueArray = reBlockArray[1].split("$item$");
+			midClass = document.getElementById('class1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+		}
+	}
+	
+	xmlHttp3.open("GET","/Windchill/netmarkets/jsp/narae/code/getProductAssyCode.jsp?key=CADATTRIBUTE" + "&parentOid=" + parentOid,true);
+
+	xmlHttp3.setRequestHeader("If-Modified-Since","0");
+	xmlHttp3.send(null);
+}
+
+function getClass1SelectedName(oid, field){
+	if( oid != "" ) {
+		xmlHttp4 = null;
+			try{
+				xmlHttp4 = new XMLHttpRequest();				
+			}catch(e){
+				try{
+					xmlHttp4 = new ActiveXObject("Msxml2.XMLHTTP");
+				}catch(e){
+					try{
+						xmlHttp4 = new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){
+						alert("Your browser does not support Ajax!");
+						return false;
+					}
+				}
+			}
+	
+	
+		xmlHttp4.onreadystatechange=function(){
+			if(xmlHttp4.readyState==4){
+				var reValue = xmlHttp4.responseText;
+				var selectedClass = document.getElementById('type');
+				var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+				var selectedType = selectedClassValue.split(",")[1];
+	
+				var midClass = document.getElementById(field);
+				var midValue = midClass.value;
+				if( selectedType == 'A' ) {
+					var afterValue = midValue.split('-')[1];
+					midClass.value = reValue + "-" + afterValue;
+				} else if ( selectedType == 'P' ) {
+					midClass.value = reValue + ",";
+				} else if ( selectedType == 'B' ) {
+					midClass.value = reValue + ",";
+				} else if ( selectedType == 'S' ) {
+					midClass.value = reValue;
+				}
+			} 
+		}
+		
+		xmlHttp4.open("GET","/Windchill/netmarkets/jsp/narae/code/getClass1SelectedName.jsp?oid=" + oid,true);
+	
+		xmlHttp4.setRequestHeader("If-Modified-Since","0");
+		xmlHttp4.send(null);
+	} else {
+		var selectedClass = document.getElementById('type');
+		var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+		var selectedType = selectedClassValue.split(",")[1];
+
+		var midClass = document.getElementById(field);
+		var midValue = midClass.value;
+		if( selectedType == 'A' ) {
+			var afterValue = midValue.split('-')[1];
+			midClass.value = "___" + "-" + afterValue;
+		} else if ( selectedType == 'P' ) {
+			midClass.value = reValue + ",";
+		} else if ( selectedType == 'B' ) {
+			midClass.value = reValue + ",";
+		} else if ( selectedType == 'S' ) {
+			midClass.value = "";
+		}
+	}
+}
+
+function getGagongSub(parent,child){
+	var selectedClass = document.getElementById(parent);
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var parentOid = selectedClassValue.split(",")[0];
+	xmlHttp5 = null;
+		try{
+			xmlHttp5 = new XMLHttpRequest();				
+		}catch(e){
+			try{
+				xmlHttp5 = new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xmlHttp5 = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){
+					alert("Your browser does not support Ajax!");
+					return false;
+				}
+			}
+		}
+
+
+	xmlHttp5.onreadystatechange=function(){
+		if(xmlHttp5.readyState==4){
+			var reValue = xmlHttp5.responseText;
+			
+			var reValue = reValue.split("$$$PTC_AJAX$$$")[1];
+			var reBlockArray = reValue.split("$block$");
+			
+			var reValueArray = reBlockArray[0].split("$item$");
+			var midClass = document.getElementById('unit1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+			
+			
+			reValueArray = reBlockArray[1].split("$item$");
+			midClass = document.getElementById('class1');
+			//Clear mid class
+			while(midClass.options.length > 1) {
+				midClass.options.remove(midClass.options.length-1);
+			}
+
+			for(var i = 0 ; i < reValueArray.length -1 ; i ++){
+				var reValueArrayName = reValueArray[i].split("$attr$")[0];
+				var reValueArrayValue = reValueArray[i].split("$attr$")[1];
+				midClass.options.add(new Option(reValueArrayName, reValueArrayValue));
+			}
+		}
+	}
+	
+	xmlHttp5.open("GET","/Windchill/netmarkets/jsp/narae/code/getGagongCode.jsp?key=CADATTRIBUTE" + "&parentOid=" + parentOid,true);
+
+	xmlHttp5.setRequestHeader("If-Modified-Since","0");
+	xmlHttp5.send(null);
+}
+
+
+function openPartPicker(button) {
+	var currentForm = button.form;
+	var customInput = document.getElementById("relatedPart").value;
+	window.open('/Windchill/netmarkets/jsp/narae/picker/relatedPartPicker.jsp?portlet=poppedup','','width=500 height=400');
+}
+
+function relatedPartPickerCallback(objects, pickerID)
+{
+	document.getElementById("relatedPart").setAttribute("value",objects.pickedObject[0].oid );
+	document.getElementById("relatedPart_display").setAttribute("value",objects.pickedObject[0].name );
+}
+
+function updateTypeUi(parent, child) {
+	var selectedClass = document.getElementById(parent);
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var selectedType = selectedClassValue.split(",")[1];
+
+	// Clear
+	var midClass = document.getElementById('unit1');
+	while(midClass.options.length > 1) {
+		midClass.options.remove(midClass.options.length-1);
+	}
+	midClass = document.getElementById('unit2');
+	while(midClass.options.length > 1) {
+		midClass.options.remove(midClass.options.length-1);
+	}
+	midClass = document.getElementById('class1');
+	while(midClass.options.length > 1) {
+		midClass.options.remove(midClass.options.length-1);
+	}
+	midClass = document.getElementById('class2');
+	while(midClass.options.length > 1) {
+		midClass.options.remove(midClass.options.length-1);
+	}
+	midClass = document.getElementById('class3');
+	while(midClass.options.length > 1) {
+		midClass.options.remove(midClass.options.length-1);
+	}
+	document.getElementById('class4').value = '';
+	document.getElementById('class4').readOnly = true;
+	document.getElementById('number').value = '';
+	document.getElementById('pdmNumber').innerText = '';
+	document.getElementById('name1').value = '';
+	document.getElementById('name2').value = '';
+
+	if( parent == 'type' && selectedType == 'S' ) { // Prduct
+		document.getElementById('unit1').style.display = "";
+		document.getElementById('unit2').style.display = "";
+		document.getElementById('class1').style.display = "";
+		document.getElementById('class2').style.display = "";
+		document.getElementById('class3').style.display = "";
+		document.getElementById('class4').style.display = "none";
+		document.getElementById('name1').style.display = "";
+		document.getElementById('name1').size = '56';
+		document.getElementById('name1').readOnly = true;
+		document.getElementById('name1').enable = false;
+		document.getElementById('name2').style.display = "none";
+
+		var groupClass = document.getElementById('group1');
+		var selectedGroupValue = groupClass[groupClass.selectedIndex].value;
+		if( groupClass.selectedIndex == 0 ) {
+			document.getElementById('number').value = "XS-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		} else {
+			document.getElementById('number').value = selectedGroupValue.split(",")[1] + "S-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		}
+	} else if( parent == 'type' && selectedType == 'A' ) {
+		document.getElementById('unit1').style.display = "";
+		document.getElementById('unit2').style.display = "none";
+		document.getElementById('class1').style.display = "";
+		document.getElementById('class2').style.display = "";
+		document.getElementById('class3').style.display = "none";
+		document.getElementById('class4').style.display = "";
+		document.getElementById('class4').readOnly = false;
+		document.getElementById('name1').style.display = "";
+		document.getElementById('name1').size = '56';
+		document.getElementById('name1').readOnly = true;
+		document.getElementById('name2').style.display = "none";
+
+		var groupClass = document.getElementById('group1');
+		var selectedGroupValue = groupClass[groupClass.selectedIndex].value;
+		if( groupClass.selectedIndex == 0 ) {
+			document.getElementById('number').value = "XA-XX-YYN000";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		} else {
+			document.getElementById('number').value = selectedGroupValue.split(",")[1] + "A-XX-YYN000";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		}
+		document.getElementById('name1').value = "___-___";
+	} else if( parent == 'type' && selectedType == 'P' ) {
+		document.getElementById('unit1').style.display = "";
+		document.getElementById('unit2').style.display = "none";
+		document.getElementById('class1').style.display = "";
+		document.getElementById('class2').style.display = "";
+		document.getElementById('class3').style.display = "none";
+		document.getElementById('class4').style.display = "none";
+		document.getElementById('name1').style.display = "";
+		document.getElementById('name1').size = '26';
+		document.getElementById('name1').readOnly = true;
+		document.getElementById('name2').style.display = "";
+
+		var groupClass = document.getElementById('group1');
+		var selectedGroupValue = groupClass[groupClass.selectedIndex].value;
+		if( groupClass.selectedIndex == 0 ) {
+			document.getElementById('number').value = "XP-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		} else {
+			document.getElementById('number').value = selectedGroupValue.split(",")[1] + "P-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		}
+	} else if( parent == 'type' && selectedType == 'B' ) {
+		document.getElementById('unit1').style.display = "";
+		document.getElementById('unit2').style.display = "none";
+		document.getElementById('class1').style.display = "";
+		document.getElementById('class2').style.display = "";
+		document.getElementById('class3').style.display = "none";
+		document.getElementById('class4').style.display = "none";
+		document.getElementById('name1').style.display = "";
+		document.getElementById('name1').size = '26';
+		document.getElementById('name1').readOnly = true;
+		document.getElementById('name2').style.display = "";
+
+		var groupClass = document.getElementById('group1');
+		var selectedGroupValue = groupClass[groupClass.selectedIndex].value;
+		if( groupClass.selectedIndex == 0 ) {
+			document.getElementById('number').value = "XB-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		} else {
+			document.getElementById('number').value = selectedGroupValue.split(",")[1] + "B-XX-YYYY";
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+		}
+	}
+
+	if( parent == 'type' && selectedType == 'S' ) {
+		getProductSub(parent,child);
+	} else if( parent == 'type' && selectedType == 'A' ) {
+		getProductAssySub(parent,'class1'); 
+	} else if( parent == 'type' && selectedType == 'P' ) {
+// 		getProductAssySub(parent,'class1'); 
+ 		getGagongSub(parent,'class1'); 
+	} else {
+		getTypeSub(parent,child);
+	}
+}
+
+function numberSet(parent, child) {
+	var selectedClass = document.getElementById('type');
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var selectedType = selectedClassValue.split(",")[1];
+	
+	if( selectedType == 'S' ) {
+		var numberValue = document.getElementById('number').value;
+		var parentClass = document.getElementById(parent);
+		var parentClassValue = parentClass[parentClass.selectedIndex].value;
+		var parentCode;
+		if( parentClassValue.trim() == "" ) {
+			parentCode = "";
+		} else {
+			parentCode = parentClassValue.split(",")[1];
+		}
+		
+		if( parent == 'group1' ) {
+			if( selectedType != null && selectedType != '') {
+				document.getElementById('number').value = parentCode + numberValue.substring(1);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'unit1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,3) + "X" + numberValue.substring(4);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,3) + parentCode + numberValue.substring(4);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'unit2' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,4) + "X" + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,4) + parentCode + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'class1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName("", 'name1');
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,6) + parentCode + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName(parentClassValue.split(",")[0], 'name1');
+			}
+		} else if( parent == 'class2' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,8) + "Y" + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,8) + parentCode + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'class3' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,9) + "Y" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,9) + parentCode + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} 
+	} else if (selectedType == 'A' ) {
+		var numberValue = document.getElementById('number').value;
+		var parentClass = document.getElementById(parent);
+		var parentClassValue = parentClass[parentClass.selectedIndex].value;
+		var parentCode;
+		if( parentClassValue.trim() == "" ) {
+			parentCode = "";
+		} else {
+			parentCode = parentClassValue.split(",")[1];
+		}
+		
+		if( parent == 'group1' ) {
+			if( selectedType != null && selectedType != '') {
+				document.getElementById('number').value = parentCode + numberValue.substring(1);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'unit1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,3) + "XX" + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,3) + parentCode + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'class1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName("", 'name1');
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "N" + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,6) + parentCode + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "N" + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName("", 'name1');
+			}
+		} else if( parent == 'class2' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,8) + "N" + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName("", 'name1');
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,8) + parentCode + numberValue.substring(9);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName(parentClassValue.split(",")[0], 'name1');
+			}
+		}
+	} else if (selectedType == 'P' ) {
+		var numberValue = document.getElementById('number').value;
+		var parentClass = document.getElementById(parent);
+		var parentClassValue = parentClass[parentClass.selectedIndex].value;
+		var parentCode;
+		if( parentClassValue.trim() == "" ) {
+			parentCode = "";
+		} else {
+			parentCode = parentClassValue.split(",")[1];
+		}
+		
+		if( parent == 'group1' ) {
+			if( selectedType != null && selectedType != '') {
+				document.getElementById('number').value = parentCode + numberValue.substring(1);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'unit1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,3) + "XX" + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				document.getElementById('class1').value = "";
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,3) + parentCode + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				document.getElementById('class1').value = "";
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			}
+		} else if( parent == 'class1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,6) + parentCode + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			}
+		} else if( parent == 'class2' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,8) + parentCode + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName(parentClassValue.split(",")[0], 'name1');
+				
+				document.getElementById('name2').value = "";
+			}
+		}
+	} else if (selectedType == 'B' ) {
+		var numberValue = document.getElementById('number').value;
+		var parentClass = document.getElementById(parent);
+		var parentClassValue = parentClass[parentClass.selectedIndex].value;
+		var parentCode;
+		if( parentClassValue.trim() == "" ) {
+			parentCode = "";
+		} else {
+			parentCode = parentClassValue.split(",")[1];
+		}
+
+		if( parent == 'group1' ) {
+			if( selectedType != null && selectedType != '') {
+				document.getElementById('number').value = parentCode + numberValue.substring(1);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		} else if( parent == 'unit1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,3) + "XX" + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,3) + parentCode + numberValue.substring(5);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			}
+		} else if( parent == 'class1' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,6) + "YY" + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name1').value = "";
+				document.getElementById('name2').value = "";
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,6) + parentCode + numberValue.substring(8);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				getClass1SelectedName(parentClassValue.split(",")[0], 'name1');
+				
+				numberValue = document.getElementById('number').value;
+				
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+				var midClass = document.getElementById('class2');
+				while(midClass.options.length > 1) {
+					midClass.options.remove(midClass.options.length-1);
+				}
+				
+				document.getElementById('name2').value = "";
+			}
+		} else if( parent == 'class2' ) {
+			if( parentCode == "" ) {
+				document.getElementById('number').value = numberValue.substring(0,8) + "YY" + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			} else {
+				document.getElementById('number').value = numberValue.substring(0,8) + parentCode + numberValue.substring(10);
+				document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			}
+		}
+	}
+
+	if ( parent == 'group1' ) {
+	} else if(selectedType == 'S') {		
+	} else if(parent == 'unit1' && selectedType == 'A') { 
+	} 
+	else if(parent == 'unit1' && selectedType == 'P') { } 
+	else {
+		getTypeSub(parent,child);
+	}
+}
+
+function onlyNumber(){ 
+	if( event.keyCode == 13 ) {
+		if(document.getElementById("class4").value.length != 3) {
+			alert("You should enter 3-digit!");
+			event.returnValue=false;
+		} else {
+			var midValue = document.getElementById("name1").value;
+			var frontValue = midValue.split('-')[0];
+			document.getElementById("name1").value = frontValue + "-" + document.getElementById("class4").value;
+			event.returnValue=true;
+		}
+		
+	} else {
+		if((event.keyCode<48)||(event.keyCode>57)){ 
+			alert("Only need to input number!!");
+			event.returnValue=false; 
+		} else {
+			if(document.getElementById("class4").value.length > 2) {
+				alert("Only need to input 3-digit!!");
+				//var midValue = document.getElementById("name1").value;
+				//var frontValue = midValue.split('-')[0];
+				//document.getElementById("name1").value = frontValue + "-" + "___";
+				event.returnValue=false;
+			}
+		}
+	}
+} 
+
+function class4Action() {
+	var selectedClass = document.getElementById('type');
+	var selectedClassValue = selectedClass[selectedClass.selectedIndex].value;
+	var selectedType = selectedClassValue.split(",")[1];
+	var class4Obj = document.getElementById('class4');
+	var numberValue = document.getElementById('number').value;
+
+
+	if( class4Obj.value.length != 3 ) {
+		alert('You should enter 3-digit!');
+		var midValue = document.getElementById("name1").value;
+		var frontValue = midValue.split('-')[0];
+		document.getElementById("name1").value = frontValue + "-" + "___";
+		event.returnValue=false;
+	} else {
+		if( selectedType == 'A' ) {
+			document.getElementById('number').value = numberValue.substring(0,9) + class4Obj.value + numberValue.substring(12);
+			document.getElementById('pdmNumber').innerText = document.getElementById('number').value;
+			var name1Obj = document.getElementById('name1');
+			var name1Value = name1Obj.value;
+			var frontValue = name1Value.split('-')[0];
+			name1Obj.value = frontValue + '-' + class4Obj.value; 
+		} else if( selectedType == 'S' ) {
+		}
+	}
+}
+
+function codeSearch(codetype){
+	if(codetype == "MAKER"){
+    		var str="/Windchill/netmarkets/jsp/narae/erp/erpMakerList.jsp?codetype="+codetype;
+    	}else{
+    		var str="/Windchill/netmarkets/jsp/narae/code/PoupCodeList.jsp?codetype="+codetype;
+    	}
+        var opts = "toolbar=0,loca/tion=0,directory=0,status=1,menubar=0,scrollbars=1,resizable=0,";
+        var popWidth = 700;
+        var popHeight = 700;
+        var leftpos = (screen.width - popWidth)/ 2;
+        var toppos = (screen.height - popHeight) / 2 ;
+        var rest = "width="+popWidth+",height="+popHeight+",left=" + leftpos + ',top=' + toppos;
+
+        var newwin = window.open( str , "selectEpm", opts+rest);
+        newwin.focus(); 	
+}
+
+function folderSearch(codetype){
+		//<a id="newlocation_loc_img" href="javascript:launchFolderPicker ('http://wc10.ptc.com/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/invokeAction?action=cadxBrowseLocations&oid=wt.pdmlink.PDMLinkProduct:216363&containerVisibilityMask=OR:wt.pdmlink.PDMLinkProduct:216363&accessPermission=modify&displayHotlinks=false&displayCreateFolder=false',document.getElementsByName('components$loadWizardStep$OR:wt.folder.Cabinet:216396$|tcomp$attributesTable$OR:wt.folder.Cabinet:216396$___Location___textbox')[0],'selectedFolderFromFolderContext')">
+		var str="javascript:launchFolderPicker ('/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/invokeAction?action=cadxBrowseLocations&oid=wt.pdmlink.PDMLinkProduct:216363&containerVisibilityMask=OR:wt.pdmlink.PDMLinkProduct:216363&accessPermission=modify&displayHotlinks=false&displayCreateFolder=false',document.getElementsByName('components$loadWizardStep$OR:wt.folder.Cabinet:216396$|tcomp$attributesTable$OR:wt.folder.Cabinet:216396$___Location___textbox')[0],'selectedFolderFromFolderContext')";
+
+        var opts = "toolbar=0,loca/tion=0,directory=0,status=1,menubar=0,scrollbars=1,resizable=0,";
+        var popWidth = 300;
+        var popHeight = 300;
+        var leftpos = (screen.width - popWidth)/ 2;
+        var toppos = (screen.height - popHeight) / 2 ;
+        var rest = "width="+popWidth+",height="+popHeight+",left=" + leftpos + ',top=' + toppos;
+
+        var newwin = window.open( str , "selectFoler", opts+rest);
+        newwin.focus(); 	
+}
+
+function codeSelect(textCode,oid,codekey,codename){
+   	var codeText = document.getElementById(textCode);
+   	codeText.value = codename;
+}
+
+function changecursor(obj, cursorStyle) {
+
+	obj.style.cursor = cursorStyle;
+	
+	var child = obj.elements;
+
+	for(i = 0;i < child.length;i++) {
+		child[i].style.cursor = cursorStyle;
+	}
+
+}
+
+function newXMLHTTP() {
+
+	if(window.XMLHttpRequest) {
+		try {
+			xmlhttp = new XMLHttpRequest();
+		} catch(e) {
+			alert("Cannot initialize XMLHTTP");
+			return false;
+		}
+	} else if(window.ActiveXObject) {
+
+		try {
+			xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch(e) {
+			try {
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch(e) {
+				alert("Cannot initialize XMLHTTP");
+				return false;
+			}
+		}
+	} else {
+		alert("Cannot initialize XMLHTTP");
+		return false;
+	}
+
+	return xmlhttp;
+
+}
+</script>
