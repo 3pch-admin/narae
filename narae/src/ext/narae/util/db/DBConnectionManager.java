@@ -213,7 +213,7 @@ public class DBConnectionManager {
      */
     private void init() throws IOException {
         
-        InputStream is = getClass().getResourceAsStream("/com/e3ps/db.properties");
+        InputStream is = getClass().getResourceAsStream("/ext/narae/db.properties");
         Properties dbProps = new Properties();
 
         try {

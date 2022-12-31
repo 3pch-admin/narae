@@ -45,7 +45,7 @@ import wt.util.WTException;
 
 @GenAsPersistable(serializable = Serialization.EXTERNALIZABLE_BASIC, properties = {
 		@GeneratedProperty(name = "name", type = String.class), @GeneratedProperty(name = "code", type = String.class),
-		@GeneratedProperty(name = "description", type = String.class),
+		@GeneratedProperty(name = "description", type = String.class, constraints = @PropertyConstraints(upperLimit = 2000)),
 		@GeneratedProperty(name = "disabled", type = boolean.class),
 		@GeneratedProperty(name = "engName", type = String.class),
 		@GeneratedProperty(name = "codeType", type = NumberCodeType.class, constraints = @PropertyConstraints(changeable = Changeable.VIA_OTHER_MEANS, required = true)) }, foreignKeys = {

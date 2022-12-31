@@ -2,7 +2,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@page import="java.util.*,wt.content.*,wt.fc.*,wt.query.*" %>
-<link rel="stylesheet" href="/netmarkets/jsp/narae/css/e3ps.css">
 <script language=JavaScript  src="/netmarkets/jsp/narae/js/common.js"></script>
 <%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.util.*, ext.narae.ui.*, java.util.*" %>
 <%

@@ -17,5 +17,7 @@
 	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/AnnotationProcessing.jar"/>
 	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/JasperUtil.jar"/>
 	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/srclib/tool/SystemGeneration.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/codebase/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="D:/ptc/Windchill_12.0/Windchill/codebase/WEB-INF/lib/jxl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

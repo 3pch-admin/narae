@@ -1,0 +1,238 @@
+<script>
+
+var form;
+var searchURL;
+var targetObj;
+var targetValueObj;
+
+function initAjax(obj,valueObj,sUrl,tform,sWidth,sSize){	// object, action URL, form , width , size
+	
+	
+	if(tform!=null){
+		form = tform;
+	}
+
+	if(obj!=targetObj){
+		deleteAllSelect();
+		offLayer("ajaxLayer");
+	}
+	
+	targetObj = obj;
+
+	targetValueObj = valueObj;
+
+	if(sUrl!=null){
+		searchURL = sUrl;
+	}
+
+	var layerContent = document.getElementById("ajaxLayer");
+	var ajaxSelect = document.getElementById("ajaxSelect");
+	var pos = findPos(targetObj);
+
+	if(sWidth!=null){
+		ajaxSelect.style.width=sWidth;
+	}
+	if(sSize!=null){
+		ajaxSelect.size=sSize;
+	}
+
+	layerContent.style.left=pos[0];
+	layerContent.style.top=pos[1]+20;
+}
+
+function cbMethod(req) {		//ajax
+
+	var showElements = getAjaxResult(req);
+	if(showElements==null)return;
+
+	var l_name = showElements[0].getElementsByTagName("l_name");
+	var l_value = showElements[0].getElementsByTagName("l_value");
+
+	var ajaxSelect = document.getElementById("ajaxSelect");
+
+	for(var i = 0; l_name != null && i < l_name.length; i++) {
+
+		r_name = decodeURIComponent(l_name[i].childNodes[0].nodeValue);
+		r_value = decodeURIComponent(l_value[i].childNodes[0].nodeValue);
+		
+		ajaxSelect.options[ajaxSelect.options.length] = new Option(r_name,r_value);
+	}
+
+	if(ajaxSelect.options==null || ajaxSelect.options.length==0){
+		offLayer('ajaxLayer');
+	}else{
+		onLayer('ajaxLayer');
+	}
+}
+
+function inputAjax(){
+
+	var keycode = window.event.keyCode;
+	if(keycode==38 || keycode==37 ||keycode==39 ||keycode==40||keycode==13)return;
+
+	var dpjtcode = targetObj.value;
+	
+	if(dpjtcode.length < 1){
+		offLayer('ajaxLayer');
+		return;
+	}
+
+	dpjtcode = encodeURIComponent(dpjtcode);
+
+	var param = "command=autoComplete&targetValue="+dpjtcode;
+	var url =  searchURL;
+
+	postCallServer(url, param, cbMethod, false);
+}
+
+function getAjaxResult(req){
+	var xmlDoc = req.responseXML;
+	
+	//var showElements = xmlDoc.selectNodes("//message");
+	var showElements = xmlDoc.getElementsByTagName("message");
+	var msg = showElements[0].getElementsByTagName("l_message")[0].childNodes[0].nodeValue;
+
+	if(msg == 'false') {
+		return null;
+	}
+
+	deleteAllSelect();
+	
+	//var showElements = xmlDoc.selectNodes("//data_info");
+	var showElements = xmlDoc.getElementsByTagName("data_info");
+
+	return showElements;
+}
+
+function pressKeyAjax(obj){
+
+	var keycode; 
+	if (window.event) keycode = window.event.keyCode;
+	else if ( e ) keycode = e.which;
+	else return true;
+
+	var ajaxSelect = document.getElementById("ajaxSelect");
+
+	if(keycode==38){
+		offLayer("ajaxLayer");
+	}else if(keycode==40){
+		var layerContent = document.getElementById("ajaxLayer");
+		var pos = findPos(obj);
+
+		if(ajaxSelect.options==null || ajaxSelect.options.length==0){
+			offLayer("ajaxLayer");
+			return;
+		};
+		onLayer("ajaxLayer");
+		ajaxSelect.focus();
+		layerContent.style.left=pos[0];
+		layerContent.style.top=pos[1]+20;
+		
+	}
+
+	return true
+}
+
+function pressKey3(){
+
+	var keycode; 
+	if (window.event) keycode = window.event.keyCode;
+	else if ( e ) keycode = e.which;
+	else return true;
+
+	if(keycode==38){
+
+		var ajaxSelect = document.getElementById("ajaxSelect");
+
+		if(ajaxSelect.options!=null || ajaxSelect.options.length>0){
+			for(var i=0; i< ajaxSelect.options.length; i++){
+				if(ajaxSelect.options[i].selected){
+					if(i==0){
+						targetObj.focus();
+						unFocus();
+						break;
+					}
+				}
+			}
+		}
+	}
+	if(keycode==13){
+		setPText();
+		unFocus();
+	}
+	return true
+}
+
+function setPText(){
+	var ajaxSelect = document.getElementById("ajaxSelect");
+	if(ajaxSelect.options!=null || ajaxSelect.options.length>0){
+		for(var i=0; i< ajaxSelect.options.length; i++){
+			if(ajaxSelect.options[i].selected){
+				if(targetValueObj!=null){
+					targetObj.value = ajaxSelect.options[i].innerHTML;
+					targetValueObj.value = ajaxSelect.options[i].value;
+				}else{
+					targetObj.value = ajaxSelect.options[i].value;
+				}
+				return;
+			}
+		}
+	};
+}
+
+function deleteAllSelect(){
+	
+	var ajaxSelect = document.getElementById("ajaxSelect");
+
+	if(ajaxSelect==null || ajaxSelect.length==null)return;
+
+	var sel = ajaxSelect.options;
+	for(var i= sel.length-1  ; sel!=null && sel.length>0 && i>=0; i--){
+		ajaxSelect.remove(i);
+	}
+}
+
+function offLayer(layerid) {
+	var tLayer = document.getElementById(layerid);
+	tLayer.style.display = "NONE";
+}
+
+function onLayer(layerid){
+	var tLayer = document.getElementById(layerid);
+	tLayer.style.display = "BLOCK";
+}
+
+function unFocus(){
+	offLayer("ajaxLayer");
+}
+
+function findPos(obj) {
+	var curleft = curtop = curbuttom = 0;
+	if (obj.offsetParent) {
+		curleft = obj.offsetLeft
+		curtop = obj.offsetTop
+		while (obj = obj.offsetParent) {
+			curleft += obj.offsetLeft
+			curtop += obj.offsetTop
+		}
+	}
+	return [curleft,curtop];
+}
+
+</script>
+
+<div id="ajaxLayer"  style="position:absolute;display:none">
+<table border="0" cellpadding="0" cellspacing="0" width="152">
+	    <tr>
+	        <td align=center>
+<select id=ajaxSelect name=ajaxSelect style='width:100%' size=5 onchange="setPText()"  onBlur="unFocus()" onkeydown="pressKey3()"></select>
+	     </td>
+	    </tr>
+		<tr bgcolor="#FF8200" height=10>
+	        <td align=center>
+				<font color="ffffff" size=1 >AJAX SEARCH FOR E3PS</font>
+	        </td>
+	    </tr>
+	</table>
+</div>
+<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////-->

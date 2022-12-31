@@ -1,0 +1,750 @@
+BODY, INPUT, SELECT, TD, TH, TEXTAREA, B, DIV, SPAN {font-family: 맑은 고딕; font-size: 9pt; text-decoration: none; line-height:16px; color:#333333;}
+BODY {margin:0px; padding:0px; margin-top:0; margin-left:0;}
+A:visited {color: #663366;text-decoration: none;}
+A:hover {color:#006699;text-decoration: underline;}
+A:active { color: #006699;text-decoration: none;} 
+A:link { color: #006699;text-decoration: none; }
+
+#A:visited {color: #9966cc;text-decoration: none;}
+#A:hover {color:#ff9900;text-decoration: underline;}
+#A:active { color: #006699;text-decoration: none;} 
+#A:link { color: #006699;text-decoration: none;}
+
+
+#spop:visited {color: #999999;text-decoration:none;}
+#spop:hover {color:#336699;text-decoration: none;}
+#spop:active { color: #999999;text-decoration:none;} 
+#spop:link { color: #999999;text-decoration: none;}
+
+#sub:visited {color: #333333;text-decoration: none;}
+#sub:hover {color:#006699;text-decoration:  underline;}
+#sub:active { color: #333333;text-decoration: none;} 
+#sub:link { color: #333333;text-decoration: none;}
+
+#index:visited {color: #999999;text-decoration: none;}
+#index:hover {color:#336699;text-decoration: none;}
+#index:active { color: #999999;text-decoration: none;} 
+#index:link { color: #999999;text-decoration: none;}
+
+#i {font-size:9pt; border-width:1; border-color:#999999; border-style:solid; }
+#i2 {font-size:9pt; border-width:1; border-color:#bbbbbb; border-style:solid; background-color:eeeeee;}
+#input {width:95%; font-size:9pt; border-width:1; border-color:#bbbbbb; border-style:solid; }
+#input80 {width:80%; font-size:9pt; border-width:1; border-color:#bbbbbb; border-style:solid;}
+
+#i_disabled {font-size:10pt; border-width:1; border-color:#999999; border-style:none; background-color:f5f5f5; margin:0px; padding:0px; border-width:1; font-weight:bold;}
+
+#c6  { font-size: 9pt; font-family: 맑은 고딕; color: #000000; font-weight: bold;}
+#c7 { color: #000000;text-decoration: none;}
+#black { color: #000000;text-decoration: none;}
+#white  { font-size: 9pt; font-family: 맑은 고딕; color: #ffffff;}
+
+#olive  { font-size: 9pt; font-family: 맑은 고딕; color: #796100; font-weight: bold;}
+
+#font8 { font-size: 9pt; font-family: 맑은 고딕; color: #888888;}
+#no  { font-size: 9pt; font-family: 맑은 고딕; color: #666666; font-weight: bold;}
+#re { color: #999999;text-decoration: none;}
+.ver8 {font-family:Tahoma,Verdana;font-size:8pt;}
+.small {font-family:Tahoma,Verdana;font-size:8pt;}
+
+#title  { font-size: 20pt; font-family: 맑은 고딕; color: #000000; font-weight: bold;}
+#big  { font-size: 14pt; font-family: 맑은 고딕; color: #000000; font-weight: bold;}
+
+#indexing  { font-size: 9pt; font-family: 맑은 고딕; color: #999999; }
+
+#fontblue  { font-size: 9pt; font-family: 맑은 고딕; color: #BED5DB;}
+#fontgreen  { font-size: 9pt; font-family: 맑은 고딕; color: #C4D6BC;}
+#fontpink  { font-size: 9pt; font-family: 맑은 고딕; color: #DFC5CE;}
+#fontorange  { font-size: 9pt; font-family: 맑은 고딕; color: #E6D2BB;}
+
+
+#textgreen  { font-size: 9pt; font-family: 맑은 고딕; color: #616D56;}
+#textblue  { font-size: 9pt; font-family: 맑은 고딕; color: #425E6E;}
+
+#button {color:white; background-color:rgb(173,125,132); border-width:1; border-color:rgb(132,85,90); border-style:solid; padding-top:2; padding-right:0; padding-bottom:0; padding-left:0; cursor:hand;}
+#button2 {color:white; background-color:white; background-image:url('../icon/bt_brown.gif'); border-style:none; padding-top:2; padding-right:6; padding-bottom:0; padding-left:6; cursor:hand;}
+#button4 {color:white; background-color:white; background-image:url('../icon/bt_brown4.gif'); border-style:none; padding-top:2; padding-right:0; padding-bottom:0; padding-left:0; cursor:hand;}
+#button5 {color:white; background-color:white; background-image:url('../icon/bt_brown5.gif'); border-style:none; padding-top:2; padding-right:0; padding-bottom:0; padding-left:0; cursor:hand;}
+#button55 {color:white; background-color:white; background-image:url('../icon/bt_brown55.gif'); border-style:none; padding-top:2; padding-right:0; padding-bottom:0; padding-left:0; cursor:hand;}
+#button555 {color:white; background-color:white; background-image:url('../icon/bt_brown555.gif'); border-style:none; padding-top:2; padding-right:0; padding-bottom:0; padding-left:0; cursor:hand;}
+#button6 {color:white; background-color:white; background-image:url('../icon/bt_brown6.gif'); border-style:none; padding-top:2; padding-right:6; padding-bottom:0; padding-left:6; cursor:hand;}
+#button7 {color:white; background-color:white; background-image:url('../icon/bt_brown7.gif'); border-style:none; padding-top:2; padding-right:6; padding-bottom:0; padding-left:6; cursor:hand;}
+#button8 {color:white; background-color:white; background-image:url('../icon/bt_brown8.gif'); border-style:none; padding-top:2; padding-right:6; padding-bottom:0; padding-left:6; cursor:hand;}
+#button9 {color:white; background-color:white; background-image:url('../icon/bt_brown9.gif'); border-style:none; padding-top:2; padding-right:6; padding-bottom:0; padding-left:6; cursor:hand;}
+
+
+
+.tb1 {border-right-width:1; border-bottom-width:0;border-top-width:0;border-left-width:0; border-right-color:#999999; border-bottom-color:#999999; border-right-style:solid; border-bottom-style:solid;border-collapse:collapse;}
+.tb2 {border-right-width:1; border-bottom-width:1; border-right-color:#999999; border-bottom-color:#cccccc; border-right-style:solid; border-bottom-style:solid;}
+
+#tb_gray{ font-family: Tahoma,맑은 고딕; border-top-width:0; border-right-width:0; border-bottom-width:1; border-left-width:1;  border-bottom-color:#bbbbbb; border-left-color:#bbbbbb; border-style:solid;}
+#tb_line {border-top-width:0; border-right-width:0; border-bottom-width:1; border-left-width:0; border-bottom-color:rgb(153,153,153); border-bottom-style:solid;}
+#tb_bottom {border-width:1; border-color:#cccccc; border-top-style:none; border-right-style:none; border-bottom-style:solid; border-left-style:none;}
+
+
+#tb_red {border-width:1; border-color:#cc3333;background-color:#ff6666; border-style:solid; font-size: 9pt; font-family: 맑은 고딕; color: #ffffff;}
+#tb_blue {border-width:1; border-color:#667788;background-color:#8899aa; border-style:solid; font-size: 9pt; font-family: 맑은 고딕; color: #ffffff;}
+
+
+.t1 {border-right-width:1; border-bottom-width:3; border-right-color:#999999; border-bottom-color:#cccccc; border-right-style:solid; border-bottom-style:solid;}
+.t2 {border-right-width:1; border-bottom-width:0; border-right-color:#999999; border-bottom-color:#cccccc; border-right-style:solid; border-bottom-style:solid;}
+
+#t_gray {border-width:1; border-color:#cccccc; border-top-style:none; border-right-style:none; border-bottom-style:solid; border-left-style:solid;}
+#t_bottom {border-width:1; border-color:#cccccc; border-top-style:none; border-right-style:none; border-bottom-style:solid; border-left-style:none;}
+
+
+#t_red {padding:1; border-width:3; border-color:#cc3333;background-color:#ff6666; border-style:double; font-size: 9pt; font-family: 맑은 고딕; color: #ffffff;}
+#t_blue {padding:1; border-width:3; border-color:#667788;background-color:#8899aa; border-style:double; font-size: 9pt; font-family: 맑은 고딕; color: #ffffff;}
+
+/* 여유높이값 */
+.space1 {height: 1px;}
+.space2 {height: 2px;}
+.space3 {height: 3px;}
+.space5 {height: 5px;}
+.space10 {height: 10px;}
+.space15 {height: 15px;}
+.space20 {height: 20px;}
+
+
+/* table blue */
+.tdblueL {
+	border-bottom-style: solid;
+	border-bottom-color: #D6D6D6;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #D6D6D6;
+	border-right-width: 1px;
+	background-color: #EEEEEE;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#585858;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdblueL2 {
+	border-bottom-style: solid;
+	border-bottom-color: #cad4e2;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #cad4e2;
+	border-right-width: 1px;
+	background-color: #d7e7ed;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#425E6E;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+.tdblueM {
+	border-bottom-style: solid;
+	border-bottom-color: #D6D6D6;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #D6D6D6;
+	border-right-width: 1px;
+	background-color: #EEEEEE;
+	height: 25px;
+	padding-top: 2px;
+	color:#425E6E;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+.tdblueM2 {
+	border-bottom-style: solid;
+	border-bottom-color: #cad4e2;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #cad4e2;
+	border-right-width: 1px;
+	background-color: #d7e7ed;
+	height: 22px;
+	padding-top: 2px;
+	color:#39859e;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdblueL0 {
+	border-bottom-style: solid;
+	border-bottom-color: #D6D6D6;
+	border-bottom-width: 1px;
+	background-color: #EEEEEE;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#585858;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdblueL02 {
+	border-bottom-style: solid;
+	border-bottom-color: #cad4e2;
+	border-bottom-width: 1px;
+	background-color: #d7e7ed;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#39859e;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+.tdblueM0 {
+	border-bottom-style: solid;
+	border-bottom-color: #D6D6D6;
+	border-bottom-width: 1px;
+	background-color: #EEEEEE;
+	height: 22px;
+	padding-top: 2px;
+	color:#425E6E;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+.tdblueM02 {
+	border-bottom-style: solid;
+	border-bottom-color: #cad4e2;
+	border-bottom-width: 1px;
+	background-color: #d7e7ed;
+	height: 22px;
+	padding-top: 2px;
+	color:#39859e;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+/* table org */
+.tdorgL {
+	border-bottom-style: solid;
+	border-bottom-color: #ecd3b4;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #f5eadd;
+	border-right-width: 1px;
+	background-color: #f6f0e9;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#ca813f;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdorgM {
+	border-bottom-style: solid;
+	border-bottom-color: #ecd3b4;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-right-color: #ecd3b4;
+	border-right-width: 1px;
+	background-color: #f6f0e9;
+	height: 22px;
+	padding-top: 2px;
+	color:#ca813f;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdorgL0 {
+	border-bottom-style: solid;
+	border-bottom-color: #ecd3b4;
+	border-bottom-width: 1px;
+	background-color: #f6f0e9;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#ca813f;
+	text-align: left;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+.tdorgM0 {
+	border-bottom-style: solid;
+	border-bottom-color: #ecd3b4;
+	border-bottom-width: 1px;
+	background-color: #f6f0e9;
+	height: 22px;
+	padding-top: 2px;
+	color:#ca813f;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+/* table ceeeff */
+.tdselectL {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 22px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectL27 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 27px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectM27 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 27px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+.tdselectL24 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 24px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectL25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectM25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+.tdselectR25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-right: 5px;
+	text-align: right;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectL26 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 26px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectM26 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 26px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectR {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color: #ceeeff;
+	height: 22px;
+	color:#3f2c12;
+	padding-top: 2px;
+	text-align: right;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+
+.tdselectM {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color: #ceeeff;
+	height: 22px;
+	color:#3f2c12;
+	padding-top: 2px;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+
+.tdselectL0 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#575757;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdselectM0 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	background-color:#ceeeff;
+	height: 22px;
+	padding-top: 2px;
+	color:#575757;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+/* table white */
+.tdwhiteL {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 22px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteL0 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteL27 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 27px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteM27 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 27px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+.tdwhiteL24 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 24px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteL25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteM25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+.tdwhiteR25 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 25px;
+	color:#575757;
+	padding-top: 2px;
+	padding-right: 5px;
+	text-align: right;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteL26 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 26px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteM26 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 26px;
+	color:#575757;
+	padding-top: 2px;
+	padding-left: 5px;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteR {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color: #ffffff;
+	height: 22px;
+	color:#3f2c12;
+	padding-top: 2px;
+	text-align: right;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+
+.tdwhiteM {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #e6e6e6;
+	background-color: #ffffff;
+	height: 22px;
+	color:#3f2c12;
+	padding-top: 2px;
+	text-align: center;
+	font-family:맑은 고딕;;
+	font-size: 12px;
+}
+
+
+.tdwhiteL0 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 22px;
+	padding-top: 2px;
+	padding-left: 5px;
+	color:#575757;
+	text-align: left;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+.tdwhiteM0 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e6e6e6;
+	background-color:#ffffff;
+	height: 22px;
+	padding-top: 2px;
+	color:#575757;
+	text-align: center;
+	font-family:맑은 고딕;
+	font-size: 12px;
+}
+
+
+input.p_select{
+	width: 19px;
+	height: 16px;
+	border: none 0px transparent;
+	background-image: url('/plm/jsp/portal/images/img_common/people_select.gif');
+	cursor: hand;
+}
+
+#input_2 { font:"맑은 고딕"; font-size:12px; color:#666; line-height: 13pt; background:url(/plm/jsp/portal/images/img_lotte/Button_2text.gif); width:48; border:none;}
+#input_3 { font:"맑은 고딕"; font-size:12px; color:#666; line-height: 13pt; background:url(/plm/jsp/portal/images/img_lotte/Button_3text.gif); width:59; border:none;}
+#input_4 { font:"맑은 고딕"; font-size:12px; color:#666; line-height: 13pt; background:url(/plm/jsp/portal/images/img_lotte/Button_4text.gif); width:69; border:none;}
+
+

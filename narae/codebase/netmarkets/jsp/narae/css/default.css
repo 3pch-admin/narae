@@ -1,0 +1,90 @@
+body {
+	margin: 0;
+	padding: 0;
+	font:9pt ¸¼Àº °íµñ;
+	color:#666666;
+	line-height:140%;
+
+	/*
+	scrollbar-3dlight-color:#7080C0; 
+	scrollbar-arrow-color:#7080C0; 
+	scrollbar-base-color:#7080C0; 
+	scrollbar-darkshadow-color:#1F2C70; 
+	scrollbar-face-color:#1F2C70; 
+	scrollbar-highlight-color:#1F2C70; 
+	scrollbar-shadow-color:#7080C0;
+	*/
+}
+.text_Sgray { font-family : "¸¼Àº °íµñ"; font-size : 8pt; color:#666666; line-height:14pt; }
+.text_gray { font-family : "¸¼Àº °íµñ"; font-size : 9pt; color:#666666; line-height:14pt; }
+.text_black { font-family : "¸¼Àº °íµñ"; font-size : 9pt; color:#00000; line-height:14pt; }
+.text_stitle { font-family : "¸¼Àº °íµñ"; font-size : 9pt; color:#FFFFFF; text-align:center; line-height:14pt; background-color:#788ec3; }
+
+A.Smenu_R:link     {font: 8pt ¸¼Àº °íµñ; text-decoration: none; color:#666666; cursor:pointer; padding:5 0;}
+A.Smenu_R:visited  {font: 8pt ¸¼Àº °íµñ; text-decoration: none; color:#666666; cursor:pointer; padding:5 0;}
+A.Smenu_R:hover    {font: 8pt ¸¼Àº °íµñ; text-decoration: none; color: #000000; cursor:pointer; padding:5 0; font-weight:bold;}
+
+
+/* ÀüÃ¼Æ² */
+.Top_images1 { background:url(/plm/jsp/portal/images/img_lotte/Top_image1.jpg); height:20; }
+.TLeft_BG { background:url(/plm/jsp/portal/images/img_lotte/TLeft_BG.gif); width:12; height:3; background-position:right; table-layout:fixed; }
+.Top_BG { background:url(/plm/jsp/portal/images/img_lotte/Top_BG.gif); }
+.TRight_BG { background:url(/plm/jsp/portal/images/img_lotte/TRight_BG.gif); width:10; height:3; }
+.Left_BG { background:url(/plm/jsp/portal/images/img_lotte/Left_BG.gif); background-position:right; padding:0 3; table-layout:fixed; }
+.Right_BG { background:url(/plm/jsp/portal/images/img_lotte/Right_BG.gif); background-position:left; padding:0 2; table-layout:fixed; }
+.BottomL_BG { background:url(/plm/jsp/portal/images/img_lotte/BottomL_BG.gif); background-position:right; padding-left:3px; table-layout:fixed; }
+.Bottom_BG { background:url(/plm/jsp/portal/images/img_lotte/Bottom_BG.gif); height:7px; }
+.BottomR_BG { background:url(/plm/jsp/portal/images/img_lotte/BottomR_BG.gif); background-position:left; padding-right:3px; table-layout:fixed; }
+.copyright { background:url(/plm/jsp/portal/images/img_lotte/COPYRIGHT.gif); height:21; background-position:right }
+
+/* ÀÎµ¦½ºinfo */
+.info_table { background:url(/plm/jsp/portal/images/img_lotte/Main_info_bg.gif); table-layout:fixed; }
+.info_table2 { background:url(/plm/jsp/portal/images/img_lotte/Main_info_bg2.gif); table-layout:fixed; }
+.info_img { background:url(/plm/jsp/portal/images/img_lotte/Main_info.gif); width:167; height:92; table-layout:fixed; }
+.info_btm { background:url(/plm/jsp/portal/images/img_lotte/Main_info_btm.gif); height:3; table-layout:fixed; }
+
+/* ¸ÞÀÎÆ² */
+.Main_TLeft { background:url(/plm/jsp/portal/images/img_lotte/Main_TLeft.gif); width:22; height:5; background-position:right; table-layout:fixed; }
+.Main_TBG { background:url(/plm/jsp/portal/images/img_lotte/Main_TBG.gif); table-layout:fixed; }
+.Main_TRight { background:url(/plm/jsp/portal/images/img_lotte/Main_TRight.gif); width:3; height:5; background-position:left; table-layout:fixed; }
+.Main_LeftBG { background:url(/plm/jsp/portal/images/img_lotte/Main_LeftBG.gif); background-position:right; table-layout:fixed; }
+.Main_RightBG { background:url(/plm/jsp/portal/images/img_lotte/Main_RightBG.gif); background-position:left; table-layout:fixed; }
+.Main_BL { background:url(/plm/jsp/portal/images/img_lotte/Main_BL.gif); width:22; height:3; background-position:right; table-layout:fixed; }
+.Main_BBG { background:url(/plm/jsp/portal/images/img_lotte/Main_BBG.gif); table-layout:fixed; }
+.Main_BR { background:url(/plm/jsp/portal/images/img_lotte/Main_BR.gif); width:3; height:3; background-position:left; table-layout:fixed; }
+
+/* ¸ÞÀÎ°øÁö */
+.MainBBS_TL { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_TL.gif); width:13; height:14; background-position:right; table-layout:fixed; }
+.MainBBS_T { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_T.gif); table-layout:fixed; }
+.MainBBS_TR { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_TR.gif); width:13; height:14; background-position:left; table-layout:fixed; }
+.MainBBS_L { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_L.gif); background-position:right; table-layout:fixed; }
+.MainBBS_R { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_R.gif); background-position:left; table-layout:fixed; }
+.MainBBS_BL { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_BL.gif); width:13; height:14; background-position:right; table-layout:fixed; }
+.MainBBS_B { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_B.gif); table-layout:fixed; }
+.MainBBS_BR { background:url(/plm/jsp/portal/images/img_lotte/MainBBS_BR.gif); width:13; height:14; background-position:left; table-layout:fixed; }
+
+/* ¼­ºê */
+.Subinfo_img { background:url(/plm/jsp/portal/images/img_lotte/Sub_Left_img.gif); width:15; height:28;}
+.Sub_TLeft { background:url(/plm/jsp/portal/images/img_lotte/Sub_Right_L.gif); width:22; height:29; background-position:right; table-layout:fixed; }
+.Sub_TBG { background:url(/plm/jsp/portal/images/img_lotte/Sub_Right_BG.gif); table-layout:fixed; }
+.Sub_TRight { background:url(/plm/jsp/portal/images/img_lotte/Sub_Right_R.gif); width:3; height:29; background-position:left; table-layout:fixed; }
+.Subinfo_img_bg { background:url(/plm/jsp/portal/images/img_lotte/Sub_Left_imgBG.gif);}
+
+/* ¼­ºê¸Þ´º */
+.Sub_Menu_L { background:url(/plm/jsp/portal/images/img_lotte/Sub_menu_L.gif); width:9; height:28; background-position:right; table-layout:fixed; }
+.Sub_Menu_R { background:url(/plm/jsp/portal/images/img_lotte/Sub_menu_R.gif); width:9; height:28; background-position:left; table-layout:fixed; }
+.Sub_Menu_BG { background:url(/plm/jsp/portal/images/img_lotte/Sub_menu_BG.gif); table-layout:fixed; }
+.Sub_line { width: 15; text-align:center; vertical-align:top;}
+
+#workspaceLayer1 { position:absolute; left:60px; top:58px; z-index:1; }
+#productLayer1 { position:absolute; left:140px; top:58px; z-index:1; }
+#projectLayer1 { position:absolute;left:239px;top:58px;z-index:1; }
+#designLayer1 {	position:absolute;	left:344px;	top:58px;	z-index:1; }
+#bomLayer1 {	position:absolute;	left:442px;	top:58px;	z-index:1; }
+#drawingLayer1 {	position:absolute;	left:533px;	top:58px;	z-index:1; }
+#documentLayer1 {	position:absolute;	left:381px;	top:58px;	z-index:1; }
+#statusLayer1 {	position:absolute;	left:580px;	top:58px;	z-index:1; }
+
+/* ´Ù¿î¸Þ´º */
+#Select { border:1px thin #CCCCCC;}
+

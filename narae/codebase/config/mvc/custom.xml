@@ -13,4 +13,9 @@ http://www.ptc.com/schema/mvc http://www.ptc.com/schema/mvc/mvc-10.0.xsd">
 	<bean class="ext.narae.mvc.approval.NaraeMyWorkTableBuilder"></bean>
 	<bean class="ext.narae.mvc.approval.WorkitemTableBuilder"></bean>
 	<bean class="ext.narae.mvc.drawing.NaraeDrawingTableBuilder"></bean>
+	<bean class="ext.narae.mvc.software.NaraeSoftwareTableBuilder"></bean>
+	<bean class="ext.narae.mvc.change.NaraeECOTableBuilder"></bean>
+	<bean class="ext.narae.mvc.change.NaraeECRTableBuilder"></bean>
+	<bean class="ext.narae.mvc.document.NaraeDocumentTableBuilder"></bean>
+	<bean class="ext.narae.mvc.part.NaraePartTableBuilder"></bean>
 </beans>	
