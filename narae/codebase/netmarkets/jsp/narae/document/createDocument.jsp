@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
-<%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %>
+<%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
 <%-- <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %> --%>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
@@ -53,7 +53,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DOC_MNG_CREATE_DO
 </script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<form name=documentCreateForm method=post enctype="multipart/form-data">
+<form name=mainform id=mainform method=post enctype="multipart/form-data">
 <input type=hidden name=cmd value='save'>
 <input type=hidden name=lifecycle value='Narae_LC'>
 <input type=hidden name=docType value='NaraeDoc'>
@@ -360,4 +360,4 @@ function showFinished(saveType) {
 }
 </script>
 
-<%@ include file="/netmarkets/jsp/util/end.jspf"%>
+<%-- <%@ include file="/netmarkets/jsp/util/end.jspf"%> --%>

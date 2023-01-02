@@ -18,227 +18,270 @@ public class ObjectCodeHelper {
 	static final boolean SERVER = wt.method.RemoteMethodServer.ServerFlag;
 
 	public static CodeHelper manager = new CodeHelper();
-	
-	public static QueryResult getCode(String key){
-		try{
-			QuerySpec query = new QuerySpec(ext.narae.util.code.NumberCode.class);
-			query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", key), new int[] { 0 });
-			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
 
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+	public static QueryResult getCode(String key) {
+
+		System.out.println("key=" + key);
+		try {
+			QuerySpec query = new QuerySpec(ext.narae.util.code.NumberCode.class);
+			query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE_TYPE, "=", key), new int[] { 0 });
+//			query.appendAnd();
+//			query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.DISABLED, SearchCondition.IS_FALSE),
+//					new int[] { 0 });
+
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+					new int[] { 0 });
+			System.out.println("q=" + query);
 			return PersistenceHelper.manager.find(query);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new QueryResult();
 		}
 	}
-	public static QueryResult getCode2(String key){
-		try{
+
+	public static QueryResult getCode2(String key) {
+		try {
 			QuerySpec query = new QuerySpec(NumberCode2.class);
 			query.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class,NumberCode2.CODE),false),new int[]{0});
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class, NumberCode2.CODE), false),
+					new int[] { 0 });
 			return PersistenceHelper.manager.find(query);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new QueryResult();
 		}
 	}
 
-	public String getName(String key,String code){
-		try{
+	public String getName(String key, String code) {
+		try {
 			QuerySpec query = new QuerySpec(NumberCode.class);
 
 			query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
 			query.appendWhere(new SearchCondition(NumberCode.class, "code", "=", code), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+					new int[] { 0 });
 			QueryResult qr = PersistenceHelper.manager.find(query);
 
-			if(qr.hasMoreElements()){
-				NumberCode cc = (NumberCode)qr.nextElement();
+			if (qr.hasMoreElements()) {
+				NumberCode cc = (NumberCode) qr.nextElement();
 				return cc.getName();
 			}
 			return "";
-		}
-		catch(Exception ex){
+		} catch (Exception ex) {
 			return "";
 		}
 	}
-	
-	public String getCode(String key,String name){
-		try{
+
+	public String getCode(String key, String name) {
+		try {
 			QuerySpec query = new QuerySpec(NumberCode.class);
 
 			query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
 			query.appendWhere(new SearchCondition(NumberCode.class, "name", "=", name), new int[] { 0 });
-			//query.appendAnd();
-			//query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			// query.appendAnd();
+			// query.appendWhere(new SearchCondition(NumberCode.class, "disabled",
+			// SearchCondition.IS_FALSE), new int[] { 0 });
 
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+					new int[] { 0 });
 			QueryResult qr = PersistenceHelper.manager.find(query);
 
-			if(qr.hasMoreElements()){
-				NumberCode cc = (NumberCode)qr.nextElement();
+			if (qr.hasMoreElements()) {
+				NumberCode cc = (NumberCode) qr.nextElement();
 				return cc.getCode();
 			}
 			return "";
-		}
-		catch(Exception ex){
+		} catch (Exception ex) {
 			return "";
 		}
 	}
-	
-	public static QueryResult getChildCode(String key,String parentoid){
-		
-		if( parentoid != null && parentoid.trim().length() > 0 ) {
-			try{
+
+	public static QueryResult getChildCode(String key, String parentoid) {
+		System.out.println("parentoid=" + parentoid);
+		if (parentoid != null && parentoid.trim().length() > 0) {
+			try {
 				QuerySpec query = new QuerySpec(NumberCode.class);
 				query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", key), new int[] { 0 });
 				query.appendAnd();
-				query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+				query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE),
+						new int[] { 0 });
 				query.appendAnd();
-				query.appendWhere(new SearchCondition(NumberCode.class,"parentReference.key.id",SearchCondition.EQUAL,CommonUtil.getOIDLongValue(parentoid)),new int[] {0});
-				query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+				query.appendWhere(new SearchCondition(NumberCode.class, "parentReference.key.id", SearchCondition.EQUAL,
+						CommonUtil.getOIDLongValue(parentoid)), new int[] { 0 });
+				query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+						new int[] { 0 });
+				System.out.println("q2=" + query);
 				return PersistenceHelper.manager.find(query);
-			}catch(Exception ex){
+			} catch (Exception ex) {
 				ex.printStackTrace();
 				return new QueryResult();
 			}
 		} else {
 			return new QueryResult();
 		}
-	
+
 	}
-	public static QueryResult getChildCode2(String key,String parentoid){
-		
-		if( parentoid != null && parentoid.trim().length() > 0 ) {
-			try{
+
+	public static QueryResult getChildCode2(String key, String parentoid) {
+
+		if (parentoid != null && parentoid.trim().length() > 0) {
+			try {
 				QuerySpec query = new QuerySpec(NumberCode2.class);
 				query.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", key), new int[] { 0 });
 				query.appendAnd();
-				query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+				query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE),
+						new int[] { 0 });
 				query.appendAnd();
-				query.appendWhere(new SearchCondition(NumberCode2.class,"parentReference.key.id",SearchCondition.EQUAL,CommonUtil.getOIDLongValue(parentoid)),new int[] {0});
-				query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class,NumberCode2.CODE),false),new int[]{0});
+				query.appendWhere(new SearchCondition(NumberCode2.class, "parentReference.key.id",
+						SearchCondition.EQUAL, CommonUtil.getOIDLongValue(parentoid)), new int[] { 0 });
+				query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class, NumberCode2.CODE), false),
+						new int[] { 0 });
 				System.out.println(query);
 				return PersistenceHelper.manager.find(query);
-			}catch(Exception ex){
+			} catch (Exception ex) {
 				ex.printStackTrace();
 				return new QueryResult();
 			}
 		} else {
 			return new QueryResult();
 		}
-	
+
 	}
-	public static QueryResult getChildCode2(String key){
-		try{
+
+	public static QueryResult getChildCode2(String key) {
+		try {
 			QuerySpec query = new QuerySpec(NumberCode2.class);
 			query.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class,NumberCode2.CODE),false),new int[]{0});
+			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class, NumberCode2.CODE), false),
+					new int[] { 0 });
 			System.out.println(query);
 			return PersistenceHelper.manager.find(query);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new QueryResult();
 		}
 	}
-	//1Levle code
-	public static QueryResult getTopCode(String key){
+
+	// 1Levle code
+	public static QueryResult getTopCode(String key) {
 		Locale aa = WTContext.getContext().getLocale();
-		try{
+		try {
 			QuerySpec query = new QuerySpec(NumberCode.class);
 			query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class,"parentReference.key.id",SearchCondition.EQUAL,(long)0),new int[] { 0 });
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+			query.appendWhere(
+					new SearchCondition(NumberCode.class, "parentReference.key.id", SearchCondition.EQUAL, (long) 0),
+					new int[] { 0 });
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+					new int[] { 0 });
 			System.out.println(query);
 			return PersistenceHelper.manager.find(query);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new QueryResult();
 		}
-		
+
 	}
-	
-	public static QueryResult getTopCode2(String key){
+
+	public static QueryResult getTopCode2(String key) {
 		Locale aa = WTContext.getContext().getLocale();
-		try{
+		try {
 			QuerySpec query = new QuerySpec(NumberCode2.class);
 			query.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", key), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class,"parentReference.key.id",SearchCondition.EQUAL,(long)0),new int[] { 0 });
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class,NumberCode2.CODE),false),new int[]{0});
+			query.appendWhere(
+					new SearchCondition(NumberCode2.class, "parentReference.key.id", SearchCondition.EQUAL, (long) 0),
+					new int[] { 0 });
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class, NumberCode2.CODE), false),
+					new int[] { 0 });
 			System.out.println(query);
 			return PersistenceHelper.manager.find(query);
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new QueryResult();
 		}
-		
+
 	}
-	
-	public static NumberCode getTopCodeAssyPart(){
+
+	public static NumberCode getTopCodeAssyPart() {
 		Locale aa = WTContext.getContext().getLocale();
-		try{
+		try {
 			QuerySpec query = new QuerySpec(NumberCode.class);
 			query.appendWhere(new SearchCondition(NumberCode.class, "codeType", "=", "CADATTRIBUTE"), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE, SearchCondition.EQUAL,"A"), new int[] { 0 });
-			//query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE, SearchCondition.EQUAL,"P"), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE, SearchCondition.EQUAL, "A"),
+					new int[] { 0 });
+			// query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE,
+			// SearchCondition.EQUAL,"P"), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode.class,"parentReference.key.id",SearchCondition.EQUAL,(long)0),new int[] { 0 });
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class,NumberCode.CODE),false),new int[]{0});
+			query.appendWhere(
+					new SearchCondition(NumberCode.class, "parentReference.key.id", SearchCondition.EQUAL, (long) 0),
+					new int[] { 0 });
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode.class, NumberCode.CODE), false),
+					new int[] { 0 });
 			System.out.println(query);
-			
+
 			QueryResult result = PersistenceHelper.manager.find(query);
-			return (NumberCode)result.nextElement();
-		}catch(Exception ex){
+			return (NumberCode) result.nextElement();
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
 		}
-		
+
 	}
-	public static NumberCode2 getTopCodeAssyPart2(){
+
+	public static NumberCode2 getTopCodeAssyPart2() {
 		Locale aa = WTContext.getContext().getLocale();
-		try{
+		try {
 			QuerySpec query = new QuerySpec(NumberCode2.class);
 			query.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", "CADATTRIBUTE"), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode2.class, "disabled", SearchCondition.IS_FALSE),
+					new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class, NumberCode2.CODE, SearchCondition.EQUAL,"A"), new int[] { 0 });
-			//query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE, SearchCondition.EQUAL,"P"), new int[] { 0 });
+			query.appendWhere(new SearchCondition(NumberCode2.class, NumberCode2.CODE, SearchCondition.EQUAL, "A"),
+					new int[] { 0 });
+			// query.appendWhere(new SearchCondition(NumberCode.class, NumberCode.CODE,
+			// SearchCondition.EQUAL,"P"), new int[] { 0 });
 			query.appendAnd();
-			query.appendWhere(new SearchCondition(NumberCode2.class,"parentReference.key.id",SearchCondition.EQUAL,(long)0),new int[] { 0 });
-			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class,NumberCode2.CODE),false),new int[]{0});
+			query.appendWhere(
+					new SearchCondition(NumberCode2.class, "parentReference.key.id", SearchCondition.EQUAL, (long) 0),
+					new int[] { 0 });
+			query.appendOrderBy(new OrderBy(new ClassAttribute(NumberCode2.class, NumberCode2.CODE), false),
+					new int[] { 0 });
 			System.out.println(query);
-			
+
 			QueryResult result = PersistenceHelper.manager.find(query);
-			return (NumberCode2)result.nextElement();
-		}catch(Exception ex){
+			return (NumberCode2) result.nextElement();
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;
 		}
-		
+
 	}
-	
+
 //	public boolean isUseCheck(NumberCode code){
 //		
 //		boolean isUse = false;
@@ -276,23 +319,23 @@ public class ObjectCodeHelper {
 //		}
 //		return isUse;
 //	}
-	
-	public NumberCode getTopParent(NumberCode code){
-		
-		if(code.getParent() != null){
-			
+
+	public NumberCode getTopParent(NumberCode code) {
+
+		if (code.getParent() != null) {
+
 			code = getTopParent(code.getParent());
 		}
-		
+
 		return code;
 	}
-	
-	public int getCodelevel(NumberCode code ,Integer level){
-		
-		if(code.getParent() != null){
-			level = getCodelevel(code.getParent(),++level);
+
+	public int getCodelevel(NumberCode code, Integer level) {
+
+		if (code.getParent() != null) {
+			level = getCodelevel(code.getParent(), ++level);
 		}
-		
+
 		return level;
 	}
 }

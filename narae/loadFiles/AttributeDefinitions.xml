@@ -1,0 +1,1171 @@
+<?xml version="1.0"?>
+<!DOCTYPE NmLoader SYSTEM "standardX26.dtd">
+<NmLoader>
+
+	<!-- Common, Drawing, EC, Part, Version -->
+	<!-- Common -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Common</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Common</csvdisplay_name>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	
+	<!-- autoNumber -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>autoNumber</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Common</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>autoNumber</csvdisplay_name>
+		<csvdescription>autoNumber</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>autoNumber</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- message -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>message</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Common</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>message</csvdisplay_name>
+		<csvdescription>message</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>message</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Drawing -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Drawing</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Drawing</csvdisplay_name>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Approved -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Approved</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Approved</csvdisplay_name>
+		<csvdescription>Approved</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Approved</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Checked -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Checked</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Checked</csvdisplay_name>
+		<csvdescription>Checked</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Checked</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Class1 -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Class1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Class1</csvdisplay_name>
+		<csvdescription>Class1</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Class1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Class2 -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Class2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Class2</csvdisplay_name>
+		<csvdescription>Class2</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Class2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Class3 -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Class3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Class3</csvdisplay_name>
+		<csvdescription>Class3</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Class3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Class4 -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Class4</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Class4</csvdisplay_name>
+		<csvdescription>Class4</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Class4</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- DRW_No -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>DRW_No</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>DRW_No</csvdisplay_name>
+		<csvdescription>DRW_No</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>DRW_No</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- DRW_type -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>DRW_type</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>DRW_type</csvdisplay_name>
+		<csvdescription>DRW_type</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>DRW_type</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- FDate -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>FDate</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>FDate</csvdisplay_name>
+		<csvdescription>FDate</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>FDate</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- FDesigned -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>FDesigned</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>FDesigned</csvdisplay_name>
+		<csvdescription>FDesigned</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>FDesigned</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Group -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Group</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Group</csvdisplay_name>
+		<csvdescription>Group</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Group</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Group_Name -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Group_Name</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Group_Name</csvdisplay_name>
+		<csvdescription>Group_Name</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Group_Name</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- ITEMNAME -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>ITEMNAME</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>ITEMNAME</csvdisplay_name>
+		<csvdescription>ITEMNAME</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>ITEMNAME</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- LDate -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>LDate</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>LDate</csvdisplay_name>
+		<csvdescription>LDate</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>LDate</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- LDesigned -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>LDesigned</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>LDesigned</csvdisplay_name>
+		<csvdescription>LDesigned</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>LDesigned</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- LEAD_TIME -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>LEAD_TIME</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>LEAD_TIME</csvdisplay_name>
+		<csvdescription>LEAD_TIME</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier></csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Mat -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Mat</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Mat</csvdisplay_name>
+		<csvdescription>Mat</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Mat</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Match_part -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Match_part</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Match_part</csvdisplay_name>
+		<csvdescription>Match_part</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Match_part</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Material -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Material</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Material</csvdisplay_name>
+		<csvdescription>Material</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Material</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- P_Name -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>P_Name</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>P_Name</csvdisplay_name>
+		<csvdescription>P_Name</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>P_Name</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Part_Name -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Part_Name</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Part_Name</csvdisplay_name>
+		<csvdescription>Part_Name</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Part_Name</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Ref_Model_no -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Ref_Model_no</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Ref_Model_no</csvdisplay_name>
+		<csvdescription>Ref_Model_no</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Ref_Model_no</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Revision -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Revision</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Revision</csvdisplay_name>
+		<csvdescription>Revision</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Revision</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Sheet -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Sheet</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Sheet</csvdisplay_name>
+		<csvdescription>Sheet</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Sheet</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Treatment -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Treatment</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Treatment</csvdisplay_name>
+		<csvdescription>Treatment</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Treatment</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Type -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Type</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Type</csvdisplay_name>
+		<csvdescription>Type</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Type</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Unit -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Unit</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Unit</csvdisplay_name>
+		<csvdescription>Unit</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Unit</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Weight_f -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Weight_f</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Drawing</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Weight_f</csvdisplay_name>
+		<csvdescription>Weight_f</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Weight_f</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- EC -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>EC</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>EC</csvdisplay_name>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- description2 -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>description2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>EC</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>description2</csvdisplay_name>
+		<csvdescription>description2</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>description2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Project -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Project</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>EC</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Project</csvdisplay_name>
+		<csvdescription>Project</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Project</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- ProjectNumber -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>ProjectNumber</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>EC</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>ProjectNumber</csvdisplay_name>
+		<csvdescription>ProjectNumber</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>ProjectNumber</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- supporter -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>supporter</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>EC</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>supporter</csvdisplay_name>
+		<csvdescription>supporter</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>supporter</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Part -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Part</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Part</csvdisplay_name>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- COST_ERP -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>COST_ERP</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>COST_ERP</csvdisplay_name>
+		<csvdescription>표준 단가</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>COST_ERP</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- COST_PDM -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>COST_PDM</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>COST_PDM</csvdisplay_name>
+		<csvdescription>예상 단가</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>COST_PDM</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Description -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Description</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Description</csvdisplay_name>
+		<csvdescription>Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Description</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- EC_Reason -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>EC_Reason</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>EC_Reason</csvdisplay_name>
+		<csvdescription>EC_Reason</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>EC_Reason</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- IsDrawing -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>IsDrawing</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>IsDrawing</csvdisplay_name>
+		<csvdescription>IsDrawing</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>IsDrawing</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Maker -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Maker</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Maker</csvdisplay_name>
+		<csvdescription>Maker</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Maker</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- OldNumber -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>OldNumber</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>OldNumber</csvdisplay_name>
+		<csvdescription>OldNumber</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>OldNumber</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- partdescription -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>partdescription</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>partdescription</csvdisplay_name>
+		<csvdescription>partdescription</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>partdescription</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- quantityunit -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>quantityunit</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>quantityunit</csvdisplay_name>
+		<csvdescription>quantityunit</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>quantityunit</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Spec -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Spec</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Part</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Spec</csvdisplay_name>
+		<csvdescription>Spec</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>Spec</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- Version -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>Version</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>Version</csvdisplay_name>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<!-- LatestVersionFlag -->
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>LatestVersionFlag</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>Version</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>LatestVersionFlag</csvdisplay_name>
+		<csvdescription>LatestVersionFlag</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>LatestVersionFlag</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestOrganizer</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths/>
+		<csvdefinitionPaths/>
+		<csvdisplay_name/>
+		<csvdescription/>
+		<csvdata_type>org</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier> </csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestBoolean</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestBoolean Display Name</csvdisplay_name>
+		<csvdescription>TestBoolean Description</csvdescription>
+		<csvdata_type>boolean</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestBoolean</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubBoolean1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubBoolean1 Display Name</csvdisplay_name>
+		<csvdescription>SubBoolean1 Description</csvdescription>
+		<csvdata_type>boolean</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubBoolean1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubBoolean2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubBoolean2 Display Name</csvdisplay_name>
+		<csvdescription>SubBoolean2 Description</csvdescription>
+		<csvdata_type>boolean</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubBoolean2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubBoolean3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubBoolean3 Display Name</csvdisplay_name>
+		<csvdescription>SubBoolean3 Description</csvdescription>
+		<csvdata_type>boolean</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubBoolean3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestFloat</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestFloat Display Name</csvdisplay_name>
+		<csvdescription>TestFloat Description</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestFloat</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubFloat1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubFloat1 Display Name</csvdisplay_name>
+		<csvdescription>SubFloat1 Description</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubFloat1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubFloat2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubFloat2 Display Name</csvdisplay_name>
+		<csvdescription>SubFloat2 Description</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubFloat2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubFloat3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubFloat3 Display Name</csvdisplay_name>
+		<csvdescription>SubFloat3 Description</csvdescription>
+		<csvdata_type>float</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubFloat3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestInteger</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestInteger Display Name</csvdisplay_name>
+		<csvdescription>TestInteger Description</csvdescription>
+		<csvdata_type>int</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestInteger</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubInteger1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubInteger1 Display Name</csvdisplay_name>
+		<csvdescription>SubInteger1 Description</csvdescription>
+		<csvdata_type>int</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubInteger1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubInteger2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubInteger2 Display Name</csvdisplay_name>
+		<csvdescription>SubInteger2 Description</csvdescription>
+		<csvdata_type>int</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubInteger2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubInteger3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubInteger3 Display Name</csvdisplay_name>
+		<csvdescription>SubInteger3 Description</csvdescription>
+		<csvdata_type>int</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubInteger3</csvlogicalIdentifier>
+	</csvAttrDefinizer>	
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestString</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestString Display Name</csvdisplay_name>
+		<csvdescription>TestString Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestString</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubString1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubString1 Display Name</csvdisplay_name>
+		<csvdescription>SubString1 Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubString1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubString2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubString2 Display Name</csvdisplay_name>
+		<csvdescription>SubString2 Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubString2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubString3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubString3 Display Name</csvdisplay_name>
+		<csvdescription>SubString3 Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubString3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestTimeStamp</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestTimeStamp Display Name</csvdisplay_name>
+		<csvdescription>TestTimeStamp Description</csvdescription>
+		<csvdata_type>timestamp</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestTimeStamp</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubTimeStamp1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubTimeStamp1 Display Name</csvdisplay_name>
+		<csvdescription>SubTimeStamp1 Description</csvdescription>
+		<csvdata_type>timestamp</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubTimeStamp1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubTimeStamp2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubTimeStamp2 Display Name</csvdisplay_name>
+		<csvdescription>SubTimeStamp2 Description</csvdescription>
+		<csvdata_type>timestamp</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubTimeStamp2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubTimeStamp3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubTimeStamp3 Display Name</csvdisplay_name>
+		<csvdescription>SubTimeStamp3 Description</csvdescription>
+		<csvdata_type>timestamp</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubTimeStamp3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestUnit</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestUnit Display Name</csvdisplay_name>
+		<csvdescription>TestUnit Description</csvdescription>
+		<csvdata_type>unit</csvdata_type>
+		<csvQoMName>Length</csvQoMName>
+		<csvnameValuePairs>ft</csvnameValuePairs>
+		<csvlogicalIdentifier>TestUnit</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubUnit1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubUnit1 Display Name</csvdisplay_name>
+		<csvdescription>SubUnit1 Description</csvdescription>
+		<csvdata_type>unit</csvdata_type>
+		<csvQoMName>Length</csvQoMName>
+		<csvnameValuePairs>ft</csvnameValuePairs>
+		<csvlogicalIdentifier>SubUnit1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubUnit2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubUnit2 Display Name</csvdisplay_name>
+		<csvdescription>SubUnit2 Description</csvdescription>
+		<csvdata_type>unit</csvdata_type>
+		<csvQoMName>Length</csvQoMName>
+		<csvnameValuePairs>ft</csvnameValuePairs>
+		<csvlogicalIdentifier>SubUnit2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubUnit3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubUnit3 Display Name</csvdisplay_name>
+		<csvdescription>SubUnit3 Description</csvdescription>
+		<csvdata_type>unit</csvdata_type>
+		<csvQoMName>Length</csvQoMName>
+		<csvnameValuePairs>ft</csvnameValuePairs>
+		<csvlogicalIdentifier>SubUnit3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>TestURL</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>TestURL Display Name</csvdisplay_name>
+		<csvdescription>TestURL Description</csvdescription>
+		<csvdata_type>url</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>TestURL</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubURL1</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubURL1 Display Name</csvdisplay_name>
+		<csvdescription>SubURL1 Description</csvdescription>
+		<csvdata_type>url</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubURL1</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubURL2</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubURL2 Display Name</csvdisplay_name>
+		<csvdescription>SubURL2 Description</csvdescription>
+		<csvdata_type>url</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubURL2</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SubURL3</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SubURL3 Display Name</csvdisplay_name>
+		<csvdescription>SubURL3 Description</csvdescription>
+		<csvdata_type>url</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SubURL3</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<csvQuantityOfMeasure handler="wt.units.service.UnitsLoader.createQOM">
+             <csvname>TestFloating_Length</csvname>
+             <csvdescription></csvdescription>
+             <csvbaseUnitSymbol>m</csvbaseUnitSymbol>
+             <csvnameAndValuePairs></csvnameAndValuePairs>
+        </csvQuantityOfMeasure>
+	
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      		<csvname>TestFloatingLength</csvname>
+      		<csvhierarchyDisplayName/>
+	<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+      		<csvdefinitionPaths/>
+      		<csvdisplay_name>TestLength Display Name</csvdisplay_name>
+      		<csvdescription>TestLength Description</csvdescription>
+      		<csvdata_type>UNIT</csvdata_type>
+      		<csvQoMName>TestFloating_Length</csvQoMName>
+      		<csvnameValuePairs/>
+      		<csvlogicalIdentifier>TestFloatingLength</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<csvQuantityOfMeasure handler="wt.units.service.UnitsLoader.createQOM">
+             <csvname>TestFloating_Area</csvname>
+             <csvdescription></csvdescription>
+             <csvbaseUnitSymbol>m**2</csvbaseUnitSymbol>
+             <csvnameAndValuePairs></csvnameAndValuePairs>
+        </csvQuantityOfMeasure>
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      		<csvname>TestFloatingArea</csvname>
+      		<csvhierarchyDisplayName/>
+	<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+      		<csvdefinitionPaths/>
+      		<csvdisplay_name>TestArea Display Name</csvdisplay_name>
+      		<csvdescription>TestArea Description</csvdescription>
+      		<csvdata_type>UNIT</csvdata_type>
+      		<csvQoMName>TestFloating_Area</csvQoMName>
+      		<csvnameValuePairs/>
+      		<csvlogicalIdentifier>TestFloatingArea</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	
+	<csvQuantityOfMeasure handler="wt.units.service.UnitsLoader.createQOM">
+             <csvname>TestFloating_Volume</csvname>
+             <csvdescription></csvdescription>
+             <csvbaseUnitSymbol>m**3</csvbaseUnitSymbol>
+             <csvnameAndValuePairs></csvnameAndValuePairs>
+        </csvQuantityOfMeasure>
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      		<csvname>TestFloatingVolume</csvname>
+      		<csvhierarchyDisplayName/>
+	<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+      		<csvdefinitionPaths/>
+      		<csvdisplay_name>TestVolume Display Name</csvdisplay_name>
+      		<csvdescription>TestVolume Description</csvdescription>
+      		<csvdata_type>UNIT</csvdata_type>
+      		<csvQoMName>TestFloating_Volume</csvQoMName>
+      		<csvnameValuePairs/>
+      		<csvlogicalIdentifier>TestFloatingVolume</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	
+	<csvQuantityOfMeasure handler="wt.units.service.UnitsLoader.createQOM">
+             <csvname>TestFloating_Power</csvname>
+             <csvdescription></csvdescription>
+             <csvbaseUnitSymbol>w</csvbaseUnitSymbol>
+             <csvnameAndValuePairs></csvnameAndValuePairs>
+        </csvQuantityOfMeasure>
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      		<csvname>TestFloatingPower</csvname>
+      		<csvhierarchyDisplayName/>
+	<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+      		<csvdefinitionPaths/>
+      		<csvdisplay_name>TestPower Display Name</csvdisplay_name>
+      		<csvdescription>TestPower Description</csvdescription>
+      		<csvdata_type>UNIT</csvdata_type>
+      		<csvQoMName>TestFloating_Power</csvQoMName>
+      		<csvnameValuePairs/>
+      		<csvlogicalIdentifier>TestFloatingPower</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+	<csvQuantityOfMeasure handler="wt.units.service.UnitsLoader.createQOM">
+             <csvname>TestFloating_Acceleration</csvname>
+             <csvdescription></csvdescription>
+             <csvbaseUnitSymbol>m/s**2</csvbaseUnitSymbol>
+             <csvnameAndValuePairs></csvnameAndValuePairs>
+        </csvQuantityOfMeasure>
+
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      		<csvname>TestFloatingAcceleration</csvname>
+      		<csvhierarchyDisplayName/>
+	<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+      		<csvdefinitionPaths/>
+      		<csvdisplay_name>TestAcceleration Display Name</csvdisplay_name>
+      		<csvdescription>TestAcceleration Description</csvdescription>
+      		<csvdata_type>UNIT</csvdata_type>
+      		<csvQoMName>TestFloating_Acceleration</csvQoMName>
+      		<csvnameValuePairs/>
+      		<csvlogicalIdentifier>TestFloatingAcceleration</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+	
+	<csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+		<csvname>SftDispFtryString</csvname>
+		<csvhierarchyDisplayName/>
+		<csvorganizerPaths>TestOrganizer</csvorganizerPaths>
+		<csvdefinitionPaths/>
+		<csvdisplay_name>SftDispFtryString Display Name</csvdisplay_name>
+		<csvdescription>SftDispFtryString Description</csvdescription>
+		<csvdata_type>string</csvdata_type>
+		<csvQoMName/>
+		<csvnameValuePairs/>
+		<csvlogicalIdentifier>SftDispFtryString</csvlogicalIdentifier>
+	</csvAttrDefinizer>
+
+</NmLoader>

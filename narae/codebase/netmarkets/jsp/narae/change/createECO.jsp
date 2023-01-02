@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
-<%@ include file="/netmarkets/jsp/util/begin.jspf"%>
+<%-- <%@ include file="/netmarkets/jsp/util/begin.jspf"%> --%>
 <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
@@ -46,6 +46,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "CHANGE_MNG_CREATE
 </script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<form name=mainform id=mainform method=post enctype="multipart/form-data">
 <table border="0" cellpadding="0" cellspacing="10" width="100%"> <!--//여백 테이블-->
 <tbody><tr height="5"><td>
 
@@ -588,6 +589,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "CHANGE_MNG_CREATE
 <input name="agree" id="agree" type="hidden">
 <input name="approve" id="approve" type="hidden">
 <input name="receive" id="receive" type="hidden">
+</form>
 <iframe id="frmIEAction" name="frmIEAction" style="width:0px;height:0px;visibility:hidden"></iframe>
 
 <script>
@@ -805,4 +807,4 @@ function showFinished(saveType) {
 }
 </script>
 
-<%@ include file="/netmarkets/jsp/util/end.jspf"%>
+<%-- <%@ include file="/netmarkets/jsp/util/end.jspf"%> --%>

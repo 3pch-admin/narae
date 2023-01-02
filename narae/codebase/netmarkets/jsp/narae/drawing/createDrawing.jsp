@@ -1,5 +1,5 @@
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
-<%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %>
+<%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
 <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
@@ -53,7 +53,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DRAWING_MNG_CREAT
 </script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<form name=drawingCreateForm id=drawingCreateForm method=post enctype="multipart/form-data">
+<form name=mainform id=mainform method=post enctype="multipart/form-data">
 <input name="docListOid" id="docListOid" type="hidden">
 <input type="hidden" name="wtPartType" id="wtPartType" value="separable">
 <input type="hidden" name="source" id="source" value="make">
@@ -181,7 +181,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DRAWING_MNG_CREAT
                 <tr id="numberSelect">
                 	<td colspan="4">
                  	<jsp:include page="/netmarkets/jsp/narae/part/numberSelect.jsp" flush="true">
-							<jsp:param name="formName" value="drawingCreateForm"/>
+							<jsp:param name="formName" value="mainform"/>
 							<jsp:param name="firstColumnSize" value="15"/>
 					</jsp:include>
 					</td>
@@ -571,4 +571,4 @@ function showFinished(saveType) {
 
 </script>
 
-<%@ include file="/netmarkets/jsp/util/end.jspf"%>
+<%-- <%@ include file="/netmarkets/jsp/util/end.jspf"%> --%>

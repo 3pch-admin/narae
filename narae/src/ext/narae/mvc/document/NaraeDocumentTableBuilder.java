@@ -31,11 +31,14 @@ import com.ptc.mvc.components.ds.DataSourceMode;
 import ext.narae.mvc.drawing.NaraeDrawingTableBuilder;
 import ext.narae.service.CommonUtil2;
 import ext.narae.service.folder.beans.CommonFolderHelper;
+import ext.narae.util.WCUtil;
+import wt.clients.folder.FolderTaskLogic;
 import wt.doc.WTDocument;
 import wt.fc.PersistenceHelper;
 import wt.fc.QueryResult;
 import wt.folder.Folder;
 import wt.folder.IteratedFolderMemberLink;
+import wt.inf.container.WTContainerRef;
 import wt.log4j.LogR;
 import wt.org.WTUser;
 import wt.query.ClassAttribute;
@@ -56,6 +59,7 @@ public class NaraeDocumentTableBuilder extends AbstractComponentBuilder {
 
 	@Override
 	public Object buildComponentData(ComponentConfig config, ComponentParams params) throws Exception {
+		System.out.println("START");
 		// TODO Auto-generated method stub
 		String first = params.getParameter("first") != null ? (String) params.getParameter("first") : "";
 		// String partFolder =
@@ -80,44 +84,47 @@ public class NaraeDocumentTableBuilder extends AbstractComponentBuilder {
 		query = new QuerySpec();
 		int idx = query.addClassList(WTDocument.class, true);
 
+		Folder folder = null;
 		if (partFolder != null && partFolder.trim().length() > 0) {
-			Folder folder = (Folder) CommonUtil2.getInstance(partFolder);
-
-			if (query.getConditionCount() > 0)
-				query.appendAnd();
-
-			int folder_idx = query.addClassList(IteratedFolderMemberLink.class, false);
-			SearchCondition sc1 = new SearchCondition(
-					new ClassAttribute(IteratedFolderMemberLink.class, "roleBObjectRef.key.branchId"), "=",
-					new ClassAttribute(WTDocument.class, "iterationInfo.branchId"));
-			sc1.setFromIndicies(new int[] { folder_idx, idx }, 0);
-			sc1.setOuterJoin(0);
-			query.appendWhere(sc1, new int[] { folder_idx, idx });
-
-			query.appendAnd();
-			ArrayList folders = CommonFolderHelper.getFolderTree(folder);
-			// folders.add(folder);
-
-			query.appendOpenParen();
-
-			query.appendWhere(new SearchCondition(IteratedFolderMemberLink.class, "roleAObjectRef.key.id",
-					SearchCondition.EQUAL, folder.getPersistInfo().getObjectIdentifier().getId()),
-					new int[] { folder_idx });
-
-			for (int fi = 0; fi < folders.size(); fi++) {
-				String[] s = (String[]) folders.get(fi);
-				Folder sf = (Folder) CommonUtil2.getInstance(s[2]);
-				log.debug(sf.getFolderPath());
-				// if(fi > 0) {
-				query.appendOr();
-				// }
-				query.appendWhere(
-						new SearchCondition(IteratedFolderMemberLink.class, "roleAObjectRef.key.id",
-								SearchCondition.EQUAL, sf.getPersistInfo().getObjectIdentifier().getId()),
-						new int[] { folder_idx });
-			}
-			query.appendCloseParen();
+			folder = (Folder) CommonUtil2.getInstance(partFolder);
+		} else {
+			WTContainerRef containerRef = WCUtil.getWTContainerRefForDrawing();
+			folder = FolderTaskLogic.getFolder("/Default/DOCUMENT", containerRef);
 		}
+
+		if (query.getConditionCount() > 0)
+			query.appendAnd();
+
+		int folder_idx = query.addClassList(IteratedFolderMemberLink.class, false);
+		SearchCondition sc1 = new SearchCondition(
+				new ClassAttribute(IteratedFolderMemberLink.class, "roleBObjectRef.key.branchId"), "=",
+				new ClassAttribute(WTDocument.class, "iterationInfo.branchId"));
+		sc1.setFromIndicies(new int[] { folder_idx, idx }, 0);
+		sc1.setOuterJoin(0);
+		query.appendWhere(sc1, new int[] { folder_idx, idx });
+
+		query.appendAnd();
+		ArrayList folders = CommonFolderHelper.getFolderTree(folder);
+		// folders.add(folder);
+
+		query.appendOpenParen();
+
+		query.appendWhere(new SearchCondition(IteratedFolderMemberLink.class, "roleAObjectRef.key.id",
+				SearchCondition.EQUAL, folder.getPersistInfo().getObjectIdentifier().getId()),
+				new int[] { folder_idx });
+
+		for (int fi = 0; fi < folders.size(); fi++) {
+			String[] s = (String[]) folders.get(fi);
+			Folder sf = (Folder) CommonUtil2.getInstance(s[2]);
+			log.debug(sf.getFolderPath());
+			// if(fi > 0) {
+			query.appendOr();
+			// }
+			query.appendWhere(new SearchCondition(IteratedFolderMemberLink.class, "roleAObjectRef.key.id",
+					SearchCondition.EQUAL, sf.getPersistInfo().getObjectIdentifier().getId()),
+					new int[] { folder_idx });
+		}
+		query.appendCloseParen();
 
 		if (number != null && number.trim().length() > 0) {
 			if (query.getConditionCount() > 0)
@@ -183,46 +190,41 @@ public class NaraeDocumentTableBuilder extends AbstractComponentBuilder {
 			}
 		}
 
-		if (query.getConditionCount() > 0) {
+		if (query.getConditionCount() > 0)
 			if (query.getConditionCount() > 0)
 				query.appendAnd();
 
-			query.appendOpenParen();
-			query.appendWhere(
-					new SearchCondition(WTDocument.class, "checkoutInfo.state", SearchCondition.EQUAL, "c/i"));
-			query.appendOr();
-			query.appendWhere(
-					new SearchCondition(WTDocument.class, "checkoutInfo.state", SearchCondition.EQUAL, "c/o"));
-			query.appendCloseParen();
+		query.appendOpenParen();
+		query.appendWhere(new SearchCondition(WTDocument.class, "checkoutInfo.state", SearchCondition.EQUAL, "c/i"));
+		query.appendOr();
+		query.appendWhere(new SearchCondition(WTDocument.class, "checkoutInfo.state", SearchCondition.EQUAL, "c/o"));
+		query.appendCloseParen();
 
-			// 최신 이터레이션
-			query.appendAnd();
-			query.appendWhere(VersionControlHelper.getSearchCondition(WTDocument.class, true));
+		// 최신 이터레이션
+		query.appendAnd();
+		query.appendWhere(VersionControlHelper.getSearchCondition(WTDocument.class, true));
 
-			// Except SW Document
-			query.appendAnd();
-			query.appendWhere(
-					new SearchCondition(WTDocument.class, "docType", SearchCondition.NOT_EQUAL, "$$SWDocument"));
+		// Except SW Document
+		query.appendAnd();
+		query.appendWhere(new SearchCondition(WTDocument.class, "docType", SearchCondition.NOT_EQUAL, "$$SWDocument"));
 
-			QueryResult result = null;
-			if (version != null) {
-				if ("true".equals(version)) {
-					log.debug("==================> Find Latest Version");
-					LatestConfigSpec latestCSpec = new LatestConfigSpec();
-					result = ConfigHelper.service.queryIterations(query, latestCSpec);
-				} else {
-					log.debug("==================> Find ALL Version");
+		QueryResult result = null;
+		System.out.println("version=" + version);
+		if (version != null) {
+			if ("true".equals(version)) {
+				log.debug("==================> Find Latest Version");
+				LatestConfigSpec latestCSpec = new LatestConfigSpec();
+				result = ConfigHelper.service.queryIterations(query, latestCSpec);
+			} else {
+				log.debug("==================> Find ALL Version");
 //					LatestConfigSpec latestCSpec = new LatestConfigSpec();
-					result = ConfigHelper.service.queryIterations(query, null);
-				}
+				result = ConfigHelper.service.queryIterations(query, null);
 			}
-
-			System.out.println("qery=" + query);
-
-			return result;
-		} else {
-			return new QueryResult();
 		}
+
+		System.out.println("qery=" + query);
+
+		return result;
 	}
 
 	@Override

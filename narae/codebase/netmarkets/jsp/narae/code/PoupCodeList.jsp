@@ -141,7 +141,7 @@
 		var rwidth = _name.length * 8;
 		if (rwidth > _width) _width = rwidth;
 		
-		sb = "<a onclick=\"" + _script + "\" style='cursor:hand;' onMouseOver=\"all._text.style.color='#0393c8'\" onMouseOut=\"all._text.style.color='#4E4E4E'\"><table width='"+_width+"' border='0' cellspacing='0' cellpadding='0' class='"+_class+"'>";
+		sb = "<a onclick=\"" + _script + "\" style='cursor:hand;'\"><table width='"+_width+"' border='0' cellspacing='0' cellpadding='0' class='"+_class+"'>";
 		sb += "<tr>";
 		sb += "<td width='8'><img src='/Windchill/netmarkets/jsp/narae/portal/img/btn_left_01.gif' alt='' width='8' height='22'></td>";
 		sb += "<td valign='middle' background='/Windchill/netmarkets/jsp/narae/portal/img/btn_mid_01.gif'>";

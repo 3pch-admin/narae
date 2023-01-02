@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
-<%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %>
+<%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
 <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
@@ -51,7 +51,6 @@ String DESCRIPTION = WTMessage.getLocalizedMessage(RESOURCE , "DESCRIPTION", new
 <script>
 document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "PART_MNG_CREATE_PART_TITLE", new Object[]{}, locale)%>";
 </script>
-
 <table border="0" cellpadding="0" cellspacing="10" width="100%">
 <tbody><tr height="5"><td>
 
@@ -66,7 +65,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "PART_MNG_CREATE_P
 </table>
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<form name="partCreateForm" method="post" action="">
+<form name="mainform" method="post" action="">
 <input name="docListOid" id="docListOid" type="hidden">
 <input name="partFolderValue" id="partFolderValue" type="hidden">
 <input type="hidden" name="wtPartType" id="wtPartType" value="separable">
@@ -113,7 +112,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "PART_MNG_CREATE_P
                                 <tr>
                                 	<td colspan="4">
 	                                	<jsp:include page="/netmarkets/jsp/narae/part/numberSelect.jsp" flush="true">
-												<jsp:param name="formName" value="partCreateForm"/>
+												<jsp:param name="formName" value="mainform"/>
 												<jsp:param name="firstColumnSize" value="15"/>
 												<jsp:param name="nameType" value="part"/>
 										</jsp:include>
@@ -483,4 +482,4 @@ function showFinished(saveType, oid) {
 }
 </script>
 
-<%@ include file="/netmarkets/jsp/util/end.jspf"%>
+<%-- <%@ include file="/netmarkets/jsp/util/end.jspf"%> --%>
