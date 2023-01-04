@@ -121,7 +121,7 @@ public class ChangeHelper implements wt.method.RemoteAccess, java.io.Serializabl
 	static final boolean SERVER = wt.method.RemoteMethodServer.ServerFlag;
 	public static ChangeHelper manager = new ChangeHelper();
 
-	public String createEcr(Hashtable hash) throws Exception {
+	public  String createECR(Hashtable hash) throws Exception {
 
 		if (!SERVER) {
 			Class argTypes[] = new Class[] { Hashtable.class };
@@ -130,6 +130,7 @@ public class ChangeHelper implements wt.method.RemoteAccess, java.io.Serializabl
 			try {
 				return (String) wt.method.RemoteMethodServer.getDefault().invoke("createEcr", null, this, argTypes,
 						args);
+
 			} catch (RemoteException e) {
 				e.printStackTrace();
 				throw new WTException(e);

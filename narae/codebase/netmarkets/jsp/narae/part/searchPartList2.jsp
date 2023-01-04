@@ -7,8 +7,6 @@
 <%@page import="ext.narae.service.part.beans.PartTreeData"%>
 <%@page import="ext.narae.util.StringUtil"%>
 <%@page import="ext.narae.util.WCUtil"%>
-<%@page import="com.e3ps.common.content.ContentUtil"%>
-<%@page import="ext.narae.service.drawing.DrawingHelper2"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 

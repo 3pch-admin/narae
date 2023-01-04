@@ -2,8 +2,7 @@
 <%@page import="ext.narae.util.content.NeoHttpRequestField"%>
 <%@page import="ext.narae.service.document.beans.DocumentHelper2"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, com.e3ps.common.util.*, ext.narae.ui.*, java.util.*"%>
-<%@ page import="ext.narae.service.uploader.*"%>
+<%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.util.*, ext.narae.ui.*, java.util.*"%>
 <%@ page import="ext.narae.service.part.*"%>
 <%@ page import="wt.epm.*"%>
 <%@ page import="wt.fc.*"%>

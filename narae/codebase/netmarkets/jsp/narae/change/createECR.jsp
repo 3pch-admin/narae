@@ -15,8 +15,8 @@
 				wt.org.*,
 				wt.pdmlink.*,
 				wt.query.*,
-				com.e3ps.org.beans.*,
-				com.e3ps.org.*,
+				ext.narae.service.org.beans.*,
+				ext.narae.service.org.*,
 				ext.narae.service.*,
 				wt.session.*"%>
 <%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.util.*, ext.narae.ui.*, java.util.*" %>

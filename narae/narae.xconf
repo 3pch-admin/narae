@@ -21,7 +21,63 @@
    <Property name="publish.usesPublishRules" overridable="true"
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="ARBORTEXT PROE"/>
+   <Property name="com.ptc.netmarkets.userSearch.maxCount" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="300"/>             
 
+
+   <!-- Add Schedule Menu -->
+   <Property name="jobTypes6" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="erpJob"/>      
+   <Property name="erpJob.icon" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="netmarkets/images/repair_failure.gif"/>   
+   <Property name="erpJob.resourceBase" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="com.ptc.wvs.common.util.JobTypeResource"/>   
+   <Property name="erpJob.scheduledProcessorClass" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="ext.narae.schedule.E3PSScheduleProcessor"/>      
+   
+   <!-- Add Schedule List -->
+   <Property name="schedulejobs30" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="ERP_RECEIVE_STATE_DAILY_BATCH"/>   
+   <Property name="ERP_RECEIVE_STATE_DAILY_BATCH.class" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="ext.narae.schedule.E3PSScheduleJobs"/>
+   <Property name="ERP_RECEIVE_STATE_DAILY_BATCH.description" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="ERP_RECEIVE_STATE_DAILY_BATCH"/>
+   <Property name="ERP_RECEIVE_STATE_DAILY_BATCH.enableOnContainers" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="true"/>
+   <Property name="ERP_RECEIVE_STATE_DAILY_BATCH.jobType" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="erpJob"/>   
+   <Property name="ERP_RECEIVE_STATE_DAILY_BATCH.method" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="erpReceiveStateDailyBatch"/>
+             
+   <Property name="schedulejobs31" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="RESET_QUEUE_DAILY_BATCH"/>
+   <Property name="RESET_QUEUE_DAILY_BATCH.class" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="ext.narae.schedule.E3PSScheduleJobs"/>
+   <Property name="RESET_QUEUE_DAILY_BATCH.description" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="RESET_QUEUE_DAILY_BATCH"/>
+   <Property name="RESET_QUEUE_DAILY_BATCH.enableOnContainers" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="true"/>
+   <Property name="RESET_QUEUE_DAILY_BATCH.jobType" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="erpJob"/>
+   <Property name="RESET_QUEUE_DAILY_BATCH.method" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="resetQueueDailyBatch"/>
 
     <Service context="default" name="com.ptc.core.components.descriptor.DataUtility" 
     targetFile="codebase/com/ptc/core/components/components.dataUtilities.properties">

@@ -20,7 +20,7 @@ public class NumberCodeLoaderMain {
 		RemoteMethodServer.getDefault().setPassword("n@r@epdm");
 
 		if (args.length == 0) {
-			System.out.println("Load NumberCode Excel..");
+			System.out.println("Excel File Not Set..");
 			System.exit(0);
 		}
 

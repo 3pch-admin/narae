@@ -1,4 +1,5 @@
-﻿<%@page import="ext.narae.service.org.beans.OrgDao"%>
+﻿<%@page import="ext.narae.service.org.beans.PeopleData"%>
+<%@page import="ext.narae.service.org.beans.OrgDao"%>
 <%@page import="wt.query.ClassAttribute"%>
 <%@page import="wt.query.OrderBy"%>
 <%@page import="wt.query.SearchCondition"%>
@@ -18,6 +19,8 @@
 
 <%
 
+
+// PeopleData data = new PeopleData();
 
 String RESOURCE = "ext.narae.ui.common.resource.NaraeCommonRB";
 String UNITRB = "ext.narae.ui.common.resource.NareUnitRB";
