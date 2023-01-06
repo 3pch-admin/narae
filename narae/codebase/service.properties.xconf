@@ -2687,6 +2687,15 @@ selector="OFFICE365"/>
          <Option cardinality="singleton" requestor="java.lang.Object"  selector="null" serviceClass="com.ptc.windchill.fc.custom.textResource.TextTailoringEnumDelegateImpl"/>
     </Service>
 
+
+	<!-- Add Narae DataUtility -->
+	<Service context="default" name="com.ptc.core.components.descriptor.DataUtility">
+		<Option serviceClass="ext.narae.datautility.ChangeNumberDataUtility"
+			selector="changeNumberDataUtility" 
+			requestor="java.lang.Object"
+			cardinality="duplicate"  />
+	</Service>
+
     <!-- -*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-
 WARNING: Do not modify this file after it has been installed.  Use xconfmanager
          to set, reset, or undefine properties for your installation

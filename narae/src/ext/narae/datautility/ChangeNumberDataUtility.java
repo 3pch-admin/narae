@@ -61,7 +61,7 @@ public class ChangeNumberDataUtility extends AbstractDataUtility {
 		}
 		String host = codebase.toString();
 		if (datum instanceof WTChangeRequest2)
-			url = host + "#ptc1/narae/change/detailECR?from=normal&oid=" + oid;
+			url = host + "app/#ptc1/narae/change/detailECR?from=normal&oid=" + oid;
 		else if (datum instanceof WTChangeOrder2)
 			url = host + "app/#ptc1/narae/change/detailECO?from=normal&oid=" + oid;
 

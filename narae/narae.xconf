@@ -79,11 +79,4 @@
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="resetQueueDailyBatch"/>
 
-    <Service context="default" name="com.ptc.core.components.descriptor.DataUtility" 
-    targetFile="codebase/com/ptc/core/components/components.dataUtilities.properties">
-    	<Option requestor="java.lang.Object"
-            selector="changeNumberDataUtility"
-            serviceClass="ext.narae.datautility.ChangeNumberDataUtility"
-	    cardinality="duplicate"  />
-	  </Service>
 </Configuration>

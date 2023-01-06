@@ -53,79 +53,87 @@ public class NaraeSpecTableBuilder extends AbstractComponentBuilder {
 	private static String RESOURCE = "ext.narae.ui.common.resource.NaraeCommonRB";
 
 	@Override
-	public Object buildComponentData(ComponentConfig config, ComponentParams params)
-			throws Exception {
+	public Object buildComponentData(ComponentConfig config, ComponentParams params) throws Exception {
 		// TODO Auto-generated method stub
 		String name = (String) params.getParameter("name");
-		String description =  (String) params.getParameter("description");
+		String description = (String) params.getParameter("description");
 
-        if ( name != null && name.length() > 0 )  {
-        	name = name.trim();
-        } else {
-        	name = null;
-        }
-        
-        if ( description != null && description.length() > 0 )  {
-        	description = description.trim();
-        } else {
-        	description = null;
-        }
-        
-        QuerySpec query = null;
+		if (name != null && name.length() > 0) {
+			name = name.trim();
+		} else {
+			name = null;
+		}
+
+		if (description != null && description.length() > 0) {
+			description = description.trim();
+		} else {
+			description = null;
+		}
+
+		QuerySpec query = null;
 		QueryResult qr = null;
 
 		query = new QuerySpec(NumberCode.class);
 		query.appendWhere(new SearchCondition(NumberCode.class, "codeType", SearchCondition.EQUAL, "SPEC"));
-   
-		//상태
-		if(name != null ) {
-		    if(query.getConditionCount()>0) { query.appendAnd(); }
-		    query.appendWhere(new SearchCondition(NumberCode.class, "name", SearchCondition.LIKE, "%"+name.toUpperCase()+"%"));
+
+		// 상태
+		if (name != null) {
+			if (query.getConditionCount() > 0) {
+				query.appendAnd();
+			}
+			query.appendWhere(new SearchCondition(NumberCode.class, "name", SearchCondition.LIKE,
+					"%" + name.toUpperCase() + "%"));
 		}
-		
-		if(description != null ) {
-		    if(query.getConditionCount()>0) { query.appendAnd(); }
-		    query.appendWhere(new SearchCondition(NumberCode.class, "description", SearchCondition.LIKE, "%"+description.toUpperCase()+"%"));
+
+		if (description != null) {
+			if (query.getConditionCount() > 0) {
+				query.appendAnd();
+			}
+			query.appendWhere(new SearchCondition(NumberCode.class, "description", SearchCondition.LIKE,
+					"%" + description.toUpperCase() + "%"));
 		}
-		
+
 		QueryResult result = PersistenceHelper.manager.find(query);
 		return result;
 	}
 
 	@Override
-	public ComponentConfig buildComponentConfig(ComponentParams arg0)
-			throws WTException {
+	public ComponentConfig buildComponentConfig(ComponentParams arg0) throws WTException {
 		// TODO Auto-generated method stub
 		ComponentConfigFactory factory = getComponentConfigFactory();
 
-        JcaTableConfig table = (JcaTableConfig)factory.newTableConfig();
-        table.setLabel(WTMessage.getLocalizedMessage(RESOURCE , "PART_MNG_SEARCH_SPEC_001", new Object[]{}, WTContext.getContext().getLocale()));
-        table.setDataSourceMode(DataSourceMode.ASYNCHRONOUS);
-        table.setSelectable(true);
-        table.setAutoGenerateRowId(true);
-        table.setShowCount(true);
-        
-        ColumnConfig numberCol = factory.newColumnConfig("code", true);
-        numberCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE , "CODE", new Object[]{}, WTContext.getContext().getLocale()));
-        table.addComponent(numberCol);
-        
-        ColumnConfig nameCol = factory.newColumnConfig("name", true);
-        nameCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE , "BUY_SPEC", new Object[]{}, WTContext.getContext().getLocale()));
-        nameCol.setWidth(60);
-        table.addComponent(nameCol);
-        
-        ColumnConfig descCol = factory.newColumnConfig("description", true);
-        descCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE , "MATERIAL_NAME", new Object[]{}, WTContext.getContext().getLocale()));
-        descCol.setWidth(200);
-        table.addComponent(descCol);
-        
-        ColumnConfig disableCol = factory.newColumnConfig("disable", true);
-        disableCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE , "SPEC_ACTIVE", new Object[]{}, WTContext.getContext().getLocale()));
-        disableCol.setDataUtilityId("numberCodeDisableDataUtility");
-        table.addComponent(disableCol);
-               
+		JcaTableConfig table = (JcaTableConfig) factory.newTableConfig();
+		table.setLabel(WTMessage.getLocalizedMessage(RESOURCE, "PART_MNG_SEARCH_SPEC_001", new Object[] {},
+				WTContext.getContext().getLocale()));
+		table.setDataSourceMode(DataSourceMode.ASYNCHRONOUS);
+		table.setSelectable(true);
+		table.setAutoGenerateRowId(true);
+		table.setShowCount(true);
 
-        return table;
+		ColumnConfig numberCol = factory.newColumnConfig("code", true);
+		numberCol.setLabel(
+				WTMessage.getLocalizedMessage(RESOURCE, "CODE", new Object[] {}, WTContext.getContext().getLocale()));
+		table.addComponent(numberCol);
+
+		ColumnConfig nameCol = factory.newColumnConfig("name", true);
+		nameCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE, "BUY_SPEC", new Object[] {},
+				WTContext.getContext().getLocale()));
+		nameCol.setWidth(60);
+		table.addComponent(nameCol);
+
+		ColumnConfig descCol = factory.newColumnConfig("description", true);
+		descCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE, "MATERIAL_NAME", new Object[] {},
+				WTContext.getContext().getLocale()));
+		descCol.setWidth(200);
+		table.addComponent(descCol);
+
+		ColumnConfig disableCol = factory.newColumnConfig("disable", true);
+		disableCol.setLabel(WTMessage.getLocalizedMessage(RESOURCE, "SPEC_ACTIVE", new Object[] {},
+				WTContext.getContext().getLocale()));
+		disableCol.setDataUtilityId("numberCodeDisableDataUtility");
+		table.addComponent(disableCol);
+
+		return table;
 	}
 
 	/**
