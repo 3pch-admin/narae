@@ -5,10 +5,10 @@
 	String parentOid =  request.getParameter("parentOid");
 	String responseText = "";
 	if( key.equals("CADATTRIBUTE") ) {
-		System.out.println("=="+parentOid);
+		System.out.println("222222=="+parentOid);
 		responseText = "$$$PTC_AJAX$$$" + CodeDispacher.getAjaxSubTypes(key,parentOid) + "$$$PTC_AJAX$$$";
 	} else {
-		System.out.println("=="+key);
+		System.out.println("gggg=="+key);
 		responseText = "$$$PTC_AJAX$$$" + CodeDispacher.getAjaxSubTypes(key) + "$$$PTC_AJAX$$$";
 	}
 

@@ -1,13 +1,7 @@
 package ext.narae;
 
 import ext.narae.util.code.NumberCode;
-import wt.change2.WTChangeRequest2;
-import wt.doc.WTDocument;
-import wt.fc.PersistenceHelper;
-import wt.fc.QueryResult;
-import wt.method.RemoteMethodServer;
-import wt.query.QuerySpec;
-import wt.query.SearchCondition;
+import ext.narae.util.code.beans.NumberCodeHelper;
 
 public class Test {
 
@@ -16,15 +10,10 @@ public class Test {
 //		RemoteMethodServer.getDefault().setUserName("wcadmin");
 //		RemoteMethodServer.getDefault().setPassword("n@r@epdm");
 
-		QuerySpec query = new QuerySpec();
-		int idx = query.appendClassList(WTChangeRequest2.class, true);
-
-		QueryResult result = PersistenceHelper.manager.find(query);
-		while (result.hasMoreElements()) {
-			Object[] obj = (Object[]) result.nextElement();
-			WTChangeRequest2 req = (WTChangeRequest2) obj[0];
-			System.out.println("name = " + req.getNumber());
-		}
+		
+		NumberCode code = NumberCodeHelper.manager.getNumberCode("CADATTRIBUTE", "04");
+		System.out.println(code.getName());
+		
 
 		System.exit(0);
 	}

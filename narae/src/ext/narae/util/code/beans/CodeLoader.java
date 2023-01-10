@@ -188,8 +188,8 @@ public class CodeLoader {
 				query.appendWhere(new SearchCondition(NumberCode.class, "disabled", SearchCondition.IS_FALSE),
 						new int[] { 0 });
 				query.appendAnd();
-				query.appendWhere(new SearchCondition(NumberCode.class, "parentReference.key.id",
-						SearchCondition.EQUAL, (long) 0), new int[] { 0 });
+				query.appendWhere(new SearchCondition(NumberCode.class, "parentReference.key.id", SearchCondition.EQUAL,
+						(long) 0), new int[] { 0 });
 				query.appendAnd();
 				query.appendWhere(new SearchCondition(NumberCode.class, "code", "=", codeID), new int[] { 0 });
 				QueryResult result = PersistenceHelper.manager.find(query);

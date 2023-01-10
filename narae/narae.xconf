@@ -79,4 +79,40 @@
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="resetQueueDailyBatch"/>
 
+	<!-- Worker BGMS -->
+   <Property name="wt.manager.cmd.BackgroundWVS" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="$(wt.manager.cmd.BackgroundMethodServer)"/>
+   <Property name="wt.manager.cmd.BackgroundWVSLauncher" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="$(wt.manager.cmd.BackgroundMethodServerLauncher)"/>
+   <Property name="wt.manager.cmd.BackgroundWVS.singleton.enforce" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="true"/>
+   <Property name="wt.manager.cmd.BackgroundWVS.param.4" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="$(wt.method.bg.maxHeap)"/>
+   <Property name="wt.manager.cmd.BackgroundWVS.param.5" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="WVS"/>
+   <Property name="wt.manager.cmd.BackgroundWVS.param.12" overridable="true"
+             targetFile="codebase/wt.properties"
+             value=""/>
+   <Property name="wt.manager.monitor.services" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="MethodServer BackgroundMethodServer BackgroundWVS"/>
+   <Property name="wt.manager.monitor.start.BackgroundWVS" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="1"/>
+   <Property name="wvs.queueGroup" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="WVS"/>             
+            
+	<!-- Background Method Server -->
+   <Property name="wt.manager.monitor.start.BackgroundMethodServer" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="1"/>
+   <Property name="wt.queue.executeQueues" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="false"/>
 </Configuration>

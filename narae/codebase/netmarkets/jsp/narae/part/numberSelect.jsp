@@ -1,4 +1,6 @@
+<%@page import="ext.narae.util.WCUtil"%>
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 
 <%@page import="java.util.HashMap"%>
 <%@page import="wt.doc.WTDocument,
@@ -6,8 +8,8 @@
 						wt.fc.Persistable,
 						wt.fc.QueryResult,
 						wt.part.WTPart"%>
-						
-<%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.util.*, ext.narae.ui.*, java.util.*" %>
+
+<%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.ui.*, java.util.*" %>
 <%
 String RESOURCE = "ext.narae.ui.common.resource.NaraeCommonRB";
 String UNITRB = "ext.narae.ui.common.resource.NareUnitRB";
