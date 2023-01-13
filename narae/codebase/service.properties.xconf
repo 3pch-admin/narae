@@ -2696,6 +2696,26 @@ selector="OFFICE365"/>
 			cardinality="duplicate"  />
 	</Service>
 
+	<Service context="default" name="com.ptc.core.components.descriptor.DataUtility">
+		<Option serviceClass="ext.narae.datautility.ChangeWorkflowTaskDataUtility"
+			selector="changeWorkflowTaskDataUtility" 
+			requestor="java.lang.Object"
+			cardinality="duplicate"  />
+	</Service>
+	
+	<Service context="default" name="com.ptc.core.components.descriptor.DataUtility">
+		<Option serviceClass="ext.narae.datautility.ChangeNumberOnWorkItemDataUtility"
+			selector="changeNumberOnWorkItemDataUtility" 
+			requestor="java.lang.Object"
+			cardinality="duplicate"  />
+	</Service>
+	
+	<Service context="default" name="com.ptc.core.components.descriptor.DataUtility">
+		<Option serviceClass="ext.narae.datautility.UserNameDataUtility"
+			selector="userNameDataUtility" 
+			requestor="java.lang.Object"
+			cardinality="duplicate"  />
+	</Service>		
     <!-- -*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-!-*-
 WARNING: Do not modify this file after it has been installed.  Use xconfmanager
          to set, reset, or undefine properties for your installation

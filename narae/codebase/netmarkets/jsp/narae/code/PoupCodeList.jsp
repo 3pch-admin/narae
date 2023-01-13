@@ -233,10 +233,10 @@
 		String codeOid = CommonUtil.getOIDString(ncode);
 %>
                                 <tr bgcolor="ffffff" >
-                                	<td class="tdwhiteM" align="center"><input type="checkbox" name='code' value='<%=codeOid%>|<%=ncode.getCode() %>|<%=ncode.getKorName()%>' 
+                                	<td class="tdwhiteM" align="center"><input type="checkbox" name='code' value='<%=codeOid%>|<%=ncode.getCode() %>|<%=ncode.getName()%>' 
                                 										   codeKey='<%=ncode.getCode() %>'
-                                										   codeName='<%=ncode.getKorName()%>' 	onclick="selectNode(this)"></td>
-                                    <td class="tdwhiteL"><%=ncode.getKorName()%></a></td>
+                                										   codeName='<%=ncode.getName()%>' 	onclick="selectNode(this)"></td>
+                                    <td class="tdwhiteL"><%=ncode.getName()%></a></td>
                                     <!--td class="tdwhiteL"><%=StringUtil.checkReplaceStr(ncode.getEngName(), "&nbsp;")%></td-->
                                     <td class="tdwhiteL"><%=ncode.getCode()%></td>
                                     <td class="tdwhiteL"><%=ncode.getDescription()%></td>

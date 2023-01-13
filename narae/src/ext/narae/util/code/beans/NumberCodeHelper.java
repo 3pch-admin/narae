@@ -128,6 +128,7 @@ public class NumberCodeHelper {
 				select.appendWhere(new SearchCondition(NumberCode2.class, "parentReference.key.id", "=", longOid),
 						new int[] { 0 });
 			}
+			System.out.println("query=" + select);
 			QueryResult result = PersistenceHelper.manager.find(select);
 			while (result.hasMoreElements()) {
 				return (NumberCode2) result.nextElement();
@@ -933,10 +934,36 @@ public class NumberCodeHelper {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
 
+	public NumberCode2 getNumberCode2(String codeType, String code, String name) {
+		if (code == null) {
+			return null;
+		}
+		try {
+			long longOid = 0;
+			QuerySpec select = new QuerySpec(NumberCode2.class);
+			select.appendWhere(new SearchCondition(NumberCode2.class, "codeType", "=", codeType), new int[] { 0 });
+			select.appendAnd();
+			select.appendWhere(new SearchCondition(NumberCode2.class, "code", "=", code), new int[] { 0 });
+			select.appendAnd();
+			select.appendWhere(new SearchCondition(NumberCode2.class, NumberCode2.NAME, "=", name), new int[] { 0 });
+			QueryResult result = PersistenceHelper.manager.find(select);
+			while (result.hasMoreElements()) {
+				return (NumberCode2) result.nextElement();
+			}
+		} catch (QueryException e) {
+			e.printStackTrace();
+		} catch (WTException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 }
+
 /*******************************************************************************
  * $Log: NumberCodeHelper.java,v $ Revision 1.3 2011/06/12 03:51:04 tsuam
  *

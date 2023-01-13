@@ -10,12 +10,21 @@ http://www.ptc.com/schema/mvc http://www.ptc.com/schema/mvc/mvc-10.0.xsd">
 		<context:include-filter type="regex" expression="(service|controller)\..*" />
 	</context:component-scan>
 
+	<!-- approval -->
 	<bean class="ext.narae.mvc.approval.NaraeMyWorkTableBuilder"></bean>
 	<bean class="ext.narae.mvc.approval.WorkitemTableBuilder"></bean>
-	<bean class="ext.narae.mvc.drawing.NaraeDrawingTableBuilder"></bean>
-	<bean class="ext.narae.mvc.software.NaraeSoftwareTableBuilder"></bean>
+	<!-- change -->
 	<bean class="ext.narae.mvc.change.NaraeECOTableBuilder"></bean>
 	<bean class="ext.narae.mvc.change.NaraeECRTableBuilder"></bean>
+	<!-- document -->
 	<bean class="ext.narae.mvc.document.NaraeDocumentTableBuilder"></bean>
+	<!-- drawing -->
+	<bean class="ext.narae.mvc.drawing.NaraeDrawingTableBuilder"></bean>
+	<!-- part -->
 	<bean class="ext.narae.mvc.part.NaraePartTableBuilder"></bean>
+	<bean class="ext.narae.mvc.part.NaraePartSingleSelectTableBuilder"></bean>
+	<bean class="ext.narae.mvc.part.NaraeMakerTableBuilder"></bean>
+	<bean class="ext.narae.mvc.part.NaraeSpecTableBuilder"></bean>
+	<!-- software -->
+	<bean class="ext.narae.mvc.software.NaraeSoftwareTableBuilder"></bean>
 </beans>	

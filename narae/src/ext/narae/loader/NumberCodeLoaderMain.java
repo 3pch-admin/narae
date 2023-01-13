@@ -51,7 +51,7 @@ public class NumberCodeLoaderMain {
 						continue;
 					}
 
-					NumberCode numberCode = NumberCodeHelper.manager.getNumberCode(codeType, code);
+					NumberCode numberCode = NumberCodeHelper.manager.getNumberCode(codeType, code, name);
 					if (numberCode == null) {
 						numberCode = NumberCode.newNumberCode();
 						numberCode.setCode(code);
@@ -61,6 +61,8 @@ public class NumberCodeLoaderMain {
 						numberCode.setName(name);
 						numberCode.setParent(null);
 						PersistenceHelper.manager.save(numberCode);
+					} else {
+						System.out.println("numberCode = " + numberCode.getCode() + ", name = " + numberCode.getName());
 					}
 				}
 			}
@@ -69,21 +71,31 @@ public class NumberCodeLoaderMain {
 				int rows = sheets[i].getRows();
 				for (int j = 1; j < rows; j++) {
 					Cell[] cell = sheets[i].getRow(j);
+					String name = JExcelUtil.getContent(cell, 1).trim();
 					String code = JExcelUtil.getContent(cell, 0).trim();
 					String codeType = JExcelUtil.getContent(cell, 2).trim();
 					String parentCode = JExcelUtil.getContent(cell, 3).trim();
 					String parentCodeType = JExcelUtil.getContent(cell, 4).trim();
+					String parentName = JExcelUtil.getContent(cell, 5).trim();
 
 					if (!StringUtil.checkString(codeType)) {
 						continue;
 					}
 
 					if (StringUtil.checkString(parentCode)) {
-						NumberCode numberCode = NumberCodeHelper.manager.getNumberCode(codeType, code);
-						NumberCode parent = NumberCodeHelper.manager.getNumberCode(parentCodeType, parentCode);
-						numberCode.setParent(parent);
-						System.out.println("parent=" + parent.getCode() + ", = " + parent.getName());
+						NumberCode numberCode = NumberCodeHelper.manager.getNumberCode(codeType, code, name);
+//						NumberCode parent = NumberCodeHelper.manager.getNumberCode(parentCodeType, parentCode);
+						NumberCode parent = NumberCodeHelper.manager.getNumberCode(parentCodeType, parentCode,
+								parentName);
+						if (parent != null) {
+							numberCode.setParent(parent);
+							System.out.println("parent=" + parent.getCode() + ", = " + parent.getName());
+						} else {
+							System.out.println("parent is null parentCode = " + parentCode + ", parentName = "
+									+ parentName + ", parentCodeType = " + parentCodeType);
+						}
 						PersistenceHelper.manager.modify(numberCode);
+						System.out.println("=" + numberCode.getParent());
 					}
 				}
 			}

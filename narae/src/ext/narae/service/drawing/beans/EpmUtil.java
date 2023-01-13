@@ -1161,6 +1161,7 @@ public class EpmUtil {
 			}
 		}
 
+		log.infoLog("checkCode = " + checkCode);
 		if (null == checkCode) {
 			returnValue.put("nameValue", errorMsg);
 			returnValue.put("result", false);
@@ -1681,8 +1682,8 @@ public class EpmUtil {
 						+ pdmNumber + "\tpdmName=" + pdmName);
 			} else {
 				try {
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
-							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
+					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
+							+ pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 					isNumber = CadInfoChange.manager.epmCadInfoChange(epm, pdmNumber, pdmName, cadName);
 					logger.debug("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
 							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
@@ -2080,8 +2081,8 @@ public class EpmUtil {
 					logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
 							+ pdmNumber + "\tpdmName=" + pdmName);
 					isNumber = CadInfoChange.manager.epmInfoChange(epm, pdmNumber, pdmName);
-					logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
-							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
+					logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber() + "\tpdmNumber="
+							+ pdmNumber + "\tpdmName=" + pdmName);
 				} else {
 					try {
 						logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
@@ -2171,8 +2172,8 @@ public class EpmUtil {
 
 				if (epm2D != null) {
 					String pdmNumber2D = epm.getNumber() + "_2D";
-					logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
-							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
+					logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + " 2D \tpdmNumber="
+							+ pdmNumber + "\tpdmName=" + pdmName);
 					boolean isNumber2D = CadInfoChange.manager.epmInfoChange(epm2D, pdmNumber2D, pdmName);
 					logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
 							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
@@ -2242,8 +2243,7 @@ public class EpmUtil {
 						if (!name2D.equals(pdmName)) {
 							logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
 									+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
-							boolean isNumber2D = CadInfoChange.manager.epmInfoChange(epm2D, epm2D.getNumber(),
-									pdmName);
+							boolean isNumber2D = CadInfoChange.manager.epmInfoChange(epm2D, epm2D.getNumber(), pdmName);
 							logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
 									+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 							if (isNumber2D) {
@@ -2287,10 +2287,10 @@ public class EpmUtil {
 						autoNumberValue = autoNumberValue + "(" + quantityunit + ")입력하신 단위의 정보를 찾을 수 없습니다 ,";
 					} else {
 						if (part != null) {
-							part = (WTPart) PersistenceHelper.manager.refresh(part);
-							WTPartMaster master = (WTPartMaster) part.getMaster();
-							master.setDefaultUnit(QuantityUnit.toQuantityUnit(quantityunit));
-							PersistenceHelper.manager.modify(master);
+//							part = (WTPart) PersistenceHelper.manager.refresh(part);
+//							WTPartMaster master = (WTPartMaster) part.getMaster();
+//							master.setDefaultUnit(QuantityUnit.toQuantityUnit(quantityunit));
+//							PersistenceHelper.manager.modify(master);
 						}
 
 					}
@@ -2327,13 +2327,14 @@ public class EpmUtil {
 			/* WTPART 속성 Check End */
 
 			/* autoNumber ,message */
+			epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
 			if (isNumber) {
-				IBAUtil.changeIBAValue(epm, autoNumber, "TRUE");
+//				IBAUtil.changeIBAValue(epm, autoNumber, "TRUE");
 			} else {
 				IBAUtil.changeIBAValue(epm, autoNumber, "FALSE");
 			}
 
-			IBAUtil.changeIBAValue(epm, "message", autoNumberValue);
+//			IBAUtil.changeIBAValue(epm, "message", autoNumberValue);
 
 		} catch (Exception e) {
 			try {
@@ -2912,11 +2913,10 @@ public class EpmUtil {
 						+ pdmNumber + "\tpdmName=" + pdmName);
 			} else {
 				try {
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
-							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
+					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
+							+ pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 					isNumber = CadInfoChange.manager.epmCadInfoChange(epm, pdmNumber, pdmName, cadName);
-					logger.debug(
-							"CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
+					logger.debug("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
 							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 				} catch (Exception e) {
 					log.errLog(e.getMessage());

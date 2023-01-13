@@ -108,11 +108,60 @@
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="WVS"/>             
             
-	<!-- Background Method Server -->
+   <!-- Background Method Server -->
    <Property name="wt.manager.monitor.start.BackgroundMethodServer" overridable="true"
              targetFile="codebase/wt.properties"
              value="1"/>
    <Property name="wt.queue.executeQueues" overridable="true"
              targetFile="codebase/wt.properties"
              value="false"/>
+
+   <!-- Service -->
+   <Property name="wt.services.service.6" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="ext.narae.service.org.E3psCompanyService/ext.narae.service.org.StandardE3psCompanyService"/>
+
+   <!-- Publish Last Version -->
+   <Property name="publish.configspublish.configspec.default.useasstoredifavailable" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="false"/>
+
+   <!-- Mail Host -->
+   <Property name="wt.mail.mailhost" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="mail.naraenano.com"/>
+
+   <!-- Publish After Service -->
+   <Property name="publish.afterloadermethod" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="com.ptc.wvs.util.AfterEDRloader/copyToEPM"/>
+   <Property name="publish.afterloadermethod.copyToEPM.Filext" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="pdf plt dwg igs stp"/>
+   <Property name="publish.retrieveallfiles" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="false"/>
+
+   <!-- Worker Service -->
+   <Property name="worker.exe.whitelist.prefixes" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="C:\|D:\|E:\|T:\|X:\|U:\|V:\|/|nohup /"/>
+
+   <!-- Publish Filter -->
+   <Property name="publish.service.filterepmdocumentpublishmethod" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="com.ptc.wvs.util.EPMDocumentPublishFilters/filterEPMDocumentPublish"/>
+   <Property name="publish.service.filterepmdocumentpublishmethod.defaultrule" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="include"/>
+   <Property name="publish.service.filterepmdocumentpublishmethod.excludelist" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="CONTAINERS&gt;*;EXTENSIONS&gt;frm,lay;LIFECYCLES&gt;*"/>
+   <Property name="publish.service.filterepmdocumentpublishmethod.includestartsNumberlist" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="NS;NA;NB;NP;NZ;"/>
+   <Property name="publish.service.filterpublishmethod" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="com.ptc.wvs.util.EPMDocumentPublishFilters/filterPublish"/>
+
 </Configuration>

@@ -49,13 +49,21 @@ public class NumberCode2LoaderMain {
 					String name = JExcelUtil.getContent(cell, 1).trim();
 					String codeType = JExcelUtil.getContent(cell, 2).trim();
 
-					NumberCode2 numberCode = NumberCode2.newNumberCode2();
-					numberCode.setCode(code);
-					numberCode.setCodeType(NumberCodeType.toNumberCodeType(codeType));
-					numberCode.setDescription(name);
-					numberCode.setEngName(name);
-					numberCode.setName(name);
-					PersistenceHelper.manager.save(numberCode);
+					if (!StringUtil.checkString(codeType)) {
+						continue;
+					}
+					NumberCode2 numberCode = NumberCodeHelper.manager.getNumberCode2(codeType, code, name);
+					if (numberCode == null) {
+						numberCode = NumberCode2.newNumberCode2();
+						numberCode.setCode(code);
+						numberCode.setCodeType(NumberCodeType.toNumberCodeType(codeType));
+						numberCode.setDescription(name);
+						numberCode.setEngName(name);
+						numberCode.setName(name);
+						PersistenceHelper.manager.save(numberCode);
+					} else {
+						System.out.println("numberCode = " + numberCode.getCode() + ", name = " + numberCode.getName());
+					}
 				}
 			}
 
@@ -63,15 +71,31 @@ public class NumberCode2LoaderMain {
 				int rows = sheets[i].getRows();
 				for (int j = 1; j < rows; j++) {
 					Cell[] cell = sheets[i].getRow(j);
+					String name = JExcelUtil.getContent(cell, 1).trim();
 					String code = JExcelUtil.getContent(cell, 0).trim();
 					String codeType = JExcelUtil.getContent(cell, 2).trim();
 					String parentCode = JExcelUtil.getContent(cell, 3).trim();
 					String parentCodeType = JExcelUtil.getContent(cell, 4).trim();
+					String parentName = JExcelUtil.getContent(cell, 5).trim();
+
+					if (!StringUtil.checkString(codeType)) {
+						continue;
+					}
+
 					if (StringUtil.checkString(parentCode)) {
-						NumberCode2 numberCode = NumberCodeHelper.manager.getNumberCode2(codeType, code);
-						NumberCode2 parent = NumberCodeHelper.manager.getNumberCode2(parentCodeType, parentCode);
-						numberCode.setParent(parent);
+						NumberCode2 numberCode = NumberCodeHelper.manager.getNumberCode2(codeType, code, name);
+//						NumberCode parent = NumberCodeHelper.manager.getNumberCode(parentCodeType, parentCode);
+						NumberCode2 parent = NumberCodeHelper.manager.getNumberCode2(parentCodeType, parentCode,
+								parentName);
+						if (parent != null) {
+							numberCode.setParent(parent);
+							System.out.println("parent=" + parent.getCode() + ", = " + parent.getName());
+						} else {
+							System.out.println("parent is null parentCode = " + parentCode + ", parentName = "
+									+ parentName + ", parentCodeType = " + parentCodeType);
+						}
 						PersistenceHelper.manager.modify(numberCode);
+						System.out.println("=" + numberCode.getParent());
 					}
 				}
 			}

@@ -2,7 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
 <%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
-<%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %>
+<%-- <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %> --%>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
 <%@ taglib prefix="narae" uri="http://www.ptc.com/windchill/taglib/narae"%>
@@ -165,7 +165,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DOC_MNG_CREATE_SW
 						<td class="tdblueM"><%=ORG_176%></td>
 						<td class="tdwhiteL" colspan="3">
 							<jsp:include page="/netmarkets/jsp/narae/portal/attacheFile_include.jsp" flush="true">
-							<jsp:param name="form" value="mainform" />
+							<jsp:param name="form" value="softwareCreateForm" />
 							<jsp:param name="command" value="insert" />
 						</jsp:include></td>
 					</tr>
@@ -195,7 +195,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DOC_MNG_CREATE_SW
 						<td class="tdwhiteL" colspan="3">
 							<input type=hidden name=product>
 							<jsp:include page="/netmarkets/jsp/narae/part/select_include.jsp" flush="true">
-	                        <jsp:param value="mainform" name="formName"/>
+	                        <jsp:param value="softwareCreateForm" name="formName"/>
 	                        </jsp:include></td>
 					</tr>
 					
@@ -204,7 +204,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "DOC_MNG_CREATE_SW
 						<td class="tdwhiteL" colspan="3">
 						<jsp:include
 							page="/netmarkets/jsp/narae/workspace/approval/approver_include.jsp" flush="true">
-							<jsp:param name="form" value="mainform" />
+							<jsp:param name="form" value="softwareCreateForm" />
 							<jsp:param name="command" value="insert" />
 						</jsp:include>
 						</td>
@@ -265,7 +265,7 @@ function selectDoc() {
 }
 
 function addDoc(arrObj) {
-    var pForm = document.mainform;
+    var pForm = document.softwareCreateForm;
 
     if(!arrObj.length) return;
 
@@ -311,7 +311,7 @@ function setHtml( tt, data) {
 }
 
 function deleteDoc() {
-    var pForm = document.mainform;
+    var pForm = document.softwareCreateForm;
 
     if(pForm['DocDelete'] && pForm['DocDelete'].length) {
         for(var i=pForm['DocDelete'].length-1; i>=0; i--) {
@@ -429,7 +429,7 @@ function saveSoftware() {
 	
 	
 	var url="/Windchill/netmarkets/jsp/narae/software/action/createSoftwareAction.jsp";
-	var frm = document.getElementsByName("mainform")[0];
+	var frm = document.getElementsByName("softwareCreateForm")[0];
 	frm.encoding = "multipart/form-data";
 	frm.method = "POST";
 	frm.action = url;

@@ -140,14 +140,16 @@ public class SequenceDao implements wt.method.RemoteAccess, java.io.Serializable
 				int sss = 0;
 				System.out.println("seqNum=" + seqNum);
 				if (seqNum == null) {
-					seqNum = "0";
+					seqNum = "000";
 				}
 				sss = Integer.parseInt(seqNum.replaceAll(" ", ""));
 				if (sss < 0)
 					sss = sss * -1;
 				sss = sss + 1;
 				System.out.println("query return seqNum = " + seqNum);
-				seqNum = String.valueOf(sss);
+//				seqNum = String.valueOf(sss);
+				DecimalFormat decimalformat = new DecimalFormat(format);
+				seqNum = decimalformat.format(sss);
 				System.out.println("query return change seqNum = " + seqNum);
 			}
 			if (seqNum == null) {

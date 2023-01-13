@@ -3,12 +3,15 @@ package ext.narae.service.drawing.beans;
 import ext.narae.util.CommonUtil;
 import wt.epm.EPMCADNamespace;
 import wt.epm.EPMDocument;
+import wt.epm.EPMDocumentHelper;
 import wt.epm.EPMDocumentMaster;
 import wt.epm.EPMDocumentMasterIdentity;
 import wt.fc.Identified;
 import wt.fc.IdentityHelper;
 import wt.fc.PersistenceHelper;
 import wt.fc.QueryResult;
+import wt.fc.collections.WTKeyedHashMap;
+import wt.fc.collections.WTKeyedMap;
 import wt.part.WTPart;
 import wt.part.WTPartMasterIdentity;
 import wt.query.QuerySpec;
@@ -47,14 +50,18 @@ public class CadInfoChange {
 							.getIdentificationObject();
 					epmdocumentmasteridentity.setNumber(s.trim());
 					epmdocumentmasteridentity.setName(s1.trim());
+					IdentityHelper.service.changeIdentity((Identified) master, epmdocumentmasteridentity);
+					master = (EPMDocumentMaster) PersistenceHelper.manager.refresh(master);
 					System.out.println(
 							(new StringBuilder()).append("number ===================== ").append(s).toString());
 					System.out
 							.println((new StringBuilder()).append("name ===================== ").append(s1).toString());
 //					epmdocumentmasteridentity.setCADName(s2.toLowerCase());
-					master.setCADName(s2.toLowerCase());
-					IdentityHelper.service.changeIdentity(master, epmdocumentmasteridentity);
-					PersistenceHelper.manager.refresh(epmdocument);
+//					IdentityHelper.service.changeIdentity(identified, epmdocumentmasteridentity);
+//					epmdocument = PersistenceHelper.manager.refresh(epmdocument);
+					WTKeyedMap map = new WTKeyedHashMap();
+					map.put(master, s2.toLowerCase());
+					EPMDocumentHelper.service.changeCADName(map);
 					cadNameSpaceChange(epmdocument);
 				}
 				flag1 = true;
@@ -106,7 +113,9 @@ public class CadInfoChange {
 				flag = true;
 			System.out.println("epmInfoChange \uC774\uB984 \uBCC0\uACBD \uC548\uD568 ");
 			if (flag) {
+				wtpart = (WTPart) PersistenceHelper.manager.refresh(wtpart);
 				wt.part.WTPartMaster wtpartmaster = wtpart.getMaster();
+				System.out.print("wtpartmaster = " + wtpartmaster);
 				WTPartMasterIdentity wtpartmasteridentity = (WTPartMasterIdentity) wtpartmaster
 						.getIdentificationObject();
 				wtpartmasteridentity.setNumber(s.trim());
@@ -121,21 +130,24 @@ public class CadInfoChange {
 		return flag1;
 	}
 
-	public void cadNameChange(EPMDocument epmdocument, String s) throws WTException, WTPropertyVetoException {
-		String s1 = epmdocument.getCADName();
-		boolean flag = false;
-		if (!s1.equals(s))
-			flag = true;
-		if (flag) {
-			EPMDocumentMaster master = (EPMDocumentMaster) epmdocument.getMaster();
-			EPMDocumentMasterIdentity epmdocumentmasteridentity = (EPMDocumentMasterIdentity) master
-					.getIdentificationObject();
-			master.setCADName(s.toUpperCase());
-//			epmdocumentmasteridentity. .setCADName(s.toLowerCase());
-			IdentityHelper.service.changeIdentity(master, epmdocumentmasteridentity);
-			PersistenceHelper.manager.refresh(epmdocument);
-		}
-	}
+//	public void cadNameChange(EPMDocument epmdocument, String s) throws WTException, WTPropertyVetoException {
+//		String s1 = epmdocument.getCADName();
+//		boolean flag = false;
+//		if (!s1.equals(s))
+//			flag = true;
+//		if (flag) {
+//			EPMDocumentMaster master = (EPMDocumentMaster) epmdocument.getMaster();
+////			Identified identified = (Identified) epmdocument.getMaster();
+//			EPMDocumentMasterIdentity epmdocumentmasteridentity = (EPMDocumentMasterIdentity) master
+//					.getIdentificationObject();
+//			epmdocumentmasteridentity.setCADName(s.toLowerCase());
+////			IdentityHelper.service.changeIdentity(identified, epmdocumentmasteridentity);
+////			PersistenceHelper.manager.refresh(epmdocument);
+//			WTKeyedMap map = new WTKeyedHashMap();
+//			map.put(m, s.toLowerCase());
+//			EPMDocumentHelper.service.changeCADName(map);
+//		}
+//	}
 
 	private void cadNameSpaceChange(EPMDocument epmdocument) {
 		EPMDocumentMaster epmdocumentmaster = (EPMDocumentMaster) epmdocument.getMaster();

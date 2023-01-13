@@ -1,16 +1,14 @@
-<%@page import="ext.narae.service.change.beans.ChangeHelper2"%>
-<%@page import="ext.narae.service.change.beans.ChangeHelper"%>
+<%@page import="ext.narae.service.drawing.beans.DrawingHelper2"%>
 <%@page import="ext.narae.util.content.NeoHttpRequestField"%>
 <%@page import="ext.narae.util.content.NeoHttpRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.util.*, ext.narae.ui.*, java.util.*" %>
-<%@ page import="ext.narae.service.drawing.*" %>
+<%@ page import="ext.narae.service.part.*" %>
 <%@ page import="wt.epm.*" %>
 <%@ page import="wt.fc.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.io.*" %>
-<%@ page import="ext.narae.service.change.*" %>
+<%@ page import="ext.narae.service.drawing.*" %>
 <%@ page import="ext.narae.component.*" %>
 <jsp:useBean id="wtcontext" class="wt.httpgw.WTContextBean" scope="request" />
 <jsp:setProperty name="wtcontext" property="request" value="<%= request %>" />
@@ -44,10 +42,7 @@
 				}
 			}
 		} else {
-			System.out.println("=======> " + field+"\t");
-			if(null!=field&& null!=field.getFieldName() && null!=field.getValue() ){
-				hash.put(field.getFieldName(), field.getValue());
-			}
+			hash.put(field.getFieldName(), field.getValue());
 		}
 		//System.out.println("=======> " + field.getFieldName() + " : " + (field.IsFile() ? "file" : "not file") + ", " + field.getSize() + "|" + field.getValue() + "|" + field.getFileName() +"<br>\r\n");
 	}
@@ -56,9 +51,18 @@
 		hash.put("secondary", secondary);
 		hash.put("secondaryFileName", secondaryName);
 	}
-	ChangeHelper2.createECO(hash, true);
+	
+	String oid = "";
+	try {
+		EPMDocument part = DrawingHelper2.create(hash);
+		if( part != null ) {
+			oid = part.getPersistInfo().getObjectIdentifier().toString();
+		}
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
 
 %>
 <script>
-parent.showFinished('submit');
+parent.showFinished('<%=oid%>');
 </script>

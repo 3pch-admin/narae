@@ -13,34 +13,6 @@ import static com.ptc.core.components.descriptor.DescriptorConstants.ColumnIdent
 import static com.ptc.core.components.descriptor.DescriptorConstants.ColumnIdentifiers.VERSION;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-
-import wt.change2.WTChangeRequest2;
-import wt.epm.EPMDocument;
-import wt.fc.PersistenceHelper;
-import wt.fc.QueryResult;
-import wt.iba.definition.litedefinition.AttributeDefDefaultView;
-import wt.iba.definition.service.IBADefinitionHelper;
-import wt.iba.value.StringValue;
-import wt.org.OrganizationServicesHelper;
-import wt.org.WTPrincipal;
-import wt.org.WTUser;
-import wt.part.WTPart;
-import wt.query.ClassAttribute;
-import wt.query.ColumnExpression;
-import wt.query.ConstantExpression;
-import wt.query.QuerySpec;
-import wt.query.SearchCondition;
-import wt.query.StringSearch;
-import wt.session.SessionHelper;
-import wt.util.WTContext;
-import wt.util.WTException;
-import wt.util.WTMessage;
-import wt.vc.VersionControlHelper;
-import wt.vc.config.ConfigHelper;
-import wt.vc.config.LatestConfigSpec;
 
 import com.ptc.jca.mvc.components.JcaTableConfig;
 import com.ptc.mvc.components.AbstractComponentBuilder;
@@ -53,6 +25,22 @@ import com.ptc.mvc.components.ds.DataSourceMode;
 
 import ext.narae.service.CommonUtil2;
 import ext.narae.service.org.People;
+import wt.fc.PersistenceHelper;
+import wt.fc.QueryResult;
+import wt.iba.definition.litedefinition.AttributeDefDefaultView;
+import wt.iba.definition.service.IBADefinitionHelper;
+import wt.iba.value.StringValue;
+import wt.org.WTUser;
+import wt.part.WTPart;
+import wt.query.QuerySpec;
+import wt.query.SearchCondition;
+import wt.query.StringSearch;
+import wt.util.WTContext;
+import wt.util.WTException;
+import wt.util.WTMessage;
+import wt.vc.VersionControlHelper;
+import wt.vc.config.ConfigHelper;
+import wt.vc.config.LatestConfigSpec;
 
 @ComponentBuilder("ext.narae.part.PartList.SingleSelect")
 public class NaraePartSingleSelectTableBuilder extends AbstractComponentBuilder {

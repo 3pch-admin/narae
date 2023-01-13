@@ -1,5 +1,7 @@
+<%@page import="wt.fc.WTReference"%>
+<%@page import="wt.fc.ReferenceFactory"%>
+<%@page import="ext.narae.util.code.NumberCode"%>
 <%@page import="wt.session.SessionHelper"%>
-<%@page import="wt.fc.*, com.e3ps.common.code.NumberCode"%>
 <%
 	String oid = request.getParameter("oid");
 	ReferenceFactory referencefactory = new ReferenceFactory();
