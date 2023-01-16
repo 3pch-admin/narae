@@ -639,7 +639,6 @@ function withdrawECO() {
 
 function approveECO() {
 	if (!confirm("<%=WTMessage.getLocalizedMessage(RESOURCE , "ASK_APPROVE", new Object[]{}, locale)%>")) return;
-	
 	xmlHttp1 = null;
 	try{
 		xmlHttp1 = new XMLHttpRequest();				

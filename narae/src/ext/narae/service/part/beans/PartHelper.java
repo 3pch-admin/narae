@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
@@ -87,6 +88,7 @@ import wt.vc.wip.WorkInProgressHelper;
 import wt.vc.wip.Workable;
 
 public class PartHelper {
+	public static final PartHelper manager = new PartHelper();
 	public static final String ATT_PART_FOLDER = "selectedFolderFromFolderContext";
 	public static final String ATT_PART_FOLDER_PATH = "partFolderValue";
 	public static final String ATT_NUMBER = "number";
@@ -121,7 +123,6 @@ public class PartHelper {
 
 	public static final String ATT_EPM_OID = "epmOidValue";
 
-	public static PartHelper manager = new PartHelper();
 	static final boolean SERVER = wt.method.RemoteMethodServer.ServerFlag;
 
 	public static WTPart createPart(HashMap<String, Object> params) throws Exception {
@@ -1415,4 +1416,30 @@ public class PartHelper {
 		return mapproval;
 	}
 
+	public String getNextNumber(String number) throws Exception {
+		DecimalFormat df = new DecimalFormat("00000");
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(WTPartMaster.class, true);
+
+		SearchCondition sc = new SearchCondition(WTPartMaster.class, WTPartMaster.NUMBER, "LIKE",
+				"%" + number + "%");
+		query.appendWhere(sc, new int[] { idx });
+
+		ClassAttribute ca = new ClassAttribute(WTPartMaster.class, WTPartMaster.NUMBER);
+		OrderBy by = new OrderBy(ca, true);
+		query.appendOrderBy(by, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find(query);
+		System.out.println(query);
+		if (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			WTPartMaster master = (WTPartMaster) obj[0];
+			String n = master.getNumber();
+			int _idx = n.lastIndexOf("-");
+			n = n.substring(_idx + 1);
+			int reValue = Integer.parseInt(n) + 1;
+			return df.format(reValue);
+		}
+		return "00000";
+	}
 }

@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
 
+import ext.narae.service.document.beans.DocumentHelper2;
+import ext.narae.service.drawing.beans.DrawingHelper2;
+import ext.narae.service.part.beans.PartHelper;
 import wt.introspection.ClassInfo;
 import wt.introspection.WTIntrospector;
 import wt.method.MethodContext;
@@ -87,82 +90,98 @@ public class SequenceDao implements wt.method.RemoteAccess, java.io.Serializable
 			 */
 
 			StringBuffer sb = null;
-
+			String seqNum = "000";
 			if ("Oracle".equals(dataStore)) {
 
-				sb = new StringBuffer().append("select to_char(  TO_NUMBER(SUBSTR(   NVL(   MAX(").append(colName)
-						.append("),?),?))+1,?) FROM ").append(tabName).append(" WHERE ").append(colName)
-						.append(" LIKE ?");
+//				sb = new StringBuffer().append("select to_char(  TO_NUMBER(SUBSTR(   NVL(   MAX(").append(colName)
+//						.append("),?),?))+1,?) FROM ").append(tabName).append(" WHERE ").append(colName)
+//						.append(" LIKE ?");
 
-			} else {
-				if (!colName.contains("WTPart")) {
-					sb = new StringBuffer().append("SELECT convert( bigint, SUBSTRING( ISNULL( MAX(").append(colName)
-							.append("),?),?, len( ISNULL( MAX(").append(colName).append("),?) ) )*-1) FROM ")
-							.append(tabName).append(" WHERE ").append(colName);
-
-					if (tabName.equals("EPMDocumentMaster")) {
-						sb.append(" LIKE ? and len( documentNumber)=16 ");
-						sb.append(" AND docType <>'CADDRAWING'");
-					} else {
-						sb.append(" LIKE ?");
-					}
-				} else {
-					sb = new StringBuffer().append("SELECT (convert( bigint, SUBSTRING( ISNULL( MAX(").append(colName)
-							.append("),?),?, len( ISNULL( MAX(").append(colName).append("),?) ) ) )*-1) FROM ")
-							.append(tabName).append(" WHERE ").append(colName)
-							.append(" LIKE ? and len( WTPartNumber)=16 ")
-							.append("AND RIGHT(WTPartNumber, 4) <> '.PRT'");
+				// WTPart
+				if(tabName.equals("WTPartMaster")) {
+					seqNum = PartHelper.manager.getNextNumber(seqName);
+				}
+				// EPMDoc
+				
+				if(tabName.equals("EPMDocumentMaster")) {
+					seqNum = DrawingHelper2.manager.getNextNumber(seqName);
+				}
+				
+				// WTDO
+				if(tabName.equals("WTDocumentMaster")) {
+					seqNum = DocumentHelper2.manager.getNextNumber(seqName);
 				}
 			}
-
-			System.out.println("query = " + sb.toString());
-			st = con.prepareStatement(sb.toString());
-
-			st.setString(1, seqName);
-			System.out.println("query 1 in = seqName =" + seqName);
-			st.setInt(2, seqName.length() + 1);
-			System.out.println("query 2 in = seqName.length()+1 =" + (seqName.length() + 1));
-			if ("Oracle".equals(dataStore)) {
-				st.setString(3, format);
-				st.setString(4, seqName + "%");
-			} else {
-				System.out.println("query 3 in = seqName =" + seqName);
-				st.setString(3, seqName);
-				System.out.println("query 4 in = seqName% =" + seqName + "%");
-				st.setString(4, seqName + "%");
-			}
-
-			rs = st.executeQuery();
-
-			String seqNum = null;
-			while (rs.next()) {
-				seqNum = rs.getString(1);
-				int sss = 0;
-				System.out.println("seqNum=" + seqNum);
-				if (seqNum == null) {
-					seqNum = "000";
-				}
-				sss = Integer.parseInt(seqNum.replaceAll(" ", ""));
-				if (sss < 0)
-					sss = sss * -1;
-				sss = sss + 1;
-				System.out.println("query return seqNum = " + seqNum);
-//				seqNum = String.valueOf(sss);
-				DecimalFormat decimalformat = new DecimalFormat(format);
-				seqNum = decimalformat.format(sss);
-				System.out.println("query return change seqNum = " + seqNum);
-			}
-			if (seqNum == null) {
-				DecimalFormat decimalformat = new DecimalFormat(format);
-				seqNum = decimalformat.format(Long.parseLong(format) + 1);
-			} else if (!"Oracle".equals(dataStore)) {
-				DecimalFormat decimalformat = new DecimalFormat(format);
-				seqNum = decimalformat.format(Long.parseLong(seqNum));
-			}
-
-			seqNum = seqNum.trim();
-
 			return seqNum;
+//			} else {
+//				if (!colName.contains("WTPart")) {
+//					sb = new StringBuffer().append("SELECT convert( bigint, SUBSTRING( ISNULL( MAX(").append(colName)
+//							.append("),?),?, len( ISNULL( MAX(").append(colName).append("),?) ) )*-1) FROM ")
+//							.append(tabName).append(" WHERE ").append(colName);
+//
+//					if (tabName.equals("EPMDocumentMaster")) {
+//						sb.append(" LIKE ? and len( documentNumber)=16 ");
+//						sb.append(" AND docType <>'CADDRAWING'");
+//					} else {
+//						sb.append(" LIKE ?");
+//					}
+//				} else {
+//					sb = new StringBuffer().append("SELECT (convert( bigint, SUBSTRING( ISNULL( MAX(").append(colName)
+//							.append("),?),?, len( ISNULL( MAX(").append(colName).append("),?) ) ) )*-1) FROM ")
+//							.append(tabName).append(" WHERE ").append(colName)
+//							.append(" LIKE ? and len( WTPartNumber)=16 ")
+//							.append("AND RIGHT(WTPartNumber, 4) <> '.PRT'");
+//				}
+//			}
+//
+//			System.out.println("query = " + sb.toString());
+//			st = con.prepareStatement(sb.toString());
+//
+//			st.setString(1, seqName);
+//			System.out.println("query 1 in = seqName =" + seqName);
+//			st.setInt(2, seqName.length() + 1);
+//			System.out.println("query 2 in = seqName.length()+1 =" + (seqName.length() + 1));
+//			if ("Oracle".equals(dataStore)) {
+//				st.setString(3, format);
+//				st.setString(4, seqName + "%");
+//			} else {
+//				System.out.println("query 3 in = seqName =" + seqName);
+//				st.setString(3, seqName);
+//				System.out.println("query 4 in = seqName% =" + seqName + "%");
+//				st.setString(4, seqName + "%");
+//			}
+//
+//			rs = st.executeQuery();
+//
+//			String seqNum = null;
+//			while (rs.next()) {
+//				seqNum = rs.getString(1);
+//				int sss = 0;
+//				System.out.println("seqNum=" + seqNum);
+//				if (seqNum == null) {
+//					seqNum = "000";
+//				}
+//				sss = Integer.parseInt(seqNum.replaceAll(" ", ""));
+//				if (sss < 0)
+//					sss = sss * -1;
+//				sss = sss + 1;
+//				System.out.println("query return seqNum = " + seqNum);
+////				seqNum = String.valueOf(sss);
+//				DecimalFormat decimalformat = new DecimalFormat(format);
+//				seqNum = decimalformat.format(sss);
+//				System.out.println("query return change seqNum = " + seqNum);
+//			}
+//			if (seqNum == null) {
+//				DecimalFormat decimalformat = new DecimalFormat(format);
+//				seqNum = decimalformat.format(Long.parseLong(format) + 1);
+//			} else if (!"Oracle".equals(dataStore)) {
+//				DecimalFormat decimalformat = new DecimalFormat(format);
+//				seqNum = decimalformat.format(Long.parseLong(seqNum));
+//			}
+//
+//			seqNum = seqNum.trim();
+//
+//			return seqNum;
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception(e);

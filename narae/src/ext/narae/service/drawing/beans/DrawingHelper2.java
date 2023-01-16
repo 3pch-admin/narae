@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -60,6 +61,8 @@ import wt.method.RemoteAccess;
 import wt.method.RemoteMethodServer;
 import wt.part.WTPart;
 import wt.pom.Transaction;
+import wt.query.ClassAttribute;
+import wt.query.OrderBy;
 import wt.query.QuerySpec;
 import wt.query.SearchCondition;
 import wt.representation.Representation;
@@ -69,6 +72,7 @@ import wt.vc.VersionControlHelper;
 import wt.vc.config.LatestConfigSpec;
 
 public class DrawingHelper2 implements RemoteAccess, Serializable {
+	public static final DrawingHelper2 manager = new DrawingHelper2();
 	private static final Logger log = LogR.getLoggerInternal(DrawingHelper2.class.getName());
 	private static String TEST_SERVER = "wc10.ptc.com";
 
@@ -806,4 +810,44 @@ public class DrawingHelper2 implements RemoteAccess, Serializable {
 		}
 		return doc;
 	}
+
+	public String getNextNumber(String number) throws Exception {
+		DecimalFormat df = new DecimalFormat("00000");
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(EPMDocumentMaster.class, true);
+
+		SearchCondition sc = new SearchCondition(EPMDocumentMaster.class, EPMDocumentMaster.NUMBER, "LIKE",
+				"%" + number + "%");
+		query.appendWhere(sc, new int[] { idx });
+		query.appendAnd();
+
+		query.appendOpenParen();
+
+		sc = new SearchCondition(EPMDocumentMaster.class, EPMDocumentMaster.DOC_TYPE, "=", "CADASSEMBLY");
+		query.appendWhere(sc, new int[] { idx });
+		query.appendOr();
+
+		sc = new SearchCondition(EPMDocumentMaster.class, EPMDocumentMaster.DOC_TYPE, "=", "CADCOMPONENT");
+		query.appendWhere(sc, new int[] { idx });
+
+		query.appendCloseParen();
+
+		ClassAttribute ca = new ClassAttribute(EPMDocumentMaster.class, EPMDocumentMaster.NUMBER);
+		OrderBy by = new OrderBy(ca, true);
+		query.appendOrderBy(by, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find(query);
+		System.out.println(query);
+		if (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			EPMDocumentMaster master = (EPMDocumentMaster) obj[0];
+			String n = master.getNumber();
+			int _idx = n.lastIndexOf("-");
+			n = n.substring(_idx + 1);
+			int reValue = Integer.parseInt(n) + 1;
+			return df.format(reValue);
+		}
+		return "00000";
+	}
+
 }

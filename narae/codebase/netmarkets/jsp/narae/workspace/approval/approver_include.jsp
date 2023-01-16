@@ -499,19 +499,19 @@ function checkRequired() {
 	// false일때는 저장 불가 ==> 결재 신청이 불가함
 	// true일때는 저장 가능
 
-// 	if( document.getElementsByName("infoUser3").lengh >  0 ) {	//alert("합의 not null");
-// 		if( document.getElementsByName("infoUser4").length > 0 ){ //alert("결재 not null");
-// 			return true
-// 		} else { //alert("합의전 결재, 결재 null");
-// 			return false;
-// 		}
-// 	} else { //alert("합의 null");
-// 		if( document.getElementsByName("infoUser4").length > 0 ){ //alert("결재 not null");
-// 			return true
-// 		} else { //alert("합의전 결재, 결재  null");
-// 			return false;
-// 		}
-// 	}
+	if( document.getElementsByName("infoUser3").lengh >  0 ) {	//alert("합의 not null");
+		if( document.getElementsByName("infoUser4").length > 0 ){ //alert("결재 not null");
+			return true
+		} else { //alert("합의전 결재, 결재 null");
+			return false;
+		}
+	} else { //alert("합의 null");
+		if( document.getElementsByName("infoUser4").length > 0 ){ //alert("결재 not null");
+			return true
+		} else { //alert("합의전 결재, 결재  null");
+			return false;
+		}
+	}
 	// 임시처리..
 	return true; 
 }

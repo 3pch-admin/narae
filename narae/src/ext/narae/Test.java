@@ -11,7 +11,12 @@ public class Test {
 //		RemoteMethodServer.getDefault().setUserName("wcadmin");
 //		RemoteMethodServer.getDefault().setPassword("n@r@epdm");
 
+		String s = "NP-MAAL-01-00001";
+
+		int idx = s.lastIndexOf("-");
+		s = s.substring(idx + 1);
 		
+		System.out.println(s);
 
 		System.exit(0);
 	}

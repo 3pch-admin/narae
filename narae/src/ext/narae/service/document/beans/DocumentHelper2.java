@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
 import java.rmi.RemoteException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -27,6 +28,7 @@ import wt.content.ContentRoleType;
 import wt.content.ContentServerHelper;
 import wt.doc.DocumentType;
 import wt.doc.WTDocument;
+import wt.doc.WTDocumentMaster;
 import wt.enterprise.TemplateInfo;
 import wt.fc.PersistenceHelper;
 import wt.fc.PersistenceServerHelper;
@@ -42,12 +44,15 @@ import wt.method.RemoteMethodServer;
 import wt.part.WTPart;
 import wt.part.WTPartDescribeLink;
 import wt.pom.Transaction;
+import wt.query.ClassAttribute;
+import wt.query.OrderBy;
 import wt.query.QuerySpec;
 import wt.query.SearchCondition;
 import wt.session.SessionHelper;
 import wt.util.WTException;
 
 public class DocumentHelper2 {
+	public static final DocumentHelper2 manager = new DocumentHelper2();
 	private static final Logger log = LogR.getLoggerInternal(DocumentHelper2.class.getName());
 	private static String TEST_SERVER = "wc10.ptc.com";
 
@@ -301,4 +306,31 @@ public class DocumentHelper2 {
 		System.out.println(fileName.substring(fileName.lastIndexOf(File.separator)));
 	}
 
+	// TODO Auto-generated method stub
+	public String getNextNumber(String number) throws Exception {
+		DecimalFormat df = new DecimalFormat("00000");
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(WTDocumentMaster.class, true);
+
+		SearchCondition sc = new SearchCondition(WTDocumentMaster.class, WTDocumentMaster.NUMBER, "LIKE",
+				"%" + number + "%");
+		query.appendWhere(sc, new int[] { idx });
+
+		ClassAttribute ca = new ClassAttribute(WTDocumentMaster.class, WTDocumentMaster.NUMBER);
+		OrderBy by = new OrderBy(ca, true);
+		query.appendOrderBy(by, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find(query);
+		System.out.println(query);
+		if (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			WTDocumentMaster master = (WTDocumentMaster) obj[0];
+			String n = master.getNumber();
+			int _idx = n.lastIndexOf("-");
+			n = n.substring(_idx + 1);
+			int reValue = Integer.parseInt(n) + 1;
+			return df.format(reValue);
+		}
+		return "00000";
+	}
 }
