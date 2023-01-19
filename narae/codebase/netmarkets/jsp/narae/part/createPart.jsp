@@ -1,3 +1,4 @@
+<%@page import="wt.inf.library.WTLibrary"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
 <%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
@@ -31,7 +32,8 @@ String UNITRB = "ext.narae.ui.common.resource.NareUnitRB";
 Locale locale = WTContext.getContext().getLocale();
 String M001 = WTMessage.getLocalizedMessage(RESOURCE , "M001", new Object[]{}, WTContext.getContext().getLocale());
 WTContainerRef containerRef = WCUtil.getWTContainerRefForDrawing();
-WTContainerRef partContainerRef = WCUtil.getWTContainerRefForPart();
+// WTContainerRef partContainerRef = WCUtil.getWTContainerRefForPart();
+WTLibrary partContainerRef = WCUtil.getLibrary();
 
 String ORG_938 = WTMessage.getLocalizedMessage(RESOURCE , "ORG_938", new Object[]{}, locale);
 String ORG_1013 = WTMessage.getLocalizedMessage(RESOURCE , "ORG_1013", new Object[]{}, locale);
@@ -101,8 +103,8 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "PART_MNG_CREATE_P
                                     <td class="tdblueM"><%=SELECT_FOLDER %> <span style="color:red;">*</span></td>
                                     <td class="tdwhiteL" colspan="3">
                                         <input class="txt_field" type="text" value="" id="partFolder" name="partFolder" size=60 readOnly></input>
-										<input id="LocationPicker___old" name="partFolder___old" value="/PART" size="25/" type="hidden">
-										<a id="newlocation_loc_img" href="javascript:launchFolderPicker ('/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/invokeAction?action=cadxBrowseLocations&amp;oid=<%=partContainerRef.getObjectId().getStringValue()%>&amp;containerVisibilityMask=<%=partContainerRef.getObjectId().getStringValue()%>&amp;accessPermission=modify&amp;displayHotlinks=false&amp;displayCreateFolder=true',document.getElementsByName('partFolder')[0],'selectedFolderFromFolderContext')">
+										<input id="LocationPicker___old" name="partFolder___old" value="/LIB" size="25/" type="hidden">
+										<a id="newlocation_loc_img" href="javascript:launchFolderPicker ('/Windchill/servlet/WindchillAuthGW/wt.enterprise.URLProcessor/invokeAction?action=cadxBrowseLocations&amp;oid=<%=partContainerRef.getPersistInfo().getObjectIdentifier().getStringValue()%>&amp;containerVisibilityMask=<%=partContainerRef.getPersistInfo().getObjectIdentifier().getStringValue()%>&amp;accessPermission=modify&amp;displayHotlinks=false&amp;displayCreateFolder=true',document.getElementsByName('partFolder')[0],'selectedFolderFromFolderContext')">
 										<img border="0" src="/Windchill/netmarkets/jsp/narae/portal/images/s_search.gif"></img>
 										</a>
 										<input name="selectedFolderFromFolderContext" value="" type="hidden"><input name="defaultFolderFromRulesEngine" value="" type="hidden"><input name="FormProcessorDelegate" value="com.ptc.windchill.enterprise.folder.LocationPropertyProcessor" type="hidden"> 

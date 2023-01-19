@@ -520,6 +520,10 @@ public class IBAUtil {
 				sv.setValue(value);
 				sv.setDefinitionReference((StringDefinitionReference) sd.getAttributeDefinitionReference());
 				sv.setIBAHolderReference((IBAHolderReference.newIBAHolderReference(ibaHolder)));
+
+				System.out.println("value=" + value);
+				System.out.println("sv=" + attrName);
+
 				PersistenceHelper.manager.save(sv);
 			} else if ("float".equalsIgnoreCase(type)) {
 				FloatValue fv = new FloatValue();

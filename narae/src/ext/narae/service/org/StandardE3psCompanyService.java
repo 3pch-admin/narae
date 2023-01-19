@@ -15,6 +15,7 @@ package ext.narae.service.org;
 
 import java.io.Serializable;
 
+import com.infoengine.SAK.Task;
 //import com.ptc.windchill.enterprise.util.PartManagementHelper;
 //import com.ptc.windchill.uwgm.soap.uwgmdb.LifeCycleManaged;
 import com.ptc.wvs.server.publish.PublishServiceEvent;
@@ -22,17 +23,18 @@ import com.ptc.wvs.server.publish.PublishServiceEvent;
 
 import ext.narae.service.org.beans.UserHelper;
 import ext.narae.util.EventVersionManager;
-import ext.narae.util.EventVersionManager;
 import wt.epm.listeners.EPMEventServiceEvent;
 import wt.events.KeyedEvent; // Preserved unmodeled dependency
 import wt.events.KeyedEventListener; // Preserved unmodeled dependency
 import wt.fc.PersistenceManagerEvent; // Preserved unmodeled dependency
+import wt.federation.PrincipalManager.DirContext;
 import wt.org.OrganizationServicesEvent; // Preserved unmodeled dependency
 import wt.org.WTUser; // Preserved unmodeled dependency
 import wt.services.ManagerException;
 import wt.services.ServiceEventListenerAdapter; // Preserved unmodeled dependency
 import wt.services.StandardManager;
 import wt.util.WTException;
+import wt.util.WTProperties;
 import wt.vc.VersionControlServiceEvent;
 import wt.vc.wip.WorkInProgressServiceEvent; // Preserved unmodeled dependency
 import wt.workflow.engine.WfEngineServiceEvent; // Preserved unmodeled dependency
@@ -55,6 +57,42 @@ public class StandardE3psCompanyService extends StandardManager implements E3psC
 
 	private static final String RESOURCE = "com.e3ps.org.orgResource";
 	private static final String CLASSNAME = StandardE3psCompanyService.class.getName();
+
+	private static String userAdapter;
+	private static String userDirectory;
+	private static String userSearch;
+
+	static {
+		try {
+			WTProperties props = WTProperties.getServerProperties();
+			String taskRootDirectory = props.getProperty("wt.federation.taskRootDirectory");
+			String taskCodebase = props.getProperty("wt.federation.taskCodebase");
+			String mapCredentials = props.getProperty("wt.federation.task.mapCredentials");
+			String credentialsMapper = System.getProperty("com.infoengine.credentialsMapper");
+
+			userDirectory = props.getProperty("wt.federation.org.defaultDirectoryUser",
+					props.getProperty("wt.admin.defaultAdministratorName"));
+
+			String VMName = props.getProperty("wt.federation.ie.VMName");
+			if (VMName != null) {
+				System.setProperty("com.infoengine.vm.name", VMName);
+			}
+			if (taskCodebase != null) {
+				System.setProperty("com.infoengine.taskProcessor.codebase", taskCodebase);
+			}
+			if (taskRootDirectory != null) {
+				System.setProperty("com.infoengine.taskProcessor.templateRoot", taskRootDirectory);
+			}
+			if (mapCredentials != null && credentialsMapper == null) {
+				System.setProperty("com.infoengine.credentialsMapper", mapCredentials);
+			}
+
+			userAdapter = DirContext.getDefaultJNDIAdapter();
+			userSearch = DirContext.getJNDIAdapterSearchBase(userAdapter);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Returns the conceptual (modeled) name for the class.
@@ -183,6 +221,21 @@ public class StandardE3psCompanyService extends StandardManager implements E3psC
 			}
 			EventVersionManager.manager.eventListener(eventObj, eventTypeStr);
 		}
+	}
+
+	@Override
+	public void password(String id, String password) throws Exception {
+		String uid = DirContext.getMapping(userAdapter, "user.uniqueIdAttribute",
+				DirContext.getMapping(userAdapter, "user.uid"));
+		String object = uid + "=" + id + "," + userSearch;
+
+		Task task = new Task("/wt/federation/UpdatePrincipal.xml");
+		task.addParam("object", object);
+		task.addParam("field", DirContext.getMapping(userAdapter, "user.userPassword") + "=" + password);
+		task.addParam("modification", "replace");
+		task.addParam("instance", userAdapter);
+		task.setUsername(userDirectory);
+		task.invoke();
 	}
 
 }

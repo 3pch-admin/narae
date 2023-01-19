@@ -201,4 +201,8 @@
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="false"/>
 
+   <!-- Cache Setting -->
+   <Property name="wt.cache.size.PreferenceCache" overridable="true"
+             targetFile="codebase/wt.properties"
+             value="5000"/>
 </Configuration>

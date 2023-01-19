@@ -23,4 +23,5 @@ import wt.method.RemoteInterface;
 @RemoteInterface
 public interface E3psCompanyService {
 
+	public void password(final String id, final String password) throws Exception;
 }
