@@ -8,6 +8,9 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import com.ptc.wvs.common.ui.PublishResult;
+import com.ptc.wvs.server.publish.Publish;
+
 import ext.narae.service.drawing.beans.EpmUtil;
 import ext.narae.util.iba.IBAUtil;
 import wt.doc.WTDocument;
@@ -30,6 +33,7 @@ import wt.query.SearchCondition;
 import wt.util.WTException;
 import wt.vc.VersionControlHelper;
 import wt.vc.Versioned;
+import wt.vc.config.ConfigSpec;
 import wt.vc.views.View;
 import wt.vc.views.ViewReference;
 import wt.vc.wip.WorkInProgressHelper;
@@ -48,10 +52,13 @@ public class EventVersionManager {
 				preDeleteEvent((WTPart) _obj);
 			} else if (_event.equals("UPDATE")) {
 				String number = ((WTPart) _obj).getNumber();
-				System.out.println("====== Skip WTPart UPDATE ======> number ::::: "+number+"\t"+CommonUtil.getOIDLongValue((WTPart) _obj));
+				System.out.println("====== Skip WTPart UPDATE ======> number ::::: " + number + "\t"
+						+ CommonUtil.getOIDLongValue((WTPart) _obj));
 			}
 		} else if (_obj instanceof EPMDocument) {
 
+			
+			
 //			if (_event.equals("PRE_CHECKIN")) {
 //				System.out.println("변경 시작..");
 //				EpmUtil.createEPMChange((EPMDocument) _obj);
@@ -110,7 +117,17 @@ public class EventVersionManager {
 				if (epm.getVersionInfo().getIdentifier().getValue().equals("A")
 						&& epm.getIterationInfo().getIdentifier().getValue().equals("1")) {
 					EpmUtil.checkInEPMChange(epm);
+					try {
+						epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
+						ConfigSpec configspec = null;
+						PublishResult rs = Publish.doPublish(false, true, epm, configspec, null, false, null, null, 1, null,
+								2, null);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
+				// 변환
+
 			}
 
 		} else if (_obj instanceof EPMReferenceLink) {
@@ -120,10 +137,19 @@ public class EventVersionManager {
 
 				EPMDocumentMaster master = (EPMDocumentMaster) link.getReferences();
 				if (link.getReferenceType().toString().equals("DRAWING")) {
+					EPMDocument epm = link.getReferencedBy();
 					System.out.println(
 							master.getNumber() + "\t:::::::::::::: EPMReferenceLink ::::::::::::::::: " + _event);
 					System.out.println(master.getNumber()
 							+ "\t:::::::::::::: EpmUtil.changeDrawing(master); run 예정 ::::::::::::::::: " + _event);
+					try {
+						epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
+						ConfigSpec configspec = null;
+						PublishResult rs = Publish.doPublish(false, true, epm, configspec, null, false, null, null, 1,
+								null, 2, null);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 
 			}

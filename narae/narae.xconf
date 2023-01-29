@@ -205,4 +205,20 @@
    <Property name="wt.cache.size.PreferenceCache" overridable="true"
              targetFile="codebase/wt.properties"
              value="5000"/>
+             
+   <!-- Worker Timeout Setting -->
+   <Property name="publish.cadtimeout.assembly" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="7200"/>
+   <Property name="publish.cadtimeout.component" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="3600"/>
+   <Property name="publish.cadtimeout.drawing" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="7200"/>    
+                                                   
+   <!-- Worker Connection Timeout Setting -->
+   <Property name="thumbnail.cadagenttimeout" overridable="true"
+             targetFile="codebase/WEB-INF/conf/wvs.properties"
+             value="3600"/>                                                      
 </Configuration>

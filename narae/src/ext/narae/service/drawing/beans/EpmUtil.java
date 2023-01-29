@@ -715,7 +715,8 @@ public class EpmUtil {
 			keyMap.put("stepName4", "class1Code(Unit1)");
 			keyMap.put("checkLen4", 2);
 			keyMap.put("isTop4", false);
-			keyMap.put("parent4", unit);
+//			keyMap.put("parent4", unit);
+			keyMap.put("parent4", type);
 			keyMap.put("parentkey4", "SCLASS1");
 			// Unit2 Key 체크로직 안함
 			keyMap.put("stepType5", "Class2(Unit2)");
@@ -1143,7 +1144,11 @@ public class EpmUtil {
 		log.infoLog(" <br> value = " + value);
 		logger.debug(" <br> value = " + value);
 
-		log.infoLog(" <br> parent = " + parent);
+		if (parent != null) {
+			log.infoLog(" <br> parent = " + parent.getPersistInfo().getObjectIdentifier().getStringValue());
+		} else {
+			log.infoLog(" <br> parent = " + parent);
+		}
 		logger.debug(" <br> parent = " + parent);
 
 		log.infoLog(" <br> isTop = " + isTop);
@@ -1228,7 +1233,7 @@ public class EpmUtil {
 	public static String getPdmSerialNumber2(String tempnumber, String autoSerialNumber) {
 		String serialNum = "";
 		try {
-			System.out.println("tempnumber=" + tempnumber);
+			System.out.println("tempnumber2=" + tempnumber);
 			String epmSerialNum = "";
 			String partSerialNum = "";
 			epmSerialNum = SequenceDao.manager.getSeqNo(tempnumber + "-", autoSerialNumber, "EPMDocumentMaster",
@@ -1389,6 +1394,13 @@ public class EpmUtil {
 			 * CADDRAWING(.drw),CADASSEMBLY(.asm),CADCOMPONENT(.part),FORMAT(.frm)
 			 * 채번(도번,도명,CADName), 도면 의 속성 체크 , 부품 속성 체크
 			 */
+
+//			String start = epm.getNumber().substring(0, 1);
+//			if (!"c".equalsIgnoreCase(start) && !"e".equalsIgnoreCase(start) && !"g".equalsIgnoreCase(start)
+//					&& !"l".equalsIgnoreCase(start) && !"n".equals(start) && !"p".equalsIgnoreCase(start)
+//					&& !"r".equalsIgnoreCase(start) && !"t".equalsIgnoreCase(start)) {
+//				return;
+//			}
 
 			if (WorkInProgressHelper.isCheckedOut((Workable) epm)) {
 				return;
@@ -1802,6 +1814,16 @@ public class EpmUtil {
 	public static void checkInEPMChange(EPMDocument epm) {
 
 		try {
+
+			// 채번이 된 데이터는 채번을 하지 않는다
+			// c e g l n p r t
+//			String start = epm.getNumber().substring(0, 1);
+//			if (!"c".equalsIgnoreCase(start) && !"e".equalsIgnoreCase(start) && !"g".equalsIgnoreCase(start)
+//					&& !"l".equalsIgnoreCase(start) && !"n".equals(start) && !"p".equalsIgnoreCase(start)
+//					&& !"r".equalsIgnoreCase(start) && !"t".equalsIgnoreCase(start)) {
+//				return;
+//			}
+
 			/*
 			 * PRO/E CAD Type
 			 * CADDRAWING(.drw),CADASSEMBLY(.asm),CADCOMPONENT(.part),FORMAT(.frm)

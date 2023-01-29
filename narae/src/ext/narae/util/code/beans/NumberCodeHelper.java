@@ -163,6 +163,17 @@ public class NumberCodeHelper {
 			while (result.hasMoreElements()) {
 				return (NumberCode2) result.nextElement();
 			}
+
+			if (result.size() == 0) {
+				NumberCode2 c2 = NumberCode2.newNumberCode2();
+				c2.setCodeType(NumberCodeType.toNumberCodeType(codeType));
+				c2.setCode(code);
+				c2.setName(code);
+				c2.setParent(parent);
+				c2 = (NumberCode2) PersistenceHelper.manager.save(c2);
+				return c2;
+			}
+
 		} catch (QueryException e) {
 			e.printStackTrace();
 		} catch (WTException e) {

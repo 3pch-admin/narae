@@ -6,6 +6,7 @@ package ext.narae.util.iba;
 
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -32,18 +33,12 @@ import wt.fc.QueryResult;
 import wt.fc.ReferenceFactory;
 import wt.folder.CabinetBased;
 import wt.iba.constraint.IBAConstraintException;
-import wt.iba.definition.AttributeDefinitionReference;
-import wt.iba.definition.BooleanDefinitionReference;
+import wt.iba.definition.BooleanDefinition;
 import wt.iba.definition.FloatDefinition;
 import wt.iba.definition.FloatDefinitionReference;
-import wt.iba.definition.IntegerDefinitionReference;
-import wt.iba.definition.RatioDefinitionReference;
-import wt.iba.definition.ReferenceDefinitionReference;
+import wt.iba.definition.IntegerDefinition;
 import wt.iba.definition.StringDefinition;
 import wt.iba.definition.StringDefinitionReference;
-import wt.iba.definition.TimestampDefinitionReference;
-import wt.iba.definition.URLDefinitionReference;
-import wt.iba.definition.UnitDefinitionReference;
 import wt.iba.definition.litedefinition.AbstractAttributeDefinizerNodeView;
 import wt.iba.definition.litedefinition.AttributeDefDefaultView;
 import wt.iba.definition.litedefinition.AttributeDefNodeView;
@@ -51,14 +46,13 @@ import wt.iba.definition.litedefinition.AttributeOrgNodeView;
 import wt.iba.definition.litedefinition.FloatDefView;
 import wt.iba.definition.litedefinition.IBAUtility;
 import wt.iba.definition.litedefinition.StringDefView;
-import wt.iba.definition.litedefinition.TimestampDefView;
-import wt.iba.definition.litedefinition.UnitDefView;
 import wt.iba.definition.service.IBADefinitionHelper;
+import wt.iba.value.BooleanValue;
 import wt.iba.value.DefaultAttributeContainer;
 import wt.iba.value.FloatValue;
 import wt.iba.value.IBAHolder;
 import wt.iba.value.IBAHolderReference;
-import wt.iba.value.IBAValueException;
+import wt.iba.value.IntegerValue;
 import wt.iba.value.StringValue;
 import wt.iba.value.litevalue.AbstractValueView;
 import wt.iba.value.litevalue.FloatValueDefaultView;
@@ -67,11 +61,11 @@ import wt.iba.value.litevalue.TimestampValueDefaultView;
 import wt.iba.value.litevalue.UnitValueDefaultView;
 import wt.iba.value.service.IBAValueHelper;
 import wt.part.WTPartMasterIdentity;
+import wt.pds.StatementSpec;
 import wt.query.ArrayExpression;
 import wt.query.AttributeRange;
 import wt.query.ClassAttribute;
 import wt.query.ConstantExpression;
-import wt.query.QueryException;
 import wt.query.QuerySpec;
 import wt.query.RangeExpression;
 import wt.query.RelationalExpression;
@@ -80,7 +74,6 @@ import wt.query.specification.AttributeSearchExp;
 import wt.query.specification.AttributeValueCriteria;
 import wt.query.specification.BinaryOperator;
 import wt.query.specification.BinaryValue;
-import wt.query.specification.InstanceAttributeIdentifier;
 import wt.query.specification.NaryOperator;
 import wt.query.specification.NaryValue;
 import wt.query.specification.OperatorType;
@@ -516,6 +509,7 @@ public class IBAUtil {
 				StringDefinition sd = getStringDefinition(attrName);
 				if (sd == null)
 					return;
+				deleteIBA(ibaHolder, attrName, type);
 
 				sv.setValue(value);
 				sv.setDefinitionReference((StringDefinitionReference) sd.getAttributeDefinitionReference());
@@ -530,6 +524,7 @@ public class IBAUtil {
 				FloatDefinition sd = getFloatDefinition(attrName);
 				if (sd == null)
 					return;
+				deleteIBA(ibaHolder, attrName, type);
 
 				fv.setValue(Double.parseDouble(value));
 				fv.setDefinitionReference((FloatDefinitionReference) sd.getAttributeDefinitionReference());
@@ -563,6 +558,32 @@ public class IBAUtil {
 		while (re.hasMoreElements()) {
 			Object[] obj = (Object[]) re.nextElement();
 			FloatDefinition sv = (FloatDefinition) obj[0];
+			return sv;
+		}
+		return null;
+	}
+
+	private static BooleanDefinition getBooleanDefinition(String attrName) throws WTException {
+		QuerySpec select = new QuerySpec();
+		int idx = select.addClassList(BooleanDefinition.class, true);
+		select.appendWhere(new SearchCondition(BooleanDefinition.class, "name", "=", attrName), new int[] { idx });
+		QueryResult re = PersistenceHelper.manager.find(select);
+		while (re.hasMoreElements()) {
+			Object[] obj = (Object[]) re.nextElement();
+			BooleanDefinition sv = (BooleanDefinition) obj[0];
+			return sv;
+		}
+		return null;
+	}
+
+	private static IntegerDefinition getIntegerDefinition(String attrName) throws WTException {
+		QuerySpec select = new QuerySpec();
+		int idx = select.addClassList(IntegerDefinition.class, true);
+		select.appendWhere(new SearchCondition(IntegerDefinition.class, "name", "=", attrName), new int[] { idx });
+		QueryResult re = PersistenceHelper.manager.find(select);
+		while (re.hasMoreElements()) {
+			Object[] obj = (Object[]) re.nextElement();
+			IntegerDefinition sv = (IntegerDefinition) obj[0];
 			return sv;
 		}
 		return null;
@@ -856,6 +877,142 @@ public class IBAUtil {
 			}
 		}
 		return thash;
+	}
+
+	public static void deleteIBA(IBAHolder holder, String attrName, String type) {
+		try {
+			if ("s".equals(type) || "string".equals(type)) {
+				StringDefinition sd = getStringDefinition(attrName);
+				ArrayList<StringValue> list = getStringValues(holder, sd);
+				for (StringValue sv : list) {
+					PersistenceHelper.manager.delete(sv);
+				}
+			} else if ("f".equals(type) || "float".equals(type)) {
+				FloatDefinition fd = getFloatDefinition(attrName);
+				ArrayList<FloatValue> list = getFloatValues(holder, fd);
+				for (FloatValue fv : list) {
+					PersistenceHelper.manager.delete(fv);
+				}
+			} else if ("b".equals(type) || "boolean".equals(type)) {
+				BooleanDefinition bd = getBooleanDefinition(attrName);
+				ArrayList<BooleanValue> list = getBooleanValues(holder, bd);
+				for (BooleanValue bv : list) {
+					PersistenceHelper.manager.delete(bv);
+				}
+			} else if ("i".equals(type) || "integer".equals(type)) {
+				IntegerDefinition id = getIntegerDefinition(attrName);
+				ArrayList<IntegerValue> list = getIntegerValues(holder, id);
+				for (IntegerValue iv : list) {
+					PersistenceHelper.manager.delete(iv);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static ArrayList<StringValue> getStringValues(IBAHolder holder, StringDefinition sd) throws Exception {
+		ArrayList<StringValue> list = new ArrayList<StringValue>();
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(StringValue.class, true);
+
+		Persistable per = (Persistable) holder;
+
+		SearchCondition sc = new SearchCondition(StringValue.class, "theIBAHolderReference.key.id", "=",
+				per.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+		query.appendAnd();
+
+		sc = new SearchCondition(StringValue.class, "definitionReference.key.id", "=",
+				sd.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find((StatementSpec) query);
+		StringValue sv = null;
+		while (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			sv = (StringValue) obj[0];
+			list.add(sv);
+		}
+		return list;
+	}
+
+	private static ArrayList<FloatValue> getFloatValues(IBAHolder holder, FloatDefinition fd) throws Exception {
+		ArrayList<FloatValue> list = new ArrayList<FloatValue>();
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(FloatValue.class, true);
+
+		Persistable per = (Persistable) holder;
+
+		SearchCondition sc = new SearchCondition(FloatValue.class, "theIBAHolderReference.key.id", "=",
+				per.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+		query.appendAnd();
+
+		sc = new SearchCondition(FloatValue.class, "definitionReference.key.id", "=",
+				fd.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find((StatementSpec) query);
+		FloatValue fv = null;
+		while (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			fv = (FloatValue) obj[0];
+			list.add(fv);
+		}
+		return list;
+	}
+
+	private static ArrayList<IntegerValue> getIntegerValues(IBAHolder holder, IntegerDefinition id) throws Exception {
+		ArrayList<IntegerValue> list = new ArrayList<IntegerValue>();
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(IntegerValue.class, true);
+
+		Persistable per = (Persistable) holder;
+
+		SearchCondition sc = new SearchCondition(IntegerValue.class, "theIBAHolderReference.key.id", "=",
+				per.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+		query.appendAnd();
+
+		sc = new SearchCondition(IntegerValue.class, "definitionReference.key.id", "=",
+				id.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find((StatementSpec) query);
+		IntegerValue iv = null;
+		while (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			iv = (IntegerValue) obj[0];
+			list.add(iv);
+		}
+		return list;
+	}
+
+	private static ArrayList<BooleanValue> getBooleanValues(IBAHolder holder, BooleanDefinition bd) throws Exception {
+		ArrayList<BooleanValue> list = new ArrayList<BooleanValue>();
+		QuerySpec query = new QuerySpec();
+		int idx = query.appendClassList(BooleanValue.class, true);
+
+		Persistable per = (Persistable) holder;
+
+		SearchCondition sc = new SearchCondition(BooleanValue.class, "theIBAHolderReference.key.id", "=",
+				per.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+		query.appendAnd();
+
+		sc = new SearchCondition(BooleanValue.class, "definitionReference.key.id", "=",
+				bd.getPersistInfo().getObjectIdentifier().getId());
+		query.appendWhere(sc, new int[] { idx });
+
+		QueryResult result = PersistenceHelper.manager.find((StatementSpec) query);
+		BooleanValue bv = null;
+		while (result.hasMoreElements()) {
+			Object[] obj = (Object[]) result.nextElement();
+			bv = (BooleanValue) obj[0];
+			list.add(bv);
+		}
+		return list;
 	}
 
 }

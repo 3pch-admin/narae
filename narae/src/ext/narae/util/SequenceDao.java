@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
 
+import ext.narae.service.change.beans.ChangeHelper2;
 import ext.narae.service.document.beans.DocumentHelper2;
 import ext.narae.service.drawing.beans.DrawingHelper2;
 import ext.narae.service.part.beans.PartHelper;
@@ -98,18 +99,22 @@ public class SequenceDao implements wt.method.RemoteAccess, java.io.Serializable
 //						.append(" LIKE ?");
 
 				// WTPart
-				if(tabName.equals("WTPartMaster")) {
+				if (tabName.equals("WTPartMaster")) {
 					seqNum = PartHelper.manager.getNextNumber(seqName);
 				}
 				// EPMDoc
-				
-				if(tabName.equals("EPMDocumentMaster")) {
+
+				if (tabName.equals("EPMDocumentMaster")) {
 					seqNum = DrawingHelper2.manager.getNextNumber(seqName);
 				}
-				
+
 				// WTDO
-				if(tabName.equals("WTDocumentMaster")) {
+				if (tabName.equals("WTDocumentMaster")) {
 					seqNum = DocumentHelper2.manager.getNextNumber(seqName);
+				}
+
+				if (tabName.equals("WTChangeOrder2Master")) {
+					seqNum = ChangeHelper2.manager.getNextNumber(seqName);
 				}
 			}
 			return seqNum;

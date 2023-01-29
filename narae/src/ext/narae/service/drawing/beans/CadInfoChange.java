@@ -60,6 +60,7 @@ public class CadInfoChange {
 //					IdentityHelper.service.changeIdentity(identified, epmdocumentmasteridentity);
 //					epmdocument = PersistenceHelper.manager.refresh(epmdocument);
 					WTKeyedMap map = new WTKeyedHashMap();
+
 					map.put(master, s2.toLowerCase());
 					EPMDocumentHelper.service.changeCADName(map);
 					cadNameSpaceChange(epmdocument);

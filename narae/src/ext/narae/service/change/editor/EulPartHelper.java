@@ -34,6 +34,8 @@ import wt.part.WTPartMaster;
 import wt.part.WTPartStandardConfigSpec;
 import wt.part.WTPartUsageLink;
 import wt.query.ClassAttribute;
+import wt.query.ColumnExpression;
+import wt.query.ConstantExpression;
 import wt.query.OrderBy;
 import wt.query.QueryException;
 import wt.query.QuerySpec;
@@ -124,16 +126,49 @@ public class EulPartHelper {
 	public WTPart getPart(String number) throws WTException, RemoteException, WTPropertyVetoException {
 		QuerySpec spec = new QuerySpec();
 		int j = spec.addClassList(WTPart.class, true);
-		spec.appendWhere(new SearchCondition(WTPart.class, "master>number", "=", number), new int[] { j });
+
+		ClassAttribute ca = new ClassAttribute(WTPart.class, WTPart.NUMBER);
+		ColumnExpression ce = ConstantExpression.newExpression(number.toUpperCase());
+		SQLFunction function = SQLFunction.newSQLFunction(SQLFunction.UPPER, ca);
+		SearchCondition sc = new SearchCondition(function, SearchCondition.EQUAL, ce);
+		spec.appendWhere(sc, new int[] { j });
 		spec.appendAnd();
+//		spec.appendWhere(new SearchCondition(WTPart.class, "master>number", "=", number), new int[] { j });
+//		spec.appendAnd();
 		spec.appendWhere(new SearchCondition(WTPart.class, "iterationInfo.latest", SearchCondition.IS_TRUE, true),
 				new int[] { j });
+		spec.appendAnd();
+		spec.appendWhere(new SearchCondition(WTPart.class, WTPart.PART_TYPE, "=", "separable"), new int[] { j });
 
-		addLastVersionCondition(spec, j);
+//		addLastVersionCondition(spec, j);
+
+		int branchIdx = spec.appendClassList(ControlBranch.class, false);
+		int childBranchIdx = spec.appendClassList(ControlBranch.class, false);
+
+		if (spec.getConditionCount() > 0)
+			spec.appendAnd();
+		spec.appendWhere(new SearchCondition(WTPart.class, RevisionControlled.BRANCH_IDENTIFIER, ControlBranch.class,
+				WTAttributeNameIfc.ID_NAME), new int[] { j, branchIdx });
+
+		if (spec.getConditionCount() > 0)
+			spec.appendAnd();
+		SearchCondition outerJoinSc = new SearchCondition(ControlBranch.class, WTAttributeNameIfc.ID_NAME,
+				ControlBranch.class, "predecessorReference.key.id");
+		outerJoinSc.setOuterJoin(SearchCondition.RIGHT_OUTER_JOIN);
+		spec.appendWhere(outerJoinSc, new int[] { branchIdx, childBranchIdx });
+
+		ClassAttribute childBranchIdNameCa = new ClassAttribute(ControlBranch.class, WTAttributeNameIfc.ID_NAME);
+		spec.appendSelect(childBranchIdNameCa, new int[] { childBranchIdx }, false);
+
+		if (spec.getConditionCount() > 0)
+			spec.appendAnd();
+		spec.appendWhere(new SearchCondition(childBranchIdNameCa, SearchCondition.IS_NULL),
+				new int[] { childBranchIdx });
 
 		spec.appendOrderBy(new OrderBy(new ClassAttribute(WTPart.class, "thePersistInfo.modifyStamp"), true),
 				new int[] { j });
 		QueryResult rr = PersistenceHelper.manager.find(spec);
+		System.out.println("spec=" + spec);
 		if (rr.hasMoreElements()) {
 			Object[] o = (Object[]) rr.nextElement();
 			return (WTPart) o[0];

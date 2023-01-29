@@ -1421,8 +1421,7 @@ public class PartHelper {
 		QuerySpec query = new QuerySpec();
 		int idx = query.appendClassList(WTPartMaster.class, true);
 
-		SearchCondition sc = new SearchCondition(WTPartMaster.class, WTPartMaster.NUMBER, "LIKE",
-				"%" + number + "%");
+		SearchCondition sc = new SearchCondition(WTPartMaster.class, WTPartMaster.NUMBER, "LIKE", number + "%");
 		query.appendWhere(sc, new int[] { idx });
 
 		ClassAttribute ca = new ClassAttribute(WTPartMaster.class, WTPartMaster.NUMBER);
@@ -1430,16 +1429,44 @@ public class PartHelper {
 		query.appendOrderBy(by, new int[] { idx });
 
 		QueryResult result = PersistenceHelper.manager.find(query);
-		System.out.println(query);
+
+		int comp = 10000;
+		if (number.startsWith("NP-00-SMSS")) {
+			comp = 95000;
+		} else if (number.startsWith("NA-")) {
+			comp = 300;
+			df = new DecimalFormat("000");
+		}
+
 		if (result.hasMoreElements()) {
 			Object[] obj = (Object[]) result.nextElement();
 			WTPartMaster master = (WTPartMaster) obj[0];
 			String n = master.getNumber();
-			int _idx = n.lastIndexOf("-");
-			n = n.substring(_idx + 1);
-			int reValue = Integer.parseInt(n) + 1;
-			return df.format(reValue);
+			System.out.println("채번 하기 위한것 부품 = " + n);
+			int ext = n.lastIndexOf("-");
+			int _ext = n.lastIndexOf(".");
+			// 확장자 있을 경우
+			if (ext > -1 && _ext > -1) {
+				n = n.substring(ext + 1, _ext); // 002....
+				int reValue = Integer.parseInt(n);
+				System.out.println("re=" + reValue);
+				if (reValue <= comp) {
+					reValue = comp;
+				}
+				return df.format(reValue + 1);
+			}
+
+			if (ext > -1 && _ext <= -1) {
+				int _idx = n.lastIndexOf("-");
+				n = n.substring(_idx + 1);
+				int reValue = Integer.parseInt(n);
+				System.out.println("r1e=" + reValue);
+				if (reValue <= comp) {
+					reValue = comp;
+				}
+				return df.format(reValue + 1);
+			}
 		}
-		return "00000";
+		return String.valueOf(comp);
 	}
 }

@@ -137,6 +137,7 @@ public class StandardE3psCompanyService extends StandardManager implements E3psC
 		getManagerService().addEventListener(_listener, WorkInProgressServiceEvent.generateEventKey("PRE_CHECKIN"));
 		getManagerService().addEventListener(_listener, VersionControlServiceEvent.generateEventKey("NEW_VERSION"));
 
+		
 		getManagerService().addEventListener(_listener,
 				WorkInProgressServiceEvent.generateEventKey(EPMEventServiceEvent.CHECKIN_COMPLETE));
 		// getManagerService().addEventListener(listener,

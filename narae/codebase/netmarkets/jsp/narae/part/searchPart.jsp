@@ -51,7 +51,8 @@ out.println("ORG_936=" + ORG_936);
     String name = "";
     String bgcolor = "white";
 
-    Folder cadd = FolderHelper.service.getFolder("Default",WCUtil.getWTContainerRefForPart());
+	Folder cadd = FolderHelper.service.getFolder("Default",WCUtil.getWTContainerRefForDrawing());
+    
     ArrayList flist = CommonFolderHelper.getFolderTree(cadd);
     String coid = cadd.getPersistInfo().getObjectIdentifier().toString();
     if(folderoid==null)folderoid = coid;
@@ -61,7 +62,7 @@ out.println("ORG_936=" + ORG_936);
 
     if(foid!=null && foid.length()>0){
         folder = (Folder)rf.getReference(foid).getObject();
-        location = FolderHelper.getFolderPath( folder);
+        location = FolderHelper.getFolderPath(folder);
         name = folder.getName();
     }else{
         foid= CommonUtil.getOIDString(cadd);
