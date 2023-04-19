@@ -329,6 +329,18 @@ var len = document.getElementsByName("EpmDelete").length-1;
 		addEpm(arrObj);
 	}
 	
+	function AllCheck() {
+		var incForm = document.<%=formName%>;
+		if(incForm.AllCheck.checked){
+			for(i=0; i < incForm.EpmDelete.length; i++) {
+	    		incForm.EpmDelete[i+1].checked = true;
+	    	}
+		}else{
+			for(i=0; i < incForm.EpmDelete.length; i++) {
+	    		incForm.EpmDelete[i].checked = false;
+	    	}
+		}
+	}
 </script>
 <input type="hidden" id="items">
 <table id="epmInnerTempTable" style="display:none">
@@ -389,7 +401,7 @@ var len = document.getElementsByName("EpmDelete").length-1;
         <tbody>
             <tr>
             	<td class="tdblueM" width="5%">
-<!--             	<input type="checkbox" name="AllCheck"  id="AllCheck" onclick="AllCheck()"> -->
+            	<input type="checkbox" name="AllCheck"  id="AllCheck" onclick="AllCheck()">
             	</td>
                 <td class="tdblueM" width="30%"><%=ORG_743%></td>
                 <td class="tdblueM" width="35%"><%=ORG_400%></td>
@@ -413,16 +425,18 @@ var len = document.getElementsByName("EpmDelete").length-1;
     </table>
 </div>
 <script>
-function AllCheck(){
-	var incForm = document.<%=formName%>;
-	if(incForm.AllCheck.checked){
-		for(i=0; i < incForm.EpmDelete.length; i++) {
-    		incForm.EpmDelete[i].checked = true;
-    	}
-	}else{
-		for(i=0; i < incForm.EpmDelete.length; i++) {
-    		incForm.EpmDelete[i].checked = false;
-    	}
-	}
-}
+// function AllCheck() {
+<%-- 	var incForm = document.<%=formName%>; --%>
+	
+
+// 	if(incForm.AllCheck.checked){
+// 		for(i=0; i < incForm.EpmDelete.length; i++) {
+//     		incForm.EpmDelete[i+1].checked = true;
+//     	}
+// 	}else{
+// 		for(i=0; i < incForm.EpmDelete.length; i++) {
+//     		incForm.EpmDelete[i].checked = false;
+//     	}
+// 	}
+// }
 </script>

@@ -17,10 +17,12 @@ import ext.narae.component.ApprovalLineVO;
 import ext.narae.service.CommonUtil2;
 import ext.narae.service.approval.beans.ApprovalHelper2;
 import ext.narae.service.drawing.beans.DrawingHelper2;
+import ext.narae.util.CommonUtil;
 import ext.narae.util.iba.IBAUtil;
 import wt.change2.ChangeHelper2;
 import wt.change2.WTChangeOrder2;
 import wt.epm.EPMDocument;
+import wt.epm.EPMDocumentMaster;
 import wt.fc.ObjectReference;
 import wt.fc.ObjectVector;
 import wt.fc.Persistable;
@@ -29,6 +31,7 @@ import wt.fc.PersistentReference;
 import wt.fc.QueryResult;
 import wt.fc.ReferenceFactory;
 import wt.fc.WTObject;
+import wt.folder.Cabinet;
 import wt.lifecycle.LifeCycleHelper;
 import wt.lifecycle.LifeCycleManaged;
 import wt.lifecycle.State;
@@ -51,6 +54,7 @@ import wt.util.WTException;
 import wt.util.WTPropertyVetoException;
 import wt.util.WTRuntimeException;
 import wt.vc.VersionControlHelper;
+import wt.vc.wip.WorkInProgressHelper;
 import wt.workflow.engine.WfActivity;
 import wt.workflow.engine.WfEventHelper;
 import wt.workflow.engine.WfVotingEventAudit;
@@ -457,28 +461,48 @@ public class WorkflowHelper2 implements RemoteAccess, Serializable {
 					log.debug("5. 3D 캐드 가져오기");
 					epm3d = DrawingHelper2.getEPMDocument(part);
 					if (epm3d != null) {
-						log.debug("5-1. 해당 부품에 연결된 3D는....." + epm3d.getNumber() + "/"
-								+ epm3d.getVersionInfo().getIdentifier().getValue() + "."
-								+ epm3d.getIterationInfo().getIdentifier().getValue());
-						log.debug("5-2. 해당 부품에 연결된 3D 상태 바꾸기......" + state);
-						LifeCycleHelper.service.setLifeCycleState(epm3d, State.toState(state));
-						log.debug("5-3. 해당 부품에 연결된 3D 상태 바꾸기 성공");
+						try {
+							log.debug("작업 복사본");
+							if (WorkInProgressHelper.isWorkingCopy(epm3d)) {
+								epm3d = (EPMDocument) WorkInProgressHelper.service.originalCopyOf(epm3d);
+							}
 
-						// Find 2D and change state
-						log.debug("6. 2D 캐드 가져오기");
-						epm2d = DrawingHelper2.getRelational2DCad(epm3d);
-						if (epm2d != null) {
-							log.debug("6-1. 해당 3D에 연결된 2D는....." + epm2d.getNumber() + "/"
-									+ epm2d.getVersionInfo().getIdentifier().getValue() + "."
-									+ epm2d.getIterationInfo().getIdentifier().getValue());
-							log.debug("6-2. 해당 3D에 연결된 2D 상태 바꾸기......" + state);
-							LifeCycleHelper.service.setLifeCycleState(epm2d, State.toState(state));
-							log.debug("6-3. 해당 3D에 연결된 2D 상태 바꾸기 성공");
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+						Cabinet cabinet = (Cabinet) epm3d.getCabinet().getObject();
+						if (cabinet.isPersonalCabinet()) {
+							log.debug("개인 캐비넷 = " + cabinet.getName());
+						}
+
+						log.debug("OID = " + epm3d.getPersistInfo().getObjectIdentifier().getStringValue());
+						if (epm3d != null) {
+							log.debug("5-1. 해당 부품에 연결된 3D는....." + epm3d.getNumber() + "/"
+									+ epm3d.getVersionInfo().getIdentifier().getValue() + "."
+									+ epm3d.getIterationInfo().getIdentifier().getValue());
+							log.debug("5-2. 해당 부품에 연결된 3D 상태 바꾸기......" + state);
+							LifeCycleHelper.service.setLifeCycleState(epm3d, State.toState(state));
+							log.debug("5-3. 해당 부품에 연결된 3D 상태 바꾸기 성공");
+
+							// Find 2D and change state
+							log.debug("6. 2D 캐드 가져오기");
+							epm2d = DrawingHelper2.getRelational2DCad(epm3d);
+							if (epm2d != null) {
+								log.debug("6-1. 해당 3D에 연결된 2D는....." + epm2d.getNumber() + "/"
+										+ epm2d.getVersionInfo().getIdentifier().getValue() + "."
+										+ epm2d.getIterationInfo().getIdentifier().getValue());
+								log.debug("6-2. 해당 3D에 연결된 2D 상태 바꾸기......" + state);
+								LifeCycleHelper.service.setLifeCycleState(epm2d, State.toState(state));
+								log.debug("6-3. 해당 3D에 연결된 2D 상태 바꾸기 성공");
+							} else {
+								log.debug("6-99. 해당 3D에 연결된 2D가 없습니다.<=======");
+							}
 						} else {
-							log.debug("6-99. 해당 3D에 연결된 2D가 없습니다.<=======");
+							log.debug("5-99. 해당 부품에 연결된 3D가 없습니다.<======");
 						}
 					} else {
-						log.debug("5-99. 해당 부품에 연결된 3D가 없습니다.<======");
+						log.debug("5-100. 해당 부품에 연결된 3D가 없습니다.<======");
 					}
 				}
 			}

@@ -102,6 +102,14 @@ public class NumberCodeHelper {
 			while (result.hasMoreElements()) {
 				return (NumberCode) result.nextElement();
 			}
+
+//			if(result.size() == 0) {
+//				NumberCode numberCode = NumberCode.newNumberCode();
+//				numberCode.setCode(code);
+//				numberCode.set
+//				numberCode = (NumberCode)PersistenceHelper.manager.save(numberCode);
+//			}
+
 		} catch (QueryException e) {
 			e.printStackTrace();
 		} catch (WTException e) {
@@ -128,6 +136,11 @@ public class NumberCodeHelper {
 				select.appendWhere(new SearchCondition(NumberCode2.class, "parentReference.key.id", "=", longOid),
 						new int[] { 0 });
 			}
+
+			ClassAttribute ca = new ClassAttribute(NumberCode2.class, NumberCode2.NAME);
+			OrderBy order = new OrderBy(ca, false);
+			select.appendOrderBy(order, new int[] { 0 });
+
 			System.out.println("query=" + select);
 			QueryResult result = PersistenceHelper.manager.find(select);
 			while (result.hasMoreElements()) {
@@ -160,6 +173,9 @@ public class NumberCodeHelper {
 						CommonUtil.getOIDLongValue(parent)), new int[] { 0 });
 			}
 			QueryResult result = PersistenceHelper.manager.find(select);
+
+			System.out.println("query NumberCode2 = " + select);
+
 			while (result.hasMoreElements()) {
 				return (NumberCode2) result.nextElement();
 			}

@@ -337,10 +337,6 @@ var len = document.getElementsByName("PartDelete").length-1;
 			}
     }
 
-
-
-
-
 // console.log(incForm.PartDelete);
 // 		if(incForm.PartDelete) {
 // 			var len = incForm.PartDelete.length;
@@ -405,8 +401,7 @@ var len = document.getElementsByName("PartDelete").length-1;
 		addPart(arrObj);
 	}
 	function republish(oid){
-		var sURL = "/Windchill/jsp/republish.jsp?oid=" + oid;
-    	
+		var sURL = "/Windchill/netmarkets/jsp/republish.jsp?oid=" + oid;    	
   	
     	var sName = "";
     	var nWidth = 10;

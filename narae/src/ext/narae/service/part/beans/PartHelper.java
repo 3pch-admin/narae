@@ -1436,6 +1436,9 @@ public class PartHelper {
 		} else if (number.startsWith("NA-")) {
 			comp = 300;
 			df = new DecimalFormat("000");
+		} else if (number.startsWith("TA-")) {
+			comp = 100;
+			df = new DecimalFormat("000");
 		}
 
 		if (result.hasMoreElements()) {

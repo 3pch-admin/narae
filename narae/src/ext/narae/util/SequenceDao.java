@@ -103,7 +103,6 @@ public class SequenceDao implements wt.method.RemoteAccess, java.io.Serializable
 					seqNum = PartHelper.manager.getNextNumber(seqName);
 				}
 				// EPMDoc
-
 				if (tabName.equals("EPMDocumentMaster")) {
 					seqNum = DrawingHelper2.manager.getNextNumber(seqName);
 				}

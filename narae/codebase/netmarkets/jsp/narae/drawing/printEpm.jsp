@@ -1,5 +1,5 @@
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
-<%-- <%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %> --%>
+<%@ include file="/netmarkets/jsp/components/beginWizard.jspf" %>
 <%@ include file="/netmarkets/jsp/components/includeWizBean.jspf" %>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
 <%@ taglib prefix="wrap" uri="http://www.ptc.com/windchill/taglib/wrappers"%>
@@ -40,7 +40,7 @@ document.title = "<%=WTMessage.getLocalizedMessage(RESOURCE , "Print_Drawing", n
 </script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<form name=mainform id=mainform method=post enctype="multipart/form-data">
+<form name=drawingPrintForm id=drawingPrintForm method=post enctype="multipart/form-data">
 <table width="100%" border="0" cellpadding="0" cellspacing="10" > <!--//ì¬ë°± íì´ë¸-->
 <tr  height=5><td>
 <table id="creatingDrawing" style="width: 800px;">
@@ -156,4 +156,4 @@ function printEpm() {
 	
 }
 </script>
-<%-- <%@ include file="/netmarkets/jsp/util/end.jspf"%> --%>
+<%@ include file="/netmarkets/jsp/util/end.jspf"%>

@@ -137,7 +137,7 @@ String tempcreator = "";
                                                 <a href="#" onclick="clearText('postdate');"><img src="/Windchill/netmarkets/jsp/narae/portal/images/x.gif" border="0" /></a>
                                             </td>
 										    <td class="tdblueM"><%=ORG_326%></td>
-                                            <td class="tdwhiteL">
+                                            <td class="tdwhiteL">	
                                                 <input TYPE="hidden" name="creator" id="creator" >
 												<input type=text  name='tempcreator' id='tempcreator' onkeyup="javascript:inputAjax();" onFocus="javascript:initAjax(this,document.documentForm.creator,'/Windchill/netmarkets/jsp/narae/org/AjaxSearchUser.jsp',document.documentForm,150,7)" onkeydown="javascript:pressKeyAjax(this)" value="<%=tempcreator%>" readOnly>
 												
@@ -179,14 +179,14 @@ String tempcreator = "";
         </tr>
     </table>
 </form>
-<!-- New Design -->
-<input id="first" name="first" type="hidden" value="true">
+<!-- New Design --> val
+<input id="first" name="first" type="hidden"ue="true">
 
 <mvc:tableContainer compId="ext.narae.part.PartList" height="500"></mvc:tableContainer>
 
 <script>
 function resetData() {
-	document.mainform.reset();
+	document.mainform.reset();	
 }
 
 function openCal(variableName) {

@@ -1,4 +1,3 @@
-<%@page import="ext.narae.util.WCUtil"%>
 <%@ taglib prefix="jca" uri="http://www.ptc.com/windchill/taglib/components"%>
 <%@ include file="/netmarkets/jsp/components/beginWizard.jspf"%>
 <%@ taglib prefix="mvc" uri="http://www.ptc.com/windchill/taglib/jcaMvc"%>
@@ -7,6 +6,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="wctags"%>
 <link rel="stylesheet" href="/Windchill/netmarkets/jsp/narae/css/e3ps.css">
 
+<%@page import="ext.narae.util.WCUtil"%>
 <%@ page import="wt.util.*, wt.org.*, wt.session.*, wt.inf.container.*, ext.narae.ui.*, java.util.*" %>
 <%
 String RESOURCE = "ext.narae.ui.common.resource.NaraeCommonRB";

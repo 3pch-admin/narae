@@ -846,6 +846,10 @@ public class DrawingHelper2 implements RemoteAccess, Serializable {
 			comp = 300;
 			df = new DecimalFormat("000");
 		}
+		if (number.startsWith("TA-")) {
+			comp = 100;
+			df = new DecimalFormat("000");
+		}
 
 		if (result.hasMoreElements()) {
 			Object[] obj = (Object[]) result.nextElement();

@@ -165,9 +165,11 @@
    <Property name="publish.service.filterepmdocumentpublishmethod.excludelist" overridable="true"
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="CONTAINERS&gt;*;EXTENSIONS&gt;frm,lay;LIFECYCLES&gt;*"/>
-   <Property name="publish.service.filterepmdocumentpublishmethod.includestartsNumberlist" overridable="true"
+   
+   <!-- Not Used Thumbnail A.1 --> 
+   <!--Property name="publish.service.filterepmdocumentpublishmethod.includestartsNumberlist" overridable="true"
              targetFile="codebase/WEB-INF/conf/wvs.properties"
-             value="NS;NA;NB;NP;NZ;"/>
+             value="NS;NA;NB;NP;NZ;"/-->
    <Property name="publish.service.filterpublishmethod" overridable="true"
              targetFile="codebase/WEB-INF/conf/wvs.properties"
              value="com.ptc.wvs.util.EPMDocumentPublishFilters/filterPublish"/>
@@ -220,5 +222,10 @@
    <!-- Worker Connection Timeout Setting -->
    <Property name="thumbnail.cadagenttimeout" overridable="true"
              targetFile="codebase/WEB-INF/conf/wvs.properties"
-             value="3600"/>                                                      
+             value="3600"/>        
+ 
+    <!-- Db Connection Setting -->
+   <Property name="wt.pom.maxDbConnections" overridable="true"
+             targetFile="db/db.properties"
+             value="200"/>                                                 
 </Configuration>

@@ -1,3 +1,4 @@
+<%@page import="wt.query.SearchCondition"%>
 <%@page import="wt.part.WTPartMasterIdentity"%>
 <%@page import="wt.part.WTPartMaster"%>
 <%@page import="wt.part.WTPart"%>
@@ -49,6 +50,16 @@ while (result.hasMoreElements()) {
 		}
 		// .prt
 		String rNumber = number.substring(0, ext);
+		
+		QuerySpec spec = new QuerySpec();
+		int i = spec.appendClassList(WTPart.class, true);
+		SearchCondition ss = new SearchCondition(WTPart.class, WTPart.NUMBER, "=", rNumber);
+		spec.appendWhere(ss, new int[] { i });
+
+		QueryResult rr = PersistenceHelper.manager.find(spec);
+		if (rr.size() > 0) {
+			continue;
+		}
 
 		if (WorkInProgressHelper.isCheckedOut(epm)) {
 	continue;

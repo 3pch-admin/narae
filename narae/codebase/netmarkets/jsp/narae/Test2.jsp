@@ -32,6 +32,11 @@ while (result.hasMoreElements()) {
 	EPMDocument epm = (EPMDocument) obj[0];
 	String number = epm.getNumber();
 	int ext = number.lastIndexOf(".");
+
+	if (number.length() > 30) {
+		continue;
+	}
+
 	if (ext > -1) {
 		if (number.contains("EXSIDE_MIRROR_R") || number.contains("LH250000AN-2") || number.contains("P1")
 		|| number.contains("NB-10-0600-00010") || number.contains("NB-14-1800-00048")
@@ -47,8 +52,10 @@ while (result.hasMoreElements()) {
 		|| number.contains("SILICON-75X75-1") || number.contains("NEPES-75X75-1")
 		|| number.contains("2202008-SC01-A01-F01-WC1-P04-B_2D") || number.contains("LGD_DF3030_015_DOOR-01")
 		|| number.contains("FH-NCS90-150-L1510---E3-09") || number.contains("UP-06_170206")
-		|| number.contains("HOLDER003") || number.contains("NPT01-00-X4211")
-		|| number.contains("R-201203-57") || number.contains("JS-PIPE_2D")) {
+		|| number.contains("HOLDER003") || number.contains("NPT01-00-X4211") || number.contains("R-201203-57")
+		|| number.contains("JS-PIPE_2D") || number.contains("cp_2107001-nowpak-box-cover-3_2d.drw")
+		|| number.contains("cp_2107001-nowpak-box-cover-5_2d.drw") || number.contains("NB-08-0400-002")
+		|| number.contains("NB-08-0700-00022")) {
 	continue;
 		}
 		// .prt
@@ -73,10 +80,25 @@ while (result.hasMoreElements()) {
 		if (rr.size() > 0) {
 			continue;
 		}
+	}
+		} else {
+	QuerySpec spec = new QuerySpec();
+	int i = spec.appendClassList(EPMDocument.class, true);
+	SearchCondition ss = new SearchCondition(EPMDocument.class, EPMDocument.NUMBER, "=", rNumber);
+	spec.appendWhere(ss, new int[] { i });
 
+	QueryResult rr = PersistenceHelper.manager.find(spec);
+	if (rr.size() > 0) {
+		continue;
 	}
 		}
-
+		 
+		if(epm.getNumber().equals("ncwna-sc-cch170-001.asm")) {
+			continue;
+		}
+		
+		
+		
 		if (WorkInProgressHelper.isCheckedOut(epm)) {
 	continue;
 		}

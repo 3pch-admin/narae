@@ -48,13 +48,14 @@
 		} else {
 			hash.put(field.getFieldName(), field.getValue());
 		}
-		System.out.println("=======> " + field.getFieldName() + " : " + (field.IsFile() ? "file" : "not file") + ", " + field.getSize() + "|" + field.getValue() + "|" + field.getFileName() +"<br>\r\n");
 	}
 	
 	if( secondaryCount > 0 ) {
 		hash.put("secondary", secondary);
 		hash.put("secondaryFileName", secondaryName);
 	}
+	
+	System.out.println("hash="+hash);
 	
 	String selectedFolderFromFolderContext = (String)hash.get("selectedFolderFromFolderContext");
 	if(!StringUtil.checkString(selectedFolderFromFolderContext)) {

@@ -85,11 +85,14 @@ public class CadInfoChange {
 		try {
 			if (!epmdocument.getNumber().equals(s) || !epmdocument.getName().equals(s1))
 				flag = true;
-			System.out.println("epmInfoChange \uC774\uB984 \uBCC0\uACBD \uC548\uD568 ");
+			System.out.println("epmInfoCl98" + "hange \uC774\uB984 \uBCC0\uACBD \uC548\uD568 ");
 			if (flag) {
 				System.out.println((new StringBuilder()).append("epm ::: > ").append(epmdocument.getNumber())
 						.append("epm.getName=").append(epmdocument.getName()).append("\tnumber=").append(s)
 						.append("\tname=").append(s1).toString());
+
+				epmdocument = (EPMDocument) PersistenceHelper.manager.refresh(epmdocument);
+
 				Identified identified = (Identified) epmdocument.getMaster();
 				EPMDocumentMasterIdentity epmdocumentmasteridentity = (EPMDocumentMasterIdentity) identified
 						.getIdentificationObject();

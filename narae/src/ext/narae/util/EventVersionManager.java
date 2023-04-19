@@ -57,8 +57,6 @@ public class EventVersionManager {
 			}
 		} else if (_obj instanceof EPMDocument) {
 
-			
-			
 //			if (_event.equals("PRE_CHECKIN")) {
 //				System.out.println("변경 시작..");
 //				EpmUtil.createEPMChange((EPMDocument) _obj);
@@ -76,7 +74,11 @@ public class EventVersionManager {
 				System.out.println("    is Personal = " + master.isPersonalCabinet());
 				if (!master.isPersonalCabinet()) {
 					this.newVersionEvent((Versioned) ((EPMDocument) _obj));
-					EpmUtil.createEPMChange((EPMDocument) _obj);
+					String num = epm.getNumber();
+//					if (!num.startsWith("NA") && !num.startsWith("NB") && !num.startsWith("NP")
+//							&& !num.startsWith("NS")) {
+						EpmUtil.createEPMChange((EPMDocument) _obj);
+//					}
 				}
 
 			} else if (_event.equals("PRE_DELETE")) {
@@ -91,7 +93,11 @@ public class EventVersionManager {
 
 			} else if (_event.equals("POST_CHECKIN")) {// POST_CHECKIN
 				newVersionEvent((EPMDocument) _obj);
-				EpmUtil.checkInEPMChange((EPMDocument) _obj);
+				EPMDocument epm = (EPMDocument) _obj;
+				String num = epm.getNumber();
+//				if (!num.startsWith("NA") && !num.startsWith("NB") && !num.startsWith("NP") && !num.startsWith("NS")) {
+					EpmUtil.checkInEPMChange((EPMDocument) _obj);
+//				}
 			}
 
 		} else if (_obj instanceof WTDocument)
@@ -111,23 +117,18 @@ public class EventVersionManager {
 				WTPart part = (WTPart) rule.getBuildTarget();
 				EPMDocument epm = (EPMDocument) rule.getBuildSource();
 
-				EpmUtil.checkPartAttribute(part, epm);
-				System.out.println("EPMVersion = " + epm.getVersionInfo().getIdentifier().getValue());
-				System.out.println("EPMIteration = " + epm.getIterationInfo().getIdentifier().getValue());
-				if (epm.getVersionInfo().getIdentifier().getValue().equals("A")
-						&& epm.getIterationInfo().getIdentifier().getValue().equals("1")) {
-					EpmUtil.checkInEPMChange(epm);
-					try {
-						epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
-						ConfigSpec configspec = null;
-						PublishResult rs = Publish.doPublish(false, true, epm, configspec, null, false, null, null, 1, null,
-								2, null);
-					} catch (Exception e) {
-						e.printStackTrace();
+				String num = epm.getNumber();
+//				NA NB NP NS
+				if (!num.startsWith("NA") && !num.startsWith("NB") && !num.startsWith("NP") && !num.startsWith("NS")) {
+
+					EpmUtil.checkPartAttribute(part, epm);
+					System.out.println("EPMVersion = " + epm.getVersionInfo().getIdentifier().getValue());
+					System.out.println("EPMIteration = " + epm.getIterationInfo().getIdentifier().getValue());
+					if (epm.getVersionInfo().getIdentifier().getValue().equals("A")
+							&& epm.getIterationInfo().getIdentifier().getValue().equals("1")) {
+						EpmUtil.checkInEPMChange(epm);
 					}
 				}
-				// 변환
-
 			}
 
 		} else if (_obj instanceof EPMReferenceLink) {
@@ -142,14 +143,14 @@ public class EventVersionManager {
 							master.getNumber() + "\t:::::::::::::: EPMReferenceLink ::::::::::::::::: " + _event);
 					System.out.println(master.getNumber()
 							+ "\t:::::::::::::: EpmUtil.changeDrawing(master); run 예정 ::::::::::::::::: " + _event);
-					try {
-						epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
-						ConfigSpec configspec = null;
-						PublishResult rs = Publish.doPublish(false, true, epm, configspec, null, false, null, null, 1,
-								null, 2, null);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
+//					try {
+//						epm = (EPMDocument) PersistenceHelper.manager.refresh(epm);
+//						ConfigSpec configspec = null;
+//						PublishResult rs = Publish.doPublish(false, true, epm, configspec, null, false, null, null, 1,
+//								null, 2, null);
+//					} catch (Exception e) {
+//						e.printStackTrace();
+//					}
 				}
 
 			}

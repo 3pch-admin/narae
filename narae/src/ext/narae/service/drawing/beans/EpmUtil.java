@@ -696,8 +696,12 @@ public class EpmUtil {
 		keyMap.put("isTop2", false);
 		keyMap.put("parent2", null);
 		String gubun = group + type;
+
+		System.out.println("group = " + group);
+		System.out.println("type = " + type);
+
 		if (type.equals("A")) {
-			logger.debug("checkPDMNumber check NA Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NA Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			keyMap.put("runNumberCodeCheckStep", 4);
 			// UNIT > 장비군 체크 로직 실행
 			keyMap.put("stepType3", "UNIT(장비군)");
@@ -738,9 +742,9 @@ public class EpmUtil {
 			keyMap.put("groupNameidx", "4");
 			returnValue.put("autoSerialNumber", "000");
 			stepCheck(hash, keyMap, returnValue);
-			logger.debug("checkPDMNumber check NA End!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NA End!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		} else if (type.equals("P")) {
-			logger.debug("checkPDMNumber check NP Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NP Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			keyMap.put("runNumberCodeCheckStep", 5);
 			// UNIT > Spare 체크 로직 실행 00으로 쓰다가 나중에 쓰일 가능성이 높아 이렇게 개발.
 			keyMap.put("stepType3", "UNIT(Spare)");
@@ -777,9 +781,9 @@ public class EpmUtil {
 			// keyMap.put("groupNameidx","4");
 			returnValue.put("autoSerialNumber", "00000");
 			stepCheck(hash, keyMap, returnValue);
-			logger.debug("checkPDMNumber check NP END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NP END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		} else if (gubun.equals("NS")) {
-			logger.debug("checkPDMNumber check NS Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NS Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			keyMap.put("runNumberCodeCheckStep", 7);
 			// UNIT > UNIT 첫번째 자리 체크 로직 실행
 			keyMap.put("stepType3", "UNIT(1/2)");
@@ -837,7 +841,7 @@ public class EpmUtil {
 
 			returnValue.put("autoSerialNumber", "00000");
 			stepCheck(hash, keyMap, returnValue);
-			logger.debug("checkPDMNumber check NS END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check NS END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			/*
 			 * }else if(gubun.equals("NB")) { keyMap.put("runNumberCodeCheckStep", 5);
 			 * //UNIT 체크 로직 실행 keyMap.put("stepType3", "UNIT"); keyMap.put("key3",
@@ -858,7 +862,8 @@ public class EpmUtil {
 			 * keyMap.put("autoSerialNumber", "00000"); stepCheck(hash,keyMap,returnValue);
 			 */
 		} else {
-			logger.debug("checkPDMNumber check ETC Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check ETC Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check ETC Start!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			keyMap.put("runNumberCodeCheckStep", 5);
 			// UNIT 체크 로직 실행
 			keyMap.put("stepType3", "UNIT");
@@ -896,7 +901,7 @@ public class EpmUtil {
 			returnValue.put("autoSerialNumber", "00000");
 			returnValue.put("isAutoName", true);
 			stepCheck(hash, keyMap, returnValue);
-			logger.debug("checkPDMNumber check ETC END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("checkPDMNumber check ETC END!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 		return returnValue;
 	}
@@ -946,7 +951,7 @@ public class EpmUtil {
 		codeCount = intobjectNullCheck(keyMap.get("codeCount"));
 		remainCodesCount = intobjectNullCheck(keyMap.get("remainCodesCount"));
 		do {
-			logger.debug("idx=" + idx + "\trunNumberCodeCheckStep=" + runNumberCodeCheckStep);
+			System.out.println("idx=" + idx + "\trunNumberCodeCheckStep=" + runNumberCodeCheckStep);
 			key = StringUtil.checkNull((String) keyMap.get("key" + idx));
 			value = StringUtil.checkNull((String) keyMap.get("value" + idx));
 			stepType = StringUtil.checkNull((String) keyMap.get("stepType" + idx));
@@ -954,13 +959,13 @@ public class EpmUtil {
 			stepName = StringUtil.checkNull((String) keyMap.get("stepName" + idx));
 			checkLen = intobjectNullCheck(keyMap.get("checkLen" + idx));
 			runNumberCodeCheckStep = intobjectNullCheck(keyMap.get("runNumberCodeCheckStep"));
-			logger.debug("key" + idx + "=" + key);
-			logger.debug("value" + idx + "=" + value);
-			logger.debug("stepType" + idx + "=" + stepType);
-			// logger.debug("errorMsg"+idx+"="+errorMsg);
-			logger.debug("stepName" + idx + "=" + stepName);
-			logger.debug("checkLen" + idx + "=" + checkLen);
-			logger.debug("runNumberCodeCheckStep=" + runNumberCodeCheckStep);
+			System.out.println("key" + idx + "=" + key);
+			System.out.println("value" + idx + "=" + value);
+			System.out.println("stepType" + idx + "=" + stepType);
+			// System.out.println("errorMsg"+idx+"="+errorMsg);
+			System.out.println("stepName" + idx + "=" + stepName);
+			System.out.println("checkLen" + idx + "=" + checkLen);
+			System.out.println("runNumberCodeCheckStep=" + runNumberCodeCheckStep);
 
 			if (stepType.contains("/")) {
 				String maxLen = stepType.substring(stepType.lastIndexOf("/") + 1, stepType.lastIndexOf(")"));
@@ -983,34 +988,34 @@ public class EpmUtil {
 			isTop = booleanobjectNullCheck(keyMap.get("isTop" + idx));
 			parentCode = (String) keyMap.get("parent" + idx);
 
-			logger.debug("isTop" + idx + "=" + isTop);
-			logger.debug("parentCode" + idx + "=" + parentCode);
+			System.out.println("isTop" + idx + "=" + isTop);
+			System.out.println("parentCode" + idx + "=" + parentCode);
 			if (null != parentCode && parentCode.length() > 0) {
 				String pkey = StringUtil.checkNull((String) keyMap.get("parentkey" + (idx)));
 				String pvalue = parentCode;
 				ArrayList<NumberCode2> parent1stList = NumberCodeHelper.manager.getNumberCode2List(pkey, pvalue);
 				for (NumberCode2 data : parent1stList) {
 					String parent2ndCode = (String) keyMap.get("parent" + (idx - 1));
-					logger.debug("parent2ndCode" + idx + "=" + parent2ndCode);
-					logger.debug("data.getParent()" + idx + "=" + data.getParent());
+					System.out.println("parent2ndCode" + idx + "=" + parent2ndCode);
+					System.out.println("data.getParent()" + idx + "=" + data.getParent());
 					if (null != data.getParent()) {
-						logger.debug("data.getParent().getCode()" + idx + "=" + data.getParent().getCode());
+						System.out.println("data.getParent().getCode()" + idx + "=" + data.getParent().getCode());
 						if (null != parent2ndCode && data.getParent().getCode().equals(parent2ndCode)) {
 							parent = data;
 							break;
 						}
 					}
 				}
-				logger.debug("parentOid" + idx + "=" + CommonUtil.getFullOIDString(parent));
+				System.out.println("parentOid" + idx + "=" + CommonUtil.getFullOIDString(parent));
 			}
 			errorCheck = checkStep(stepName, errorMsg, hash, key, value, checkLen, returnValue, isTop, parent,
 					sbncCodeV, sbncCodeNameV);
-			logger.debug("errorCheck=" + errorCheck);
+			System.out.println("errorCheck=" + errorCheck);
 			if (errorCheck) {
 				break;
 			}
 			idx++;
-			logger.debug("idx<=runNumberCodeCheckStep=" + (idx <= runNumberCodeCheckStep));
+			System.out.println("idx<=runNumberCodeCheckStep=" + (idx <= runNumberCodeCheckStep));
 
 		} while (idx <= runNumberCodeCheckStep);
 		returnValue.put("numberCheck", "false");
@@ -1018,20 +1023,20 @@ public class EpmUtil {
 		if (!errorCheck) {
 			// success
 			ncCodesV = sbncCodeV.toString();
-			logger.debug("ncCodesV=" + ncCodesV);
+			System.out.println("ncCodesV=" + ncCodesV);
 			if (ncCodesV.contains(",")) {
 				ncCodesV = ncCodesV.substring(0, ncCodesV.lastIndexOf(","));
 				String[] datas = ncCodesV.split(",");
-				logger.debug("codeCount=" + codeCount);
-				logger.debug("datas=" + datas);
-				logger.debug("datas length=" + datas.length);
-				logger.debug("remainCodesCount=" + remainCodesCount);
+				System.out.println("codeCount=" + codeCount);
+				System.out.println("datas=" + datas);
+				System.out.println("datas length=" + datas.length);
+				System.out.println("remainCodesCount=" + remainCodesCount);
 				if (codeCount != 0 && null != datas && (datas.length + remainCodesCount) == codeCount) {
 
 					for (int c = 0; c < codeCount - remainCodesCount; c++) {
 						String data = datas[c];
 						if (null != data && data.length() > 0) {
-							logger.debug("[" + (c + 1) + "]" + " change data=" + data);
+							System.out.println("[" + (c + 1) + "]" + " change data=" + data);
 							matchNumber = matchNumber.replace("[" + (c + 1) + "]", data);
 						}
 					}
@@ -1044,11 +1049,11 @@ public class EpmUtil {
 
 							boolean isStringCheck = Character.isDigit(data.charAt(0))
 									&& Character.isDigit(data.charAt(1));
-							logger.debug("c=" + c + "data=" + data);
-							logger.debug("c=" + c + "checkLen2=" + checkLen2);
-							logger.debug("c=" + c + "stepType=" + stepType);
-							logger.debug("c=" + c + "keyINType=" + keyINType);
-							logger.debug("c=" + c + "isStringCheck=" + isStringCheck);
+							System.out.println("c=" + c + "data=" + data);
+							System.out.println("c=" + c + "checkLen2=" + checkLen2);
+							System.out.println("c=" + c + "stepType=" + stepType);
+							System.out.println("c=" + c + "keyINType=" + keyINType);
+							System.out.println("c=" + c + "isStringCheck=" + isStringCheck);
 							/*
 							 * if(keyINType.equals("String")) { if(!isStringCheck) { isCheckNumber = false;
 							 * returnValue.put("nameValue", stepType+""); } }else
@@ -1057,11 +1062,11 @@ public class EpmUtil {
 							if (!isStringCheck && keyINType.equals("Int")) {
 								isCheckNumber = false;
 								returnValue.put("nameValue", stepType + "::: 숫자로만 구성된 코드입니다.");
-								logger.debug(
+								System.out.println(
 										"[" + (c) + "]" + " change data=" + data + stepType + "::: 숫자로만 구성된 코드입니다.");
 							}
 							// }
-							logger.debug("[" + (c) + "]" + " change data=" + data);
+							System.out.println("[" + (c) + "]" + " change data=" + data);
 							matchNumber = matchNumber.replace("[" + (c) + "]", data);
 						} else {
 							isCheckNumber = false;
@@ -1075,32 +1080,32 @@ public class EpmUtil {
 						log.infoLog(" <br> [checkPDMNNumber] : matchNumber ===============" + matchNumber);
 						returnValue.put("numberCheck", "true");
 
-						logger.debug("matchNumber=" + matchNumber);
+						System.out.println("matchNumber=" + matchNumber);
 						if (autoSerialNumber.length() == 0) {
 							returnValue.put("numberCheck", "false");
 							returnValue.put("nameValue", "SerialNumber 없음. 관리자 문의");
 						} else if (autoSerialNumber.length() > 0) {
-							logger.debug("autoSerialNumber=" + autoSerialNumber);
+							System.out.println("autoSerialNumber=" + autoSerialNumber);
 
-							logger.debug("before matchNumber=" + matchNumber);
+							System.out.println("before matchNumber=" + matchNumber);
 							String aftermatchNumber = matchNumber + "-"
 									+ getPdmSerialNumber2(matchNumber, autoSerialNumber);
 							if (beforeNumber.startsWith(matchNumber)) {
 								aftermatchNumber = beforeNumber;
 							}
-							logger.debug("beforeNumber=" + beforeNumber);
-							logger.debug("after matchNumber=" + aftermatchNumber);
+							System.out.println("beforeNumber=" + beforeNumber);
+							System.out.println("after matchNumber=" + aftermatchNumber);
 							returnValue.put("autoSerialNumber", autoSerialNumber);
 							returnValue.put("numberValue", aftermatchNumber);
 						}
-						logger.debug("groupNameidx=" + groupNameidx);
+						System.out.println("groupNameidx=" + groupNameidx);
 						if (null != groupNameidx && groupNameidx.length() > 0) {
 							int groupNameint = Integer.parseInt(groupNameidx);
 							if (sbncCodeNameV.toString().contains(",")) {
-								logger.debug("sbncCodeNameV=" + sbncCodeNameV.toString());
+								System.out.println("sbncCodeNameV=" + sbncCodeNameV.toString());
 								String[] names = sbncCodeNameV.toString().split(",");
 								String dat2 = names[groupNameint - 1];
-								logger.debug("dat2=" + dat2);
+								System.out.println("dat2=" + dat2);
 								if (null != dat2) {
 									returnValue.put("class1Code", names[groupNameint - 1]);
 								} else {
@@ -1111,15 +1116,15 @@ public class EpmUtil {
 						}
 						if (isAutoName) {
 							int autoNameidx = intobjectNullCheck(keyMap.get("autoNameidx"));
-							logger.debug("autoNameidx=" + autoNameidx);
+							System.out.println("autoNameidx=" + autoNameidx);
 							String autoName = null;
 							if (sbncCodeNameV.toString().contains(",")) {
-								logger.debug("sbncCodeNameV=" + sbncCodeNameV.toString());
+								System.out.println("sbncCodeNameV=" + sbncCodeNameV.toString());
 								String[] names = sbncCodeNameV.toString().split(",");
 								autoName = names[autoNameidx - 1];
 							}
-							logger.debug("autoName=" + autoName);
-							logger.debug("matchNumber=" + matchNumber);
+							System.out.println("autoName=" + autoName);
+							System.out.println("matchNumber=" + matchNumber);
 							log.infoLog(" <br> [checkPDMNNumber] : matchNumber ===============" + matchNumber);
 							returnValue.put("nameValue", autoName);
 						}
@@ -1139,20 +1144,20 @@ public class EpmUtil {
 		returnValue.put("result", true);
 
 		log.infoLog(" <br> key = " + key);
-		logger.debug(" <br> key = " + key);
+		System.out.println(" <br> key = " + key);
 
 		log.infoLog(" <br> value = " + value);
-		logger.debug(" <br> value = " + value);
+		System.out.println(" <br> value = " + value);
 
 		if (parent != null) {
 			log.infoLog(" <br> parent = " + parent.getPersistInfo().getObjectIdentifier().getStringValue());
 		} else {
 			log.infoLog(" <br> parent = " + parent);
 		}
-		logger.debug(" <br> parent = " + parent);
+		System.out.println(" <br> parent = " + parent);
 
 		log.infoLog(" <br> isTop = " + isTop);
-		logger.debug(" <br> isTop = " + isTop);
+		System.out.println(" <br> isTop = " + isTop);
 
 		if (value.length() > 0) {
 			if (!isTop) {
@@ -1172,7 +1177,7 @@ public class EpmUtil {
 			returnValue.put("result", false);
 			errorCheck = true;
 			log.infoLog(" <br> [checkPDMNumber] " + stepName + " IS NULL : " + errorMsg);
-			logger.debug(" <br> [checkPDMNumber] " + stepName + " IS NULL : " + errorMsg);
+			System.out.println(" <br> [checkPDMNumber] " + stepName + " IS NULL : " + errorMsg);
 		} else if (null != checkCode && checkLen != (checkCode.getCode().length())) {
 			returnValue.put("nameValue",
 					stepName + " 길이가 맞지 않습니다. : " + checkLen + "\tcheckCode : " + checkCode.getCode());
@@ -1180,17 +1185,21 @@ public class EpmUtil {
 			errorCheck = true;
 			log.infoLog(" <br> [checkPDMNumber] " + stepName + " 길이가 맞지 않습니다. : " + checkLen + "\tcheckCode : "
 					+ checkCode.getCode());
-			logger.debug(" <br> [checkPDMNumber] " + stepName + " 길이가 맞지 않습니다. : " + checkLen + "\tcheckCode : "
+			System.out.println(" <br> [checkPDMNumber] " + stepName + " 길이가 맞지 않습니다. : " + checkLen + "\tcheckCode : "
 					+ checkCode.getCode());
 		} else if (null != checkCode && checkLen == (checkCode.getCode().length())) {
 			log.infoLog(" <br> [checkPDMNumber] " + stepName + " 정상. : " + checkLen + "\tcheckCode : "
 					+ checkCode.getCode());
-			logger.debug(" <br> [checkPDMNumber] " + stepName + " 정상. : " + checkLen + "\tcheckCode : "
+			System.out.println(" <br> [checkPDMNumber] " + stepName + " 정상. : " + checkLen + "\tcheckCode : "
 					+ checkCode.getCode());
 			returnValue.put("result", true);
 			errorCheck = false;
+
+			System.out.println("Append Code = " + checkCode.getCode() + ", Append Name = " + checkCode.getName());
+
 			sbncCodeV.append(checkCode.getCode() + ",");
 			sbncCodeNameV.append(checkCode.getName() + ",");
+			System.out.println("buffer=" + sbncCodeNameV.toString());
 		}
 
 		return errorCheck;
@@ -1417,9 +1426,9 @@ public class EpmUtil {
 				return;
 			System.out.println(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
 			log.infoLog(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
-			logger.debug(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
+			System.out.println(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
 			log.infoLog(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
-			logger.debug(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
+			System.out.println(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
 			wt.epm.structure.EPMReferenceLink referenceLink = null;
 			boolean isNumber = false;
 			String autoNumberValue = "";
@@ -1476,37 +1485,37 @@ public class EpmUtil {
 			hash.put("beforeNumber", epm.getNumber());
 
 			log.infoLog("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
-			logger.debug("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
+			System.out.println("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
 			log.infoLog("epm.getDocType().toString()=" + epm.getDocType().toString());
-			logger.debug("epm.getDocType().toString()=" + epm.getDocType().toString());
+			System.out.println("epm.getDocType().toString()=" + epm.getDocType().toString());
 			log.infoLog("epm.isGeneric() = " + epm.isGeneric());
-			logger.debug("epm.isGeneric() = " + epm.isGeneric());
+			System.out.println("epm.isGeneric() = " + epm.isGeneric());
 			log.infoLog("epm.isInstance() = " + epm.isInstance());
-			logger.debug("epm.isInstance() = " + epm.isInstance());
+			System.out.println("epm.isInstance() = " + epm.isInstance());
 			log.infoLog("group = " + group);
-			logger.debug("group = " + group);
+			System.out.println("group = " + group);
 			log.infoLog("type = " + type);
-			logger.debug("type = " + type);
+			System.out.println("type = " + type);
 			log.infoLog("unit = " + unit);
-			logger.debug("unit = " + unit);
+			System.out.println("unit = " + unit);
 			log.infoLog("class1 = " + class1);
-			logger.debug("class1 = " + class1);
+			System.out.println("class1 = " + class1);
 			log.infoLog("class2 = " + class2);
-			logger.debug("class2 = " + class2);
+			System.out.println("class2 = " + class2);
 			log.infoLog("class3 = " + class3);
-			logger.debug("class3 = " + class3);
+			System.out.println("class3 = " + class3);
 			log.infoLog("class4 = " + class4);
-			logger.debug("class4 = " + class4);
+			System.out.println("class4 = " + class4);
 			log.infoLog("isAutoNumber = " + isAutoNumber);
-			logger.debug("isAutoNumber = " + isAutoNumber);
+			System.out.println("isAutoNumber = " + isAutoNumber);
 			log.infoLog("spec = " + spec);
-			logger.debug("spec = " + spec);
+			System.out.println("spec = " + spec);
 			log.infoLog("quantityunit = " + quantityunit);
-			logger.debug("quantityunit = " + quantityunit);
+			System.out.println("quantityunit = " + quantityunit);
 			log.infoLog("maker = " + maker);
-			logger.debug("maker = " + maker);
+			System.out.println("maker = " + maker);
 			log.infoLog("p_Name = " + p_Name);
-			logger.debug("p_Name = " + p_Name);
+			System.out.println("p_Name = " + p_Name);
 
 			System.out.println("E+++++++++++++" + epm.getAuthoringApplication().toString());
 			if (epm.getAuthoringApplication().toString().equals("ACAD")) {
@@ -1527,8 +1536,8 @@ public class EpmUtil {
 				isAutoName = (boolean) returnValue.get("isAutoName");
 			log.infoLog(" <br> isAutoName TEST  = " + isAutoName);
 			log.infoLog(" <br> autoSerialNumber TEST  = " + autoSerialNumber);
-			logger.debug(" <br> isAutoName TEST  = " + isAutoName);
-			logger.debug(" <br> autoSerialNumber TEST  = " + autoSerialNumber);
+			System.out.println(" <br> isAutoName TEST  = " + isAutoName);
+			System.out.println(" <br> autoSerialNumber TEST  = " + autoSerialNumber);
 			String pdmName = null;
 			if (!isAutoName && null != p_Name && p_Name.length() > 0) {
 				pdmName = p_Name;
@@ -1538,8 +1547,8 @@ public class EpmUtil {
 			String numberCheck = (String) returnValue.get("numberCheck");
 			String pdmNumber = "";
 			log.infoLog("numberCheck  = " + numberCheck);
-			logger.debug("numberCheck  = " + numberCheck);
-			logger.debug("pdmName  = " + pdmName);
+			System.out.println("numberCheck  = " + numberCheck);
+			System.out.println("pdmName  = " + pdmName);
 			if (numberCheck.equals("false") || null == pdmName) {
 				log.exceptionLog("IBAUtil.changeIBAValue  autoNumber, message = false");
 				logger.error("IBAUtil.changeIBAValue  autoNumber, message = false");
@@ -1580,30 +1589,32 @@ public class EpmUtil {
 					 * map.put("type", "CADATTRIBUTE"); map.put("parent", paCode);
 					 * 
 					 * log.infoLog("code :" + unit ); log.infoLog("type :" + "CADATTRIBUTE" );
-					 * log.infoLog("parent :" + paCode ); logger.debug("code :" + unit );
-					 * logger.debug("type :" + "CADATTRIBUTE" ); logger.debug("parent :" + paCode );
-					 * QuerySpec qs = NumberCodeHelper.getCodeQuerySpec2(map);
+					 * log.infoLog("parent :" + paCode ); System.out.println("code :" + unit );
+					 * System.out.println("type :" + "CADATTRIBUTE" ); System.out.println("parent :"
+					 * + paCode ); QuerySpec qs = NumberCodeHelper.getCodeQuerySpec2(map);
 					 * 
-					 * log.infoLog("unitCode Query :" + qs ); logger.debug("unitCode Query :" + qs
-					 * ); QueryResult qr = PersistenceHelper.manager.find(qs);
-					 * log.infoLog("qr.size = " +qr.size()); logger.debug("qr.size = " +qr.size());
-					 * if(qr.hasMoreElements()) { Object[] obj = (Object[])qr.nextElement();
-					 * NumberCode2 unitCode = (NumberCode2)obj[0]; String epmibaValue =
-					 * IBAUtil.getAttrValue(epm, "Group_Name");
+					 * log.infoLog("unitCode Query :" + qs ); System.out.println("unitCode Query :"
+					 * + qs ); QueryResult qr = PersistenceHelper.manager.find(qs);
+					 * log.infoLog("qr.size = " +qr.size()); System.out.println("qr.size = "
+					 * +qr.size()); if(qr.hasMoreElements()) { Object[] obj =
+					 * (Object[])qr.nextElement(); NumberCode2 unitCode = (NumberCode2)obj[0];
+					 * String epmibaValue = IBAUtil.getAttrValue(epm, "Group_Name");
 					 * if(!unitCode.getName().equals(epmibaValue)){
-					 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
+					 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
 					 * +unitCode.getName()); IBAUtil.changeIBAValue(epm, "Group_Name",
 					 * unitCode.getName());
-					 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
+					 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
 					 * +unitCode.getName()); } }else{ autoNumberValue = autoNumberValue
 					 * +"["+type+","+unit +"]Group_Name 가 존재 하지 않습니다."; }
 					 */
 				}
 				String epmibap_Name = IBAUtil.getAttrValue(epm, "P_Name");
 				if (!p_Name.equals(epmibap_Name)) {
-					logger.debug(epm.getNumber() + "\tP_Name IBA changeIBA start = " + p_Name);
+					System.out.println(epm.getNumber() + "\tP_Name IBA changeIBA start = " + p_Name);
+					log.infoLog(epm.getNumber() + "\tP_Name IBA changeIBA start = " + p_Name);
 					IBAUtil.changeIBAValue(epm, "P_Name", p_Name);
-					logger.debug(epm.getNumber() + "\tP_Name IBA changeIBA End = " + p_Name);
+					System.out.println(epm.getNumber() + "\tP_Name IBA changeIBA End = " + p_Name);
+					log.infoLog(epm.getNumber() + "\tP_Name IBA changeIBA End = " + p_Name);
 				}
 			}
 
@@ -1681,23 +1692,23 @@ public class EpmUtil {
 			String cadExtension = getCadExtension(epm.getCADName());
 			String cadName = pdmNumber + cadExtension;
 			cadName = cadName.toLowerCase();
-			logger.debug("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
+			System.out.println("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
 			/*
 			 * Number ,Name ,CadName Change ,FamilyTable(generic,instance) Number,Name
 			 * Change
 			 */
 			if (epm.isGeneric() || epm.isInstance()) {
-				logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
+				System.out.println("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
 						+ pdmNumber + "\tpdmName=" + pdmName);
 				isNumber = CadInfoChange.manager.epmInfoChange(epm, pdmNumber, pdmName);
-				logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber() + "\tpdmNumber="
-						+ pdmNumber + "\tpdmName=" + pdmName);
+				System.out.println("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
+						+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 			} else {
 				try {
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
-							+ pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 					isNumber = CadInfoChange.manager.epmCadInfoChange(epm, pdmNumber, pdmName, cadName);
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
 							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 				} catch (Exception e) {
 					log.errLog(e.getMessage());
@@ -1781,16 +1792,16 @@ public class EpmUtil {
 			if (isNumber) {
 				IBAUtil.changeIBAValue(epm, autoNumber, "TRUE");
 				log.infoLog("Final Number Change autoNumber = TRUE");
-				logger.debug("Final Number Change autoNumber = TRUE");
+				System.out.println("Final Number Change autoNumber = TRUE");
 			} else {
 				IBAUtil.changeIBAValue(epm, autoNumber, "FALSE");
 				log.infoLog("Final Number Change autoNumber = FALSE");
-				logger.debug("Final Number Change autoNumber = FALSE");
+				System.out.println("Final Number Change autoNumber = FALSE");
 			}
 
 			IBAUtil.changeIBAValue(epm, "message", autoNumberValue);
 			log.infoLog(" Final message r = " + autoNumberValue);
-			logger.debug(" Final message r = " + autoNumberValue);
+			System.out.println(" Final message r = " + autoNumberValue);
 
 		} catch (Exception e) {
 
@@ -1802,7 +1813,7 @@ public class EpmUtil {
 			logger.error(":::::::::::::::::: EPMDocument createEPMChange Exception  END::::::::::::::::::::::::");
 		}
 		log.infoLog(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
-		logger.debug(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
+		System.out.println(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
 	}
 
 	public static void updateEPMChange(EPMDocument epm) {
@@ -1840,9 +1851,9 @@ public class EpmUtil {
 			if (!epm.getOwnerApplication().toString().equals("EPM"))
 				return;
 			log.infoLog(":::::::::::::::::: EPMDocument checkInEPMChange START  ::::::::::::::::::::::::");
-			logger.debug(":::::::::::::::::: EPMDocument checkInEPMChange START  ::::::::::::::::::::::::");
+			System.out.println(":::::::::::::::::: EPMDocument checkInEPMChange START  ::::::::::::::::::::::::");
 			log.infoLog(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
-			logger.debug(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
+			System.out.println(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
 			wt.epm.structure.EPMReferenceLink referenceLink = null;
 			boolean isNumber = false;
 			String autoNumberValue = "";
@@ -1882,6 +1893,7 @@ public class EpmUtil {
 			String isAutoNumber = (ibaAttr != null)
 					? StringUtil.checkNull(StringUtil.trim((String) ibaAttr.get(autoNumber)))
 					: "";
+
 			String message = (ibaAttr != null) ? StringUtil.checkNull(StringUtil.trim((String) ibaAttr.get("message")))
 					: "";
 			String spec = (ibaAttr != null) ? StringUtil.checkNull(StringUtil.trim((String) ibaAttr.get("Spec"))) : "";
@@ -1901,9 +1913,9 @@ public class EpmUtil {
 			hash.put("class4", class4);
 			hash.put("beforeNumber", epm.getNumber());
 			log.infoLog("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
-			logger.debug("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
+			System.out.println("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
 			log.infoLog("epm.getDocType().toString()=" + epm.getDocType().toString());
-			logger.debug("epm.getDocType().toString()=" + epm.getDocType().toString());
+			System.out.println("epm.getDocType().toString()=" + epm.getDocType().toString());
 			log.infoLog("epm.isGeneric() = " + epm.isGeneric());
 			log.infoLog("epm.isInstance() = " + epm.isInstance());
 			log.infoLog("group = " + group);
@@ -1918,20 +1930,20 @@ public class EpmUtil {
 			log.infoLog("quantityunit = " + quantityunit);
 			log.infoLog("maker = " + maker);
 			log.infoLog("p_Name = " + p_Name);
-			logger.debug("epm.isGeneric() = " + epm.isGeneric());
-			logger.debug("epm.isInstance() = " + epm.isInstance());
-			logger.debug("group = " + group);
-			logger.debug("type = " + type);
-			logger.debug("unit = " + unit);
-			logger.debug("class1 = " + class1);
-			logger.debug("class2 = " + class2);
-			logger.debug("class3 = " + class3);
-			logger.debug("class4 = " + class4);
-			logger.debug("isAutoNumber = " + isAutoNumber);
-			logger.debug("spec = " + spec);
-			logger.debug("quantityunit = " + quantityunit);
-			logger.debug("maker = " + maker);
-			logger.debug("p_Name = " + p_Name);
+			System.out.println("epm.isGeneric() = " + epm.isGeneric());
+			System.out.println("epm.isInstance() = " + epm.isInstance());
+			System.out.println("group = " + group);
+			System.out.println("type = " + type);
+			System.out.println("unit = " + unit);
+			System.out.println("class1 = " + class1);
+			System.out.println("class2 = " + class2);
+			System.out.println("class3 = " + class3);
+			System.out.println("class4 = " + class4);
+			System.out.println("isAutoNumber = " + isAutoNumber);
+			System.out.println("spec = " + spec);
+			System.out.println("quantityunit = " + quantityunit);
+			System.out.println("maker = " + maker);
+			System.out.println("p_Name = " + p_Name);
 			System.out.println("E+++++++++++++" + epm.getAuthoringApplication().toString());
 
 			if (epm.getAuthoringApplication().toString().equals("ACAD")) {
@@ -1955,8 +1967,8 @@ public class EpmUtil {
 			if (null != returnValue.get("isAutoName"))
 				isAutoName = (boolean) returnValue.get("isAutoName");
 			numberCheck = (String) returnValue.get("numberCheck");
-			logger.debug("isAutoName  = " + isAutoName);
-			logger.debug("autoSerialNumber  = " + autoSerialNumber);
+			System.out.println("isAutoName  = " + isAutoName);
+			System.out.println("autoSerialNumber  = " + autoSerialNumber);
 			if (!isAutoName && null != p_Name && p_Name.length() > 0) {
 				pdmName = p_Name;
 			} else if (null != returnValue.get("nameValue")) {
@@ -1964,8 +1976,8 @@ public class EpmUtil {
 			}
 			numberCheck = (String) returnValue.get("numberCheck");
 			log.infoLog("numberCheck  = " + numberCheck);
-			logger.debug("numberCheck  = " + numberCheck);
-			logger.debug("pdmName  = " + pdmName);
+			System.out.println("numberCheck  = " + numberCheck);
+			System.out.println("pdmName  = " + pdmName);
 			if (numberCheck.equals("false") || null == pdmName) {
 				IBAUtil.changeIBAValue(epm, autoNumber, "FALSE");
 				IBAUtil.changeIBAValue(epm, "message", pdmName);
@@ -1995,31 +2007,35 @@ public class EpmUtil {
 					 * map.put("type", "CADATTRIBUTE"); map.put("parent", paCode);
 					 * 
 					 * log.infoLog("code :" + unit ); log.infoLog("type :" + "CADATTRIBUTE" );
-					 * log.infoLog("parent :" + paCode ); logger.debug("code :" + unit );
-					 * logger.debug("type :" + "CADATTRIBUTE" ); logger.debug("parent :" + paCode );
-					 * QuerySpec qs = NumberCodeHelper.getCodeQuerySpec2(map);
+					 * log.infoLog("parent :" + paCode ); System.out.println("code :" + unit );
+					 * System.out.println("type :" + "CADATTRIBUTE" ); System.out.println("parent :"
+					 * + paCode ); QuerySpec qs = NumberCodeHelper.getCodeQuerySpec2(map);
 					 * 
-					 * log.infoLog("unitCode Query :" + qs ); logger.debug("unitCode Query :" + qs
-					 * ); QueryResult qr = PersistenceHelper.manager.find(qs);
-					 * log.infoLog("qr.size = " +qr.size()); logger.debug("qr.size = " +qr.size());
-					 * if(qr.hasMoreElements()) { Object[] obj = (Object[])qr.nextElement();
-					 * NumberCode2 unitCode = (NumberCode2)obj[0]; String epmibaValue =
-					 * IBAUtil.getAttrValue(epm, "Group_Name");
+					 * log.infoLog("unitCode Query :" + qs ); System.out.println("unitCode Query :"
+					 * + qs ); QueryResult qr = PersistenceHelper.manager.find(qs);
+					 * log.infoLog("qr.size = " +qr.size()); System.out.println("qr.size = "
+					 * +qr.size()); if(qr.hasMoreElements()) { Object[] obj =
+					 * (Object[])qr.nextElement(); NumberCode2 unitCode = (NumberCode2)obj[0];
+					 * String epmibaValue = IBAUtil.getAttrValue(epm, "Group_Name");
 					 * if(!unitCode.getName().equals(epmibaValue)){
-					 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
+					 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
 					 * +unitCode.getName()); IBAUtil.changeIBAValue(epm, "Group_Name",
 					 * unitCode.getName());
-					 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
+					 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
 					 * +unitCode.getName()); } }else{ autoNumberValue = autoNumberValue
 					 * +"["+type+","+unit +"]Group_Name 가 존재 하지 않습니다."; }
 					 * 
 					 */
 				}
 				String epmibap_Name = IBAUtil.getAttrValue(epm, "P_Name");
+
+				System.out.println("epmibap_Name=" + epmibap_Name);
+				System.out.println("p_Name=" + p_Name);
+
 				if (!p_Name.equals(epmibap_Name)) {
-					logger.debug(epm.getNumber() + "\tP_Name IBA changeIBA start = " + p_Name);
+					System.out.println(epm.getNumber() + "\tP_Name IBA changeIBA start = " + p_Name);
 					IBAUtil.changeIBAValue(epm, "P_Name", p_Name);
-					logger.debug(epm.getNumber() + "\tP_Name IBA changeIBA End = " + p_Name);
+					System.out.println(epm.getNumber() + "\tP_Name IBA changeIBA End = " + p_Name);
 				}
 			}
 			// 추가
@@ -2055,8 +2071,8 @@ public class EpmUtil {
 								IBAUtil.changeIBAValue(epm, "message", autoNumberValue);
 								log.exceptionLog("autoNumber =" + "FALSE");
 								log.exceptionLog("message =" + autoNumberValue);
-								logger.debug("autoNumber =" + "FALSE");
-								logger.debug("message =" + autoNumberValue);
+								System.out.println("autoNumber =" + "FALSE");
+								System.out.println("message =" + autoNumberValue);
 								return;
 							} // if(!epm.getNumber().equals(dublePart.getNumber())){
 
@@ -2071,9 +2087,9 @@ public class EpmUtil {
 						IBAUtil.changeIBAValue(epm, autoNumber, "FALSE");
 						IBAUtil.changeIBAValue(epm, "message", "SPEC 을 입력 하지 않았습니다.");
 						log.exceptionLog("autoNumber =" + "FALSE");
-						logger.debug("autoNumber =" + "FALSE");
+						System.out.println("autoNumber =" + "FALSE");
 						log.exceptionLog("message =" + "SPEC 을 입력 하지 않았습니다.");
-						logger.debug("message =" + "SPEC 을 입력 하지 않았습니다.");
+						System.out.println("message =" + "SPEC 을 입력 하지 않았습니다.");
 						return;
 					} // if(spec.length()>0){
 				}
@@ -2083,7 +2099,7 @@ public class EpmUtil {
 
 			if (version.equals("A") && !epm.getNumber().startsWith(pdmNumber)) { // A 버전, 번호가 같지 않은 경우
 				log.infoLog("<A 버전, 번호가 같지 않은 경우 START>");
-				logger.debug("<A 버전, 번호가 같지 않은 경우 START>");
+				System.out.println("<A 버전, 번호가 같지 않은 경우 START>");
 				/* Sequence Number */
 				if (null == autoSerialNumber || (null != autoSerialNumber && autoSerialNumber.length() == 0)) {
 					String serialNum = getPdmSerialNumber(pdmNumber);
@@ -2094,23 +2110,23 @@ public class EpmUtil {
 				String cadExtension = getCadExtension(epm.getCADName());
 				String cadName = pdmNumber + cadExtension;
 				cadName = cadName.toLowerCase();
-				logger.debug("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
+				System.out.println("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
 				/*
 				 * Number ,Name ,CadName Change ,FamilyTable(generic,instance) Number,Name
 				 * Change
 				 */
 				if (epm.isGeneric() || epm.isInstance()) {
-					logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
-							+ pdmNumber + "\tpdmName=" + pdmName);
+					System.out.println("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
+							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 					isNumber = CadInfoChange.manager.epmInfoChange(epm, pdmNumber, pdmName);
-					logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber() + "\tpdmNumber="
-							+ pdmNumber + "\tpdmName=" + pdmName);
+					System.out.println("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
+							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 				} else {
 					try {
-						logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+						System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
 								+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 						isNumber = CadInfoChange.manager.epmCadInfoChange(epm, pdmNumber, pdmName, cadName);
-						logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+						System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
 								+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 					} catch (Exception e) {
 						log.errLog(e.getMessage());
@@ -2123,37 +2139,37 @@ public class EpmUtil {
 				log.infoLog("Part ====" + part);
 				if (part != null) {
 					log.infoLog("<WTPART CHANGE START>");
-					logger.debug("<WTPART CHANGE START>");
+					System.out.println("<WTPART CHANGE START>");
 					IBAUtil.changeNumber(CommonUtil.getOIDString(part), pdmNumber, pdmName);
 					log.infoLog("Change " + pdmNumber + ":" + pdmNumber);
-					logger.debug("Change " + pdmNumber + ":" + pdmNumber);
+					System.out.println("Change " + pdmNumber + ":" + pdmNumber);
 					log.infoLog("<WTPART CHANGE END>");
-					logger.debug("<WTPART CHANGE END>");
+					System.out.println("<WTPART CHANGE END>");
 				}
 
 				/* DRAWING CHANGE */
 				EPMDocument epm2D = EpmSearchHelper.manager.getEPM2D((EPMDocumentMaster) epm.getMaster());
 
 				log.infoLog("epm2D ====" + epm2D);
-				logger.debug("epm2D ====" + epm2D);
+				System.out.println("epm2D ====" + epm2D);
 				if (null == epm2D) {
 					epm2D = getEPM2D((EPMDocumentMaster) epm.getMaster());
 				}
 
 				log.infoLog("epm2D 2====" + epm2D);
-				logger.debug("epm2D 2====" + epm2D);
+				System.out.println("epm2D 2====" + epm2D);
 
 				if (epm2D != null) {
 					log.infoLog("<DRAWING CHANGE START>");
-					logger.debug("<DRAWING CHANGE START>");
+					System.out.println("<DRAWING CHANGE START>");
 					cadExtension = getCadExtension(epm2D.getCADName());
 					String pdmNumber2D = pdmNumber + "_2D";
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
 							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tpdmNumber+cadExtension="
 							+ pdmNumber + cadExtension);
 					boolean isNumber2D = CadInfoChange.manager.epmCadInfoChange(epm2D, pdmNumber2D, pdmName,
 							pdmNumber + cadExtension);
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
 							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tpdmNumber+cadExtension="
 							+ pdmNumber + cadExtension);
 
@@ -2163,20 +2179,20 @@ public class EpmUtil {
 						IBAUtil.changeIBAValue(epm2D, autoNumber, "FALSE");
 					}
 					log.infoLog("<DRAWING CHANGE END>");
-					logger.debug("<DRAWING CHANGE END>");
+					System.out.println("<DRAWING CHANGE END>");
 				}
 				log.infoLog("<A 버전, 번호가 같지 않은 경우 END>");
-				logger.debug("<A 버전, 번호가 같지 않은 경우 END>");
+				System.out.println("<A 버전, 번호가 같지 않은 경우 END>");
 			} else if (version.equals("A") && epm.getNumber().startsWith(pdmNumber)
 					&& epm.getName().toUpperCase().startsWith(pdmNumber)) {
 				log.infoLog("<A 버전, 번호가 같은 경우 START>");
-				logger.debug("<A 버전, 번호가 같은 경우 START>");
+				System.out.println("<A 버전, 번호가 같은 경우 START>");
 				log.infoLog("epm.getNumber() = " + epm.getNumber());
 				log.infoLog("epm.getName() = " + epm.getName());
-				logger.debug("epm.getNumber() = " + epm.getNumber());
-				logger.debug("epm.getName() = " + epm.getName());
-				logger.debug("changeEPMnumber = " + epm.getNumber().substring(0, epm.getNumber().length() - 4));
-				logger.debug("changeEPMName = " + pdmName);
+				System.out.println("epm.getNumber() = " + epm.getNumber());
+				System.out.println("epm.getName() = " + epm.getName());
+				System.out.println("changeEPMnumber = " + epm.getNumber().substring(0, epm.getNumber().length() - 4));
+				System.out.println("changeEPMName = " + pdmName);
 				CadInfoChange.manager.epmInfoChange(epm, epm.getNumber().substring(0, epm.getNumber().length() - 4),
 						pdmName);
 
@@ -2184,20 +2200,20 @@ public class EpmUtil {
 				EPMDocument epm2D = EpmSearchHelper.manager.getEPM2D((EPMDocumentMaster) epm.getMaster());
 
 				log.infoLog("epm2D ====" + epm2D);
-				logger.debug("epm2D ====" + epm2D);
+				System.out.println("epm2D ====" + epm2D);
 				if (null == epm2D) {
 					epm2D = getEPM2D((EPMDocumentMaster) epm.getMaster());
 				}
 
 				log.infoLog("epm2D 2====" + epm2D);
-				logger.debug("epm2D 2====" + epm2D);
+				System.out.println("epm2D 2====" + epm2D);
 
 				if (epm2D != null) {
 					String pdmNumber2D = epm.getNumber() + "_2D";
-					logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + " 2D \tpdmNumber="
-							+ pdmNumber + "\tpdmName=" + pdmName);
+					System.out.println("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
+							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 					boolean isNumber2D = CadInfoChange.manager.epmInfoChange(epm2D, pdmNumber2D, pdmName);
-					logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
+					System.out.println("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
 							+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 					if (isNumber2D) {
 						IBAUtil.changeIBAValue(epm2D, autoNumber, "TRUE");
@@ -2206,9 +2222,9 @@ public class EpmUtil {
 					}
 				}
 				log.infoLog("<A 버전, 번호가 같은 경우 END>");
-				logger.debug("<A 버전, 번호가 같은 경우 END>");
+				System.out.println("<A 버전, 번호가 같은 경우 END>");
 			}
-			logger.debug("type =" + type + "group=" + group);
+			System.out.println("type =" + type + "group=" + group);
 			try {
 
 				if (!epm.getName().equals(pdmName)) {
@@ -2216,20 +2232,21 @@ public class EpmUtil {
 					String susername = sessUser.getName();
 					SessionHelper.manager.setAdministrator();
 					log.infoLog("<도면명이 다를 경우...>");
-					logger.debug("<도면명이 다를 경우>");
+					System.out.println("<도면명이 다를 경우>");
 					log.infoLog("epm.getNumber() = " + epm.getNumber());
 					log.infoLog("epm.getName() = " + epm.getName());
-					logger.debug("epm.getNumber() = " + epm.getNumber());
-					logger.debug("epm.getName() = " + epm.getName());
-					logger.debug("changeEPMnumber = " + epm.getNumber().substring(0, epm.getNumber().length() - 4));
-					logger.debug("changeEPMName = " + pdmName);
+					System.out.println("epm.getNumber() = " + epm.getNumber());
+					System.out.println("epm.getName() = " + epm.getName());
+					System.out
+							.println("changeEPMnumber = " + epm.getNumber().substring(0, epm.getNumber().length() - 4));
+					System.out.println("changeEPMName = " + pdmName);
 					CadInfoChange.manager.epmInfoChange(epm, epm.getNumber(), pdmName);
 					String pNameAttr = "";
-					logger.debug("part ====" + part);
+					System.out.println("part ====" + part);
 					if (null != part) {
 						pNameAttr = IBAUtil.getAttrValue(part, "P_Name");
 						log.infoLog("pNameAttr ====" + pNameAttr);
-						logger.debug("pdmName ====" + pdmName);
+						System.out.println("pdmName ====" + pdmName);
 						if (!pNameAttr.equals(pdmName))
 							IBAUtil.changeIBAValue(part, "P_Name", pdmName);
 
@@ -2237,36 +2254,36 @@ public class EpmUtil {
 					}
 					pNameAttr = IBAUtil.getAttrValue(epm, "P_Name");
 					log.infoLog("pNameAttr ====" + pNameAttr);
-					logger.debug("p_Name ====" + pdmName);
+					System.out.println("p_Name ====" + pdmName);
 					if (!pNameAttr.equals(pdmName))
 						IBAUtil.changeIBAValue(epm, "P_Name", pdmName);
 
 					/* DRAWING CHANGE */
 					EPMDocument epm2D = EpmSearchHelper.manager.getEPM2D((EPMDocumentMaster) epm.getMaster());
 					log.infoLog("epm2D ====" + epm2D);
-					logger.debug("epm2D ====" + epm2D);
+					System.out.println("epm2D ====" + epm2D);
 					if (null == epm2D) {
 						epm2D = getEPM2D((EPMDocumentMaster) epm.getMaster());
 					}
 
 					log.infoLog("epm2D 2====" + epm2D);
-					logger.debug("epm2D 2====" + epm2D);
+					System.out.println("epm2D 2====" + epm2D);
 
 					if (epm2D != null) {
 						String pdmNumber2D = epm.getNumber() + "_2D";
 						String name2D = epm2D.getName();
 						pNameAttr = IBAUtil.getAttrValue(epm2D, "P_Name");
 						log.infoLog("pNameAttr ====" + pNameAttr);
-						logger.debug("pdmName ====" + pdmName);
+						System.out.println("pdmName ====" + pdmName);
 						if (!pNameAttr.equals(pdmName))
 							IBAUtil.changeIBAValue(epm2D, "P_Name", pdmName);
 						log.infoLog("name2D ====" + name2D);
-						logger.debug("pdmName ====" + pdmName);
+						System.out.println("pdmName ====" + pdmName);
 						if (!name2D.equals(pdmName)) {
-							logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
+							System.out.println("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber()
 									+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 							boolean isNumber2D = CadInfoChange.manager.epmInfoChange(epm2D, epm2D.getNumber(), pdmName);
-							logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
+							System.out.println("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
 									+ " 2D \tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 							if (isNumber2D) {
 								IBAUtil.changeIBAValue(epm2D, autoNumber, "TRUE");
@@ -2276,7 +2293,7 @@ public class EpmUtil {
 						}
 					}
 					log.infoLog("<도면명이 다를 경우... END>");
-					logger.debug("<도면명이 다를 경우... END>");
+					System.out.println("<도면명이 다를 경우... END>");
 					SessionHelper.manager.setPrincipal(susername);
 				}
 
@@ -2672,9 +2689,9 @@ public class EpmUtil {
 				return;
 			System.out.println(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
 			log.infoLog(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
-			logger.debug(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
+			System.out.println(":::::::::::::::::: EPMDocument createEPMChange START  ::::::::::::::::::::::::");
 			log.infoLog(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
-			logger.debug(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
+			System.out.println(":::::::::::::::::: Cad Number : " + epm.getNumber() + ":" + epm.getName());
 			wt.epm.structure.EPMReferenceLink referenceLink = null;
 			boolean isNumber = false;
 			String autoNumberValue = "";
@@ -2731,37 +2748,37 @@ public class EpmUtil {
 			hash.put("class4", class4);
 
 			log.infoLog("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
-			logger.debug("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
+			System.out.println("getAuthoringApplication = " + epm.getAuthoringApplication().toString());
 			log.infoLog("epm.getDocType().toString()=" + epm.getDocType().toString());
-			logger.debug("epm.getDocType().toString()=" + epm.getDocType().toString());
+			System.out.println("epm.getDocType().toString()=" + epm.getDocType().toString());
 			log.infoLog("epm.isGeneric() = " + epm.isGeneric());
-			logger.debug("epm.isGeneric() = " + epm.isGeneric());
+			System.out.println("epm.isGeneric() = " + epm.isGeneric());
 			log.infoLog("epm.isInstance() = " + epm.isInstance());
-			logger.debug("epm.isInstance() = " + epm.isInstance());
+			System.out.println("epm.isInstance() = " + epm.isInstance());
 			log.infoLog("group = " + group);
-			logger.debug("group = " + group);
+			System.out.println("group = " + group);
 			log.infoLog("type = " + type);
-			logger.debug("type = " + type);
+			System.out.println("type = " + type);
 			log.infoLog("unit = " + unit);
-			logger.debug("unit = " + unit);
+			System.out.println("unit = " + unit);
 			log.infoLog("class1 = " + class1);
-			logger.debug("class1 = " + class1);
+			System.out.println("class1 = " + class1);
 			log.infoLog("class2 = " + class2);
-			logger.debug("class2 = " + class2);
+			System.out.println("class2 = " + class2);
 			log.infoLog("class3 = " + class3);
-			logger.debug("class3 = " + class3);
+			System.out.println("class3 = " + class3);
 			log.infoLog("class4 = " + class4);
-			logger.debug("class4 = " + class4);
+			System.out.println("class4 = " + class4);
 			log.infoLog("isAutoNumber = " + isAutoNumber);
-			logger.debug("isAutoNumber = " + isAutoNumber);
+			System.out.println("isAutoNumber = " + isAutoNumber);
 			log.infoLog("spec = " + spec);
-			logger.debug("spec = " + spec);
+			System.out.println("spec = " + spec);
 			log.infoLog("quantityunit = " + quantityunit);
-			logger.debug("quantityunit = " + quantityunit);
+			System.out.println("quantityunit = " + quantityunit);
 			log.infoLog("maker = " + maker);
-			logger.debug("maker = " + maker);
+			System.out.println("maker = " + maker);
 			log.infoLog("ITEMNAME = " + ITEMNAME);
-			logger.debug("ITEMNAME = " + ITEMNAME);
+			System.out.println("ITEMNAME = " + ITEMNAME);
 
 			System.out.println("E+++++++++++++" + epm.getAuthoringApplication().toString());
 			if (epm.getAuthoringApplication().toString().equals("ACAD")) {
@@ -2780,7 +2797,7 @@ public class EpmUtil {
 			String autoSerialNumber = (String) returnValue.get("autoSerialNumber");
 			String pdmNumber = "";
 			log.infoLog("numberCheck  = " + numberCheck);
-			logger.debug("numberCheck  = " + numberCheck);
+			System.out.println("numberCheck  = " + numberCheck);
 			if (numberCheck.equals("false")) {
 				log.exceptionLog("IBAUtil.changeIBAValue  autoNumber, message = false");
 				logger.error("IBAUtil.changeIBAValue  autoNumber, message = false");
@@ -2804,9 +2821,9 @@ public class EpmUtil {
 				return;
 			} else {
 				pdmNumber = (String) returnValue.get("numberValue");
-				logger.debug("pdmNumber  = " + pdmNumber);
+				System.out.println("pdmNumber  = " + pdmNumber);
 				log.infoLog("pdmNumber  = " + pdmNumber);
-				logger.debug("autoSerialNumber  = " + autoSerialNumber);
+				System.out.println("autoSerialNumber  = " + autoSerialNumber);
 				log.infoLog("autoSerialNumber  = " + autoSerialNumber);
 				if (pdmName.length() == 0)
 					pdmName = pdmNumber;
@@ -2825,29 +2842,29 @@ public class EpmUtil {
 				 * map.put("parent", paCode);
 				 * 
 				 * log.infoLog("code :" + unit ); log.infoLog("type :" + "CADATTRIBUTE" );
-				 * log.infoLog("parent :" + paCode ); logger.debug("code :" + unit );
-				 * logger.debug("type :" + "CADATTRIBUTE" ); logger.debug("parent :" + paCode );
-				 * QuerySpec qs = NumberCodeHelper.getCodeQuerySpec(map);
+				 * log.infoLog("parent :" + paCode ); System.out.println("code :" + unit );
+				 * System.out.println("type :" + "CADATTRIBUTE" ); System.out.println("parent :"
+				 * + paCode ); QuerySpec qs = NumberCodeHelper.getCodeQuerySpec(map);
 				 * 
-				 * log.infoLog("unitCode Query :" + qs ); logger.debug("unitCode Query :" + qs
-				 * ); QueryResult qr = PersistenceHelper.manager.find(qs);
-				 * log.infoLog("qr.size = " +qr.size()); logger.debug("qr.size = " +qr.size());
-				 * if(qr.hasMoreElements()) { Object[] obj = (Object[])qr.nextElement();
-				 * NumberCode unitCode = (NumberCode)obj[0]; String epmibaValue =
-				 * IBAUtil.getAttrValue(epm, "Group_Name");
+				 * log.infoLog("unitCode Query :" + qs ); System.out.println("unitCode Query :"
+				 * + qs ); QueryResult qr = PersistenceHelper.manager.find(qs);
+				 * log.infoLog("qr.size = " +qr.size()); System.out.println("qr.size = "
+				 * +qr.size()); if(qr.hasMoreElements()) { Object[] obj =
+				 * (Object[])qr.nextElement(); NumberCode unitCode = (NumberCode)obj[0]; String
+				 * epmibaValue = IBAUtil.getAttrValue(epm, "Group_Name");
 				 * if(!unitCode.getName().equals(epmibaValue)){
-				 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
+				 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA start = "
 				 * +unitCode.getName()); IBAUtil.changeIBAValue(epm, "Group_Name",
 				 * unitCode.getName());
-				 * logger.debug(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
+				 * System.out.println(epm.getNumber()+"\tGroup_Name IBA changeIBA End = "
 				 * +unitCode.getName()); } }else{ autoNumberValue = autoNumberValue
 				 * +"["+type+","+unit +"]Group_Name 가 존재 하지 않습니다."; } }
 				 */
 				String epmibaITEMNAME = IBAUtil.getAttrValue(epm, "ITEMNAME");
 				if (!ITEMNAME.equals(epmibaITEMNAME)) {
-					logger.debug(epm.getNumber() + "\tITEMNAME IBA changeIBA start = " + ITEMNAME);
+					System.out.println(epm.getNumber() + "\tITEMNAME IBA changeIBA start = " + ITEMNAME);
 					IBAUtil.changeIBAValue(epm, "ITEMNAME", ITEMNAME);
-					logger.debug(epm.getNumber() + "\tITEMNAME IBA changeIBA End = " + ITEMNAME);
+					System.out.println(epm.getNumber() + "\tITEMNAME IBA changeIBA End = " + ITEMNAME);
 				}
 			}
 			/*
@@ -2922,23 +2939,23 @@ public class EpmUtil {
 			String cadExtension = getCadExtension(epm.getCADName());
 			String cadName = pdmNumber + cadExtension;
 			cadName = cadName.toLowerCase();
-			logger.debug("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
+			System.out.println("epm.isGeneric()=" + epm.isGeneric() + "\tepm.isInstance()=" + epm.isInstance());
 			/*
 			 * Number ,Name ,CadName Change ,FamilyTable(generic,instance) Number,Name
 			 * Change
 			 */
 			if (epm.isGeneric() || epm.isInstance()) {
-				logger.debug("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
+				System.out.println("CadInfoChange.manager.epmInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
 						+ pdmNumber + "\tpdmName=" + pdmName);
 				isNumber = CadInfoChange.manager.epmInfoChange(epm, pdmNumber, pdmName);
-				logger.debug("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber() + "\tpdmNumber="
-						+ pdmNumber + "\tpdmName=" + pdmName);
+				System.out.println("CadInfoChange.manager.epmInfoChange run end epm =" + epm.getNumber()
+						+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName);
 			} else {
 				try {
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber() + "\tpdmNumber="
-							+ pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run epm =" + epm.getNumber()
+							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 					isNumber = CadInfoChange.manager.epmCadInfoChange(epm, pdmNumber, pdmName, cadName);
-					logger.debug("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
+					System.out.println("CadInfoChange.manager.epmCadInfoChange run end epm =" + epm.getNumber()
 							+ "\tpdmNumber=" + pdmNumber + "\tpdmName=" + pdmName + "\tcadName=" + cadName);
 				} catch (Exception e) {
 					log.errLog(e.getMessage());
@@ -3022,16 +3039,16 @@ public class EpmUtil {
 			if (isNumber) {
 				IBAUtil.changeIBAValue(epm, autoNumber, "TRUE");
 				log.infoLog("Final Number Change autoNumber = TRUE");
-				logger.debug("Final Number Change autoNumber = TRUE");
+				System.out.println("Final Number Change autoNumber = TRUE");
 			} else {
 				IBAUtil.changeIBAValue(epm, autoNumber, "FALSE");
 				log.infoLog("Final Number Change autoNumber = FALSE");
-				logger.debug("Final Number Change autoNumber = FALSE");
+				System.out.println("Final Number Change autoNumber = FALSE");
 			}
 
 			IBAUtil.changeIBAValue(epm, "message", autoNumberValue);
 			log.infoLog(" Final message r = " + autoNumberValue);
-			logger.debug(" Final message r = " + autoNumberValue);
+			System.out.println(" Final message r = " + autoNumberValue);
 
 		} catch (Exception e) {
 
@@ -3043,6 +3060,6 @@ public class EpmUtil {
 			logger.error(":::::::::::::::::: EPMDocument createEPMChange Exception  END::::::::::::::::::::::::");
 		}
 		log.infoLog(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
-		logger.debug(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
+		System.out.println(":::::::::::::::::: EPMDocument createEPMChange END  ::::::::::::::::::::::::");
 	}
 }

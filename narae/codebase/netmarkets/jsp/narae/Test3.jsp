@@ -35,15 +35,29 @@ while (result.hasMoreElements()) {
 	EPMDocument epm = (EPMDocument) obj[0];
 	String cadName = epm.getCADName();
 	// 	System.out.println(cadName);
-	if (WorkInProgressHelper.isCheckedOut(epm)) {
-		continue;
-	}
+
 	if (cadName.contains("_2d")) {
 		int k = cadName.indexOf("_2d");
 		if (epm.getDocType().toString().equals("CADDRAWING")) {
 	String rr = cadName.substring(0, k); // NP-00-000
 	String newCadName = rr.toLowerCase() + ".drw";
 
+	if(epm.getNumber().equals("np-00-wess-10148.drw")) {
+		continue;
+	}
+	if(epm.getNumber().equals("np-00-mass-10085.drw")) {
+		continue;
+	}
+	if(epm.getNumber().equals("np-00-wess-10275.drw")) {
+		continue;
+	}
+	
+	
+	
+	if (WorkInProgressHelper.isCheckedOut(epm)) {
+		continue;
+	}
+	
 	QuerySpec spec = new QuerySpec();
 	int jj = spec.appendClassList(EPMDocument.class, true);
 	SearchCondition sc = new SearchCondition(EPMDocument.class, EPMDocument.CADNAME, "=", newCadName);
@@ -62,7 +76,6 @@ while (result.hasMoreElements()) {
 	WTKeyedMap map = new WTKeyedHashMap();
 	map.put(master, newCadName);
 	EPMDocumentHelper.service.changeCADName(map);
-
 		}
 	}
 }
@@ -70,7 +83,14 @@ System.out.println("종료!");
 
 for (int i = 0; i < list.size(); i++) {
 	EPMDocument e = (EPMDocument) list.get(i);
-	if (e.getNumber().equals("NP-00-SMST-06033.DRW")) {
+	if (e.getNumber().equals("NP-00-SMST-06033.DRW") || e.getNumber().equals("NA-IP-SIH000-001.DRW")
+	|| e.getNumber().equals("NP-00-PFAL-10003.DRW") || e.getNumber().equals("NP-00-WESS-10148.DRW")
+	|| e.getNumber().equals("NP-00-WESS-10142.DRW") || e.getNumber().equals("NP-05-0302-00651.DRW")
+	|| e.getNumber().equals("NP-02-2000-00519.DRW") || e.getNumber().equals("np-02-2000-00519.drw")
+	|| e.getNumber().equals("NP-02-1700-00273.DRW") || e.getNumber().equals("NP-03-0100-01411.DRW")
+	|| e.getNumber().equals("NP-02-0700-00809.DRW") || e.getNumber().equals("NP-02-2000-00520.DRW")
+	|| e.getNumber().equals("NP-02-0900-00580.DRW") || e.getNumber().equals("NP-02-2000-00518.DRW")
+	|| e.getNumber().equals("NP-02-0900-00585.DRW") || e.getNumber().equals("NP-02-0100-06327.DRW")) {
 		continue;
 	}
 	PersistenceHelper.manager.delete(e);

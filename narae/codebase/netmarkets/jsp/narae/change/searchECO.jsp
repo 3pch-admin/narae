@@ -58,7 +58,6 @@ Locale locale = WTContext.getContext().getLocale();
 	    </td>
 	    
 	</tr>
-	
 	<tr>
   	    <td colspan="4" scope="row" class="attributePanel-label" align="right">
 	        <wrap:button name="search" value='<%=WTMessage.getLocalizedMessage(RESOURCE , "SEARCH", new Object[]{}, locale)%>' onclick="submitDocSearch();" />
